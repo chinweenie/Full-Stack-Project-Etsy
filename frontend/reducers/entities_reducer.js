@@ -1,14 +1,14 @@
 import { combineReducers } from 'redux';
-import 
+import usersReducer from './users_reducer';
 
 const entitiesReducer = combineReducers({
-    products: productsReducer,
+    // products: productsReducer,
     users: usersReducer,
-    cartItems: cartItemsReducer,
-    reviews: reviewsReducer,
-    categories: categoriesReducer,
-    shops: shopsReducer,
-    favorites: favoritesReducer
+    // cartItems: cartItemsReducer,
+    // reviews: reviewsReducer,
+    // categories: categoriesReducer,
+    // shops: shopsReducer,
+    // favorites: favoritesReducer
 })
 
 export default entitiesReducer;

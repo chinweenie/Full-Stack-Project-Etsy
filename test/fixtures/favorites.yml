@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: favorites
+#
+#  id               :bigint           not null, primary key
+#  favoritable_type :string           not null
+#  favoritable_id   :bigint           not null
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  user_id          :integer          not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 # This model initially had no columns defined. If you add columns to the

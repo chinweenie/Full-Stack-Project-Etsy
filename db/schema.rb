@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_02_180014) do
+ActiveRecord::Schema.define(version: 2019_09_02_202829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,11 +30,13 @@ ActiveRecord::Schema.define(version: 2019_09_02_180014) do
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.string "favoriteable_type", null: false
-    t.bigint "favoriteable_id", null: false
+    t.string "favoritable_type", null: false
+    t.bigint "favoritable_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["favoriteable_type", "favoriteable_id"], name: "index_favorites_on_favoriteable_type_and_favoriteable_id"
+    t.integer "user_id", null: false
+    t.index ["favoritable_type", "favoritable_id"], name: "index_favorites_on_favoritable_type_and_favoritable_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -69,7 +71,7 @@ ActiveRecord::Schema.define(version: 2019_09_02_180014) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "usename", null: false
+    t.string "username", null: false
     t.string "email", null: false
     t.string "password_digest", null: false
     t.string "session_token", null: false
