@@ -5,12 +5,12 @@ const sessionReducer = (state = {id: null}, action) => {
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
             return Object.assign({}, {
-                [id]: state.currentUser.id
+                id: action.currentUser.id
             });
 
         case LOGOUT_CURRENT_USER:
             return Object.assign({}, {
-                [id]: null
+                id: null
             });
     
         default:
