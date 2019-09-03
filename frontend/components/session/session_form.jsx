@@ -35,45 +35,29 @@ class SessionForm extends React.Component {
         );
     }
 
-    // render() {
-    //     let { errors, formType } = this.props;
-    //     const errorsLi = errors.session.map(error => {
-    //         return <li>{error}</li>
-    //     })
-
-    //     const linkButton = formType === 'login' ? "Login" : "Sign Up"
-
-    //     return (
-    //         <form onSubmit={this.handleSubmit}>
-    //             <header>{formType}</header>
-
-    //             <ul className="errors">
-    //                 {errorsLi}
-    //             </ul>
-
-    //             <label htmlFor="username">Username</label>
-    //             <input type="text" id="username" value={this.state.username} onChange={this.update('username')} />
-
-    //             <label htmlFor="password">Password</label>
-    //             <input type="password" id="password" value={this.state.password} onChange={this.update('password')} />
-
-    //             <label htmlFor="email">Email</label>
-    //             <input type="text" id="email" value={this.state.email} onChange={this.update('email')} />
-
-    //             <button>{linkButton}</button>
-    //         </form>
-    //     );
-    // }
+    
     render() {
+
+        const loginHeader = (
+            <div className="login-header">
+                <h1>Login to continue</h1>
+            </div>
+        );
+
+        const registerHeader = (
+            <div className="register-header">
+                <h1>Create your account</h1>
+                <p>Registration is easy.</p>
+            </div>
+        );
+
+        const header = this.props.formType === 'Register' ? registerHeader : loginHeader;
+
         return (
             <div className="login-form-container">
                 <form onSubmit={this.handleSubmit} className="login-form-box">
 
-                    Welcome to Epsy!
-                    <br />
-
-                    Please {this.props.formType} or {this.props.navLink}
-                    {this.renderErrors()}
+                    {header}
 
                     <div className="login-form">
                         <br />
