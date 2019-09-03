@@ -8,34 +8,40 @@ class SessionForm extends React.Component {
             password: '',
             email: ''
         }
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmit = this
+            .handleSubmit
+            .bind(this);
     }
 
     handleSubmit(event) {
         event.preventDefault();
-        const user = Object.assign({}, this.state);  // {user: {username, password}}
-        this.props.processForm(user);
+        const user = Object.assign({}, this.state); // {user: {username, password}}
+        this
+            .props
+            .processForm(user);
     }
 
     update(field) {
         return (event) => {
-            this.setState({ [field]: event.target.value });
+            this.setState({[field]: event.target.value});
         }
     }
 
     renderErrors() {
         return (
             <ul>
-                {this.props.errors.map((error, i) => (
-                    <li key={`error-${i}`}>
-                        {error}
-                    </li>
-                ))}
+                {this
+                    .props
+                    .errors
+                    .map((error, i) => (
+                        <li key={`error-${i}`}>
+                            {error}
+                        </li>
+                    ))}
             </ul>
         );
     }
 
-    
     render() {
 
         const loginHeader = (
@@ -51,7 +57,9 @@ class SessionForm extends React.Component {
             </div>
         );
 
-        const header = this.props.formType === 'Register' ? registerHeader : loginHeader;
+        const header = this.props.formType === 'Register'
+            ? registerHeader
+            : loginHeader;
 
         return (
             <div className="login-form-container">
@@ -60,35 +68,40 @@ class SessionForm extends React.Component {
                     {header}
 
                     <div className="login-form">
-                        <br />
-                        <label>Username:
-                                <input type="text"
-                                value={this.state.username}
-                                onChange={this.update('username')}
-                                className="login-input"
-                            />
-                        </label>
+                        <br/>
+                        <label htmlFor="username">Username</label>
+                        <br/>
+                        <input
+                            type="text"
+                            value={this.state.username}
+                            onChange={this.update('username')}
+                            className="login-input"
+                            id="username"/>
 
-                        <br />
-                        <label>Password:
-                                <input type="password"
-                                value={this.state.password}
-                                onChange={this.update('password')}
-                                className="login-input"
-                            />
-                        </label>
-                        <br />
+                        <br/>
+                        <label htmlFor="password">Password</label>
+                        <br/>
+                        <input
+                            type="password"
+                            value={this.state.password}
+                            onChange={this.update('password')}
+                            className="login-input"
+                            id="password"/>
 
-                        <label>Email:
-                                <input type="email"
-                                value={this.state.email}
-                                onChange={this.update('email')}
-                                className="login-input"
-                            />
-                        </label>
-                        <br />
+                        <br/>
 
-                        <input className="session-submit" type="submit" value={this.props.formType} />
+                        <label htmlFor="email">Email address</label>
+                        <br/>
+                        <input
+                            type="email"
+                            value={this.state.email}
+                            onChange={this.update('email')}
+                            className="login-input"
+                            id="email"/>
+
+                        <br/>
+                        <button className="clicky">{this.props.formType}</button>
+
                     </div>
                 </form>
             </div>

@@ -4,21 +4,21 @@ const Greeting = ({currentUser, logout, openModal}) => {
 
     const sessionLinks = () => (
         <nav className="login-signup">
-            <button onClick={() => openModal('login')}>
+            <a href="#" onClick={() => openModal('login')} className="btn-block">
                 Login
-            </button>
+            </a>
             &nbsp;or&nbsp;
 
-            <button onClick={() => openModal('register')}>
+            <a href="#" onClick={() => openModal('register')} className="btn-block">
                 Register
-            </button>
+            </a>
         </nav>
     );
 
     const personalGreeting = () => (
         <hgroup className="header-group">
             <h2 className="header-name">Hi, {currentUser.username}!</h2>
-            <button className="header-button" onClick={logout}>Log out</button>
+            <a href="#" onClick={logout} className="btn-block">Log out</a>
         </hgroup>
     );
 

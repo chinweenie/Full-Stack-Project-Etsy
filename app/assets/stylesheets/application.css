@@ -13,71 +13,129 @@
  *= require_tree .
  *= require_self
  */
-   
 
-   body {
-       font-family: 'Roboto',
-       sans-serif;
-   }
+/* Main body */
+body {
+    font-family: 'Roboto', sans-serif;
+}
+/* Main body */
 
-   .logo > img {
-       height: 60px;
-       padding-left: 15px;
-   }
+/* Login and signup form */
+.logo > img {
+    height: 60px;
+    padding-left: 15px;
+}
 
-   .btn-block {
-       display: block;
-       white-space: normal;
-       width: 100%;
-   }
+a.btn-block {
+    display: block;
+    padding: 5px 3px;
+    background: black;
+    text-align: center;
+    height: 20px;
+    width: 100px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
 
-   .btn {
-       color: #fff;
-       border-radius: 5px;
-       font-weight: bold;
-       padding: 9px 27px;
-   }
- 
+.login-form-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    background: white;
+}
 
-  .login-form-container {
-      display: flex;
-      justify-content: center;
-      margin-top: 100px;
-  }
+.login-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 
-   .login-form {
-       display: flex;
-       justify-content: center;
-       flex-direction: column;
-       
-   }
+}
 
-   .login-input {
-       margin-left: 20px;
-       border-radius: 4px;
-       box-shadow: none;
-   }
+.login-input {
+    border-radius: 4px;
+    box-shadow: none;
+    padding: 9px 16px;
+    border: 1px solid #E1E3DF;
+    height: 30px;
+}
 
-    .login-form-box {
-        outline: 1px solid black;
-        padding: 20px;
-        
-    }
+.login-form-box {
+    outline: 1px solid black;
+    padding: 20px;
 
-   /* Modal */
-   .modal-background {
-       position: fixed;
-       top: 0;
-       bottom: 0;
-       right: 0;
-       left: 0;
-       background: rgba(0,0,0,0.7);
-       z-index: 10;
-   }
+}
 
-   .modal-child {
-        position: relative;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-   }
+.login-form > label {
+    padding-bottom: 6px;
+    font-size: 14px;
+    text-align: left;
+    font-weight: bolder;
+}
+/* Login and signup form */
+
+
+/* Button 3d effect */
+.clicky {
+    /** Offset the Position **/
+    position: relative;
+    top: 0;
+    margin-top: 0;
+    margin-bottom: 10px;
+
+    /** 3D Block Effect **/
+    box-shadow: 0 10px 0 0 #6B2A4A;
+
+    /** Make it look pretty **/
+    display: block;
+    background: #a47;
+    color: #eee;
+    padding: 1em 2em;
+    border: 0;
+    cursor: pointer;
+    font-size: 1.2em;
+    opacity: 0.9;
+    border-radius: 10px;
+}
+.clicky:active {
+    /** Remove 3D Block Effect on Click **/
+    box-shadow: none;
+    top: 10px;
+    margin-bottom: 0;
+}
+.clicky:hover {
+    opacity: 1;
+}
+.clicky:active,
+.clicky:focus {
+    /** Remove Chrome's Ugly Yellow Outline **/
+    outline: 0;
+}
+/* Button 3d effect */
+
+
+/* Modal */
+.modal-background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+}
+
+.modal-child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.close-x {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+/* Modal */

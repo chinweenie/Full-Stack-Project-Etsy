@@ -10,9 +10,7 @@ const mapStateToProps = state => ({errors: state.errors.session, formType: 'Logi
 const mapDispatchToProps = dispatch => ({
     processForm: user => dispatch(login(user)),
     otherForm: (
-        <button onClick={() => dispatch(openModal('signup'))}>
-            Register
-        </button>
+        <a href="#" onClick={() => dispatch(openModal('signup'))} className="btn-block">Register</a>
     ),
     closeModal: () => dispatch(closeModal())
 });
