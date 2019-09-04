@@ -1,33 +1,38 @@
 {
-  "name": "Etsy",
-  "private": true,
-  "dependencies": {
-    "@babel/core": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.6",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-redux": "^7.1.1",
-    "react-router-dom": "^5.0.1",
-    "redux": "^4.0.4",
-    "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0",
-    "webpack": "^4.39.3",
-    "webpack-cli": "^3.3.7"
-  },
-  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
-  "version": "1.0.0",
-  "main": "index.js",
-  "directories": {
-    "lib": "lib",
-    "test": "test"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "webpack --mode=development --watch"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+    "name": "Epsy",
+    "version": "1.0.0",
+    "description": "",
+    "main": "webpack.config.js",
+    "directories": {
+        "test": "test"
+    },
+    "dependencies": {
+        "@babel/core": "^7.1.2",
+        "@babel/preset-env": "^7.1.0",
+        "@babel/preset-react": "^7.0.0",
+        "babel-loader": "^8.0.4",
+        "react": "^15.3.0",
+        "react-dom": "^15.3.0",
+        "react-redux": "^4.4.5",
+        "react-router": "^2.6.1",
+        "react-router-dom": "^5.0.1",
+        "redux": "^3.7.2",
+        "redux-thunk": "^2.1.0",
+        "webpack": "^4.20.2",
+        "webpack-cli": "^3.1.2"
+    },
+    "devDependencies": {
+        "redux-logger": "^3.0.6"
+    },
+    "engines": {
+        "node": "12.5.0",
+        "npm": "6.9.0"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "postinstall": "webpack",
+        "webpack": "webpack --watch --mode=development"
+    },
+    "author": "",
+    "license": "ISC"
 }
