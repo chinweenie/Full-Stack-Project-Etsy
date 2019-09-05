@@ -8,9 +8,18 @@ class SessionForm extends React.Component {
             password: '',
             email: ''
         }
-        this.handleSubmit = this
-            .handleSubmit
-            .bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemo = this.handleDemo.bind(this);
+    };
+
+    handleDemo(event){
+        event.preventDefault();
+        const demo = Object.assign({}, {
+            fname: '',
+            email: 'chinwn@gmail.com',
+            password: 'hunter12'
+        });
+        this.props.login(demo).then(this.props.closeModal());
     }
 
     handleSubmit(event) {
@@ -79,8 +88,9 @@ class SessionForm extends React.Component {
 
         return (
             <div className="login-form-container">
+                
                 <form onSubmit={this.handleSubmit} className="login-form-box">
-
+                    {this.renderErrors()}
                     {header}
 
                     <div className="login-form">
@@ -117,6 +127,7 @@ class SessionForm extends React.Component {
 
                     </div>
                 </form>
+                <button onClick={this.handleDemo} className="clicky">Demo login</button>
             </div>
         );
     }

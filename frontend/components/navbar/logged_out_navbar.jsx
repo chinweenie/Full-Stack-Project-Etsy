@@ -6,7 +6,7 @@ const LoggedOutNavbar = (props) => {
         <ul className="logged-out-navbar-ul">
 
             <li className="logo-nav">
-                <div id="logo"></div>
+                <a href="/" id="logo"></a>
             </li>
 
             <li className="search-nav">Search

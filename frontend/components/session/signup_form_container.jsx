@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { signup } from '../../actions/session_actions';
+import { signup, login } from '../../actions/session_actions';
 import SessionForm from './session_form';
 import { Link } from 'react-router-dom';
 import React from 'react';
@@ -16,7 +16,8 @@ const mapDispatchToProps = dispatch => ({
         <a href="#" onClick={() => dispatch(openModal('login'))} className="btn-block">Login</a>
 
     ),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    login: user => dispatch(login(user))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SessionForm);

@@ -6,7 +6,7 @@ const LoggedInNavbar = (props) => {
         <ul className="navbar-ul">
 
             <li className="logo-nav">
-                <div id="logo"></div>
+                <div id="logo"><a href="/"></a></div>
             </li>
 
             <li className="search-nav">Search
