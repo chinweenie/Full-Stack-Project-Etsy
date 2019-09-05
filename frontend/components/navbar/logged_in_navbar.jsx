@@ -30,7 +30,10 @@ const LoggedInNavbar = (props) => {
                 Shop Manager
             </li>
             <li className="greeting-nav"><GreetingContainer/></li>
-            <li className="cart-nav">Cart</li>
+            <li className="cart-nav">
+                <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+                Cart
+            </li>
 
         </ul>
     );

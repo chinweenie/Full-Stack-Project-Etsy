@@ -20,6 +20,43 @@
 body {
     font-family: 'Roboto', sans-serif;
 }
+
+.arrow-up {
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid rgb(245, 241, 241);
+}
+
+.arrow-down {
+  width: 0; 
+  height: 0; 
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  
+  border-top: 20px solid #f00;
+}
+
+.arrow-right {
+  width: 0; 
+  height: 0; 
+  border-top: 60px solid transparent;
+  border-bottom: 60px solid transparent;
+  
+  border-left: 60px solid green;
+}
+
+.arrow-left {
+  width: 0; 
+  height: 0; 
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent; 
+  
+  border-right:10px solid blue; 
+}
+
+
 /* Main body */
 
 
@@ -162,25 +199,27 @@ a.btn-block {
 }
 
 
-.navbar-ul > li {
+.navbar-ul  li {
     list-style: none;
     display: inline-block;
     
     font-size: 12px;
     color: #595959;
 }
+
 .logo-nav {
     margin-right: 25px;
     height: 45px;
     position: relative;
     width: 60px;
+    margin-left: 50px;
 }
 
 
 #logo {
     background-image: image-url("logo.png");
-    width: 100px;
-    height: 71px;
+    width: 116px;
+    height: 90px;
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
@@ -188,7 +227,7 @@ a.btn-block {
 }
 
 .search-nav {
-    width: 700px;
+    width: 795px;
     height: 30px;
     border: 1px solid gray;
     border-radius: 10px;
@@ -197,12 +236,16 @@ a.btn-block {
     padding-top: 12px;
     padding-left: 20px;
     position: relative;
+    margin-left: 50px;
+    margin-top: 15px;
 }
 
 .search-icon {
     position: absolute;
-    left: 680px;
+    left: 762px;
 }
+
+// Logged in navbar
 
 .notification-nav {
     position: relative;
@@ -210,7 +253,8 @@ a.btn-block {
     border-right: 1px solid  rgba(34, 34, 34, 0.15);
     height: 40px;
     padding-top: 25px;
-    margin-left: 15px;
+    margin-left: 30px;
+    margin-top: 15px;
 }
 
 .down-icon {
@@ -232,9 +276,10 @@ a.btn-block {
     border-right: 1px solid rgba(34, 34, 34, 0.15);
     height: 40px;
     padding-top: 25px;
-    margin-left: 15px;
+    margin-left: 30px;
     text-align: center;
-    padding-right: 15px;
+    padding-right: 30px;
+    margin-top: 15px;
 }
 
 #store-icon {
@@ -248,6 +293,7 @@ a.btn-block {
     left: 25px;
 }
 
+
 .dropdown {
     position: relative;
     display: inline-block;
@@ -257,17 +303,19 @@ a.btn-block {
     display: block;
 }
 
+
 .dropdown-btn {
     background: white;
     border: 0;
     font-family: inherit;
+    margin-top: 15px;
     font-size: inherit;
     color: inherit;
-    height: 64px;
-    padding-bottom: 39px;
+    height: 66px;
     margin-left: 20px;
     padding-right: 30px;
     border-right: 1px solid rgba(34, 34, 34, 0.15);
+    padding-bottom: 25px;
 }
 
 .user-icon {
@@ -287,25 +335,135 @@ a.btn-block {
     text-decoration: none;
     display: block;
     padding-bottom: 10px;
+    color: inherit;
+    padding-top: 10px;
 }
 
 .dropdown-header {
     position: relative;
+    border-bottom: 1px solid rgba(34, 34, 34, 0.15);
 }
 
 .view-profile {
     position: absolute;
+    top: 30px;
+    left: 90px;
+    border: 1px solid rgba(34, 34, 34, 0.15);
+    padding: 3px 2px;
+    border-radius: 5px;
+}
+
+.fa-caret-right{
+    margin-left: 5px;
 }
 
 
 #profile-pic{
+    margin-left: 10px;    
     background-image: image-url("default_avatar_400x400.png");
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background-size: contain;
     background-repeat: no-repeat;
 }
 
+.fname {
+    position: absolute;
+    left: 100px;
+    top: 7px;
+    font-weight: bolder;
+    text-decoration: underline;
+    font-size: 16px;
+}
 
+.dropdown-content > a {
+    padding-left: 10px;
+}
 
+.logout-btn {
+    border-top: 1px solid rgba(34, 34, 34, 0.15);
+}
+
+#navbar-arrow {
+    position: absolute;
+    left: 100px;
+    bottom: 175px;
+}
+
+.cart-nav {
+    margin-left: 35px;
+    position: relative;
+    margin-top: 45px;
+}
+
+.fa-shopping-cart {
+    position: absolute;
+    font-size: 30px;
+    bottom: 70px;
+    right: 1px;
+}
+
+// Logged in navbar
+
+// Logged out navbar
+.logged-out-navbar-ul {
+    left: 200px;
+    padding-left: 30px;
+    border-bottom: 1px solid rgba(34, 34, 34, 0.15);
+    height: 113.978px;
+    display: flex;
+    align-content: center;
+}
+// Logged out navbar
+
+.logged-out-navbar-ul > li {
+    list-style: none;
+    display: inline-block;
+    padding-right: 15px;
+    font-size: 14px;
+    color: #595959;
+}
+
+.logged-out-navbar-ul .sell-on-epsy{
+    margin-left: 30px;
+    padding-right: 30px;
+    border-right: 1px solid rgba(34, 34, 34, 0.15);
+    text-align: center;
+    padding-top: 35px;
+    height: 30px;
+    padding-bottom: 18px;
+}
+
+.login-signup {
+    padding-top: 35px;
+    padding-right: 20px;
+    padding-bottom: 35px;
+    border-right: 1px solid rgba(34, 34, 34, 0.15);
+}
+
+.login-signup > span > a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.login-signup > span{
+    margin-left: 20px;
+}
+
+.login a {
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 3px 5px;
+}
+
+.logged-out-navbar-ul .cart-nav {
+    margin-left: 25px;
+    position: relative;
+    margin-right: 20px;
+}
+
+.logged-out-navbar-ul .cart-nav .fa-shopping-cart {
+    position: absolute;
+    right: 15px;
+}

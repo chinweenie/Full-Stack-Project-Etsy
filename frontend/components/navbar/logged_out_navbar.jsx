@@ -3,7 +3,7 @@ import GreetingContainer from '../greeting/greeting_container';
 
 const LoggedOutNavbar = (props) => {
     return (
-        <ul className="navbar-ul">
+        <ul className="logged-out-navbar-ul">
 
             <li className="logo-nav">
                 <div id="logo"></div>
@@ -19,9 +19,12 @@ const LoggedOutNavbar = (props) => {
                 Sell on Epsy
             </li>
 
-            <li className="greeting-nav"><GreetingContainer /></li>
+            <li className="greeting-nav"><GreetingContainer/></li>
 
-            <li className="cart-nav">Cart</li>
+            <li className="cart-nav">
+                <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+                Cart
+            </li>
 
         </ul>
     );
