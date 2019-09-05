@@ -74,6 +74,10 @@ a.btn-block {
 }
 
 /* Login and signup form */
+#demo-login {
+    font-size: 12px;
+    padding: 0 10px;
+}
 .login-form-container {
     display: flex;
     justify-content: center;
@@ -495,8 +499,21 @@ a.btn-block {
 // Category navbar
 
 // Errors ul styling 
+.session-form {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
 .errors-ul {
-    content: '';
     font-size: 12px;
+}
+
+.errors-ul > li {
+    list-style: none;
+    color: red;
+    position: absolute;
+    top: 165px;
+    left: 20px;
 }
 // Errors ul styling 
