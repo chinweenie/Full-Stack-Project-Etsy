@@ -12,7 +12,7 @@ class SessionForm extends React.Component {
         this.handleDemo = this.handleDemo.bind(this);
     };
 
-    handleDemo(event){
+    handleDemo(event) {
         event.preventDefault();
         const demo = Object.assign({}, {
             fname: '',
@@ -30,13 +30,13 @@ class SessionForm extends React.Component {
 
     update(field) {
         return (event) => {
-            this.setState({[field]: event.target.value});
+            this.setState({ [field]: event.target.value });
         }
     }
 
     renderErrors() {
         return (
-            <ul>
+            <ul className="errors-ul">
                 {this
                     .props
                     .errors
@@ -74,7 +74,7 @@ class SessionForm extends React.Component {
                     First name
                     <span className="text-orange">*</span>
                 </label>
-                
+
                 <input
                     type="text"
                     value={this.state.fname}
@@ -83,18 +83,18 @@ class SessionForm extends React.Component {
                     id="fname" />
 
                 <br />
-            </div>            
+            </div>
         ) : ('');
 
         return (
             <div className="login-form-container">
-                
+
                 <form onSubmit={this.handleSubmit} className="login-form-box">
-                    {this.renderErrors()}
+
                     {header}
 
                     <div className="login-form">
-                        <br/>
+                        <br />
 
                         <label htmlFor="email">Email address
                             <span className="text-orange">*</span>
@@ -105,10 +105,10 @@ class SessionForm extends React.Component {
                             onChange={this.update('email')}
                             className="login-input"
                             id="email" />
-
+                        {this.renderErrors()}
                         <br />
 
-                       {fnameInput}
+                        {fnameInput}
 
                         <label htmlFor="password">Password
                             <span className="text-orange">*</span>
@@ -118,11 +118,11 @@ class SessionForm extends React.Component {
                             value={this.state.password}
                             onChange={this.update('password')}
                             className="login-input"
-                            id="password"/>
+                            id="password" />
 
-                        <br/>
+                        <br />
 
-                        
+
                         <button className="clicky">{this.props.formType}</button>
 
                     </div>
