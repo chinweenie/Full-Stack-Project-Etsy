@@ -22,6 +22,7 @@ gem 'jquery-rails'
 gem 'bcrypt'
 gem 'faker'
 gem 'aws-sdk-s3'
+gem 'font-awesome-rails'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

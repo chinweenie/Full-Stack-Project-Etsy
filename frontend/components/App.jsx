@@ -4,13 +4,15 @@ import LoginFormContainer from './session/login_form_container';
 import GreetingContainer from './greeting/greeting_container';
 import {AuthRoute} from '../util/route_util';
 import Modal from './modal/modal';
+import Navbar from './navbar/navbar';
 
 
 const App = () => (
     <div>
         <Modal/>
         <header>
-            <GreetingContainer/>
+            <Navbar />
+            {/* <GreetingContainer/> */}
         </header>
 
         {/* Route declaration */}

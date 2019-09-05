@@ -1,0 +1,1 @@
+json.extract! @shop, :id, :name, :owner_id, :products

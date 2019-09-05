@@ -13,6 +13,8 @@ class Shop < ApplicationRecord
     validates :name, :owner_id, presence: true
 
     has_many :products
+
+    has_one_attached :shop_image
     
     has_many :favorites, as: :favoritable, dependent: :destroy
     has_many :users_who_favorited_me, through: :favorites

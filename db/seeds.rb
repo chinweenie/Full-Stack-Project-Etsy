@@ -21,3 +21,4 @@ vintage = Category.create!(name: "Vintage")
 shop1 = Shop.create!(name: "The wanderers", owner_id: user1.id)
 
 vanicream = Product.create!(title: "Vanicream facial wash", description: "A gentle face wash", price: 20, category_id: home.id, shop_id: shop1.id)
+kiehls = Product.create!(title: "Kiehls calendula toner", description: "A gentle toner", price: 20, category_id: home.id, shop_id: shop1.id)

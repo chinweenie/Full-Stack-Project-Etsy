@@ -22,6 +22,8 @@ class User < ApplicationRecord
     primary_key: :id,
     foreign_key: :owner_id
 
+    has_one_attached :profile_pic
+
     attr_reader :password
     def password=(password)
         @password = password

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {login, logout, signup} from './util/session_api_util';
+import { fetchProduct } from './actions/products_actions';
 import configureStore from './store/store';
 import Root from "./components/root";
 
@@ -30,6 +30,4 @@ document.addEventListener("DOMContentLoaded", () => {
     
 });
 
-window.login = login;
-window.signup = signup;
-window.logout = logout;
+window.fetchProduct = fetchProduct;
