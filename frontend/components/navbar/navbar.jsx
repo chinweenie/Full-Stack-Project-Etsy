@@ -10,6 +10,16 @@ class Navbar extends React.Component{
         return (
             <div className="navbar">
                 {component}
+                <ul className="category-ul">
+                    <li>Jewelry & Accessories</li>
+                    <li>Clothing & Shoes</li>
+                    <li>Home & Living</li>
+                    <li>Wedding & Party</li>
+                    <li>Toys & Entertainment</li>
+                    <li>Art & Collectibles</li>
+                    <li>Craft Supplies & Tools</li>
+                    <li>Vintage</li>
+                </ul>
             </div>
         );
     };

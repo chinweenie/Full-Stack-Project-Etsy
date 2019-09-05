@@ -207,6 +207,8 @@ a.btn-block {
     color: #595959;
 }
 
+
+
 .logo-nav {
     margin-right: 25px;
     height: 45px;
@@ -301,6 +303,7 @@ a.btn-block {
 
 .dropdown:hover .dropdown-menu {
     display: block;
+    z-index: 1;
 }
 
 
@@ -337,6 +340,10 @@ a.btn-block {
     padding-bottom: 10px;
     color: inherit;
     padding-top: 10px;
+}
+
+.dropdown-menu  a:hover {
+    background: lightgray;
 }
 
 .dropdown-header {
@@ -428,7 +435,6 @@ a.btn-block {
 .logged-out-navbar-ul .sell-on-epsy{
     margin-left: 30px;
     padding-right: 30px;
-    border-right: 1px solid rgba(34, 34, 34, 0.15);
     text-align: center;
     padding-top: 35px;
     height: 30px;
@@ -467,3 +473,23 @@ a.btn-block {
     position: absolute;
     right: 15px;
 }
+
+// Category navbar
+.navbar {
+    position: relative;
+}
+
+.navbar .category-ul {
+    display: flex;
+    position: absolute;
+    bottom: -5px;
+    left: 80px;
+    font-size: 14px;
+    color: gray;
+}
+
+.category-ul > li {
+    list-style: none;
+    padding-right: 50px;
+}
+// Vategory navbar
