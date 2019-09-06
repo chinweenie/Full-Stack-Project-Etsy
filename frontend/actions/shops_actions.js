@@ -1,15 +1,15 @@
 import * as ShopsApiUtil from '../util/shops_api_util';
 
 export const RECEIVE_SHOP = 'RECEIVE_SHOP';
-export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const RECEIVE_SHOPS_ERRORS = 'RECEIVE_SHOPS_ERRORS';
 
 export const receiveShop = shop => ({
     type: RECEIVE_SHOP,
     shop
 });
 
-export const receiveErrors = errors => ({
-    type: RECEIVE_ERRORS,
+export const receiveShopsErrors = errors => ({
+    type: RECEIVE_SHOPS_ERRORS,
     errors
 });
 
@@ -22,7 +22,7 @@ export const createShop = shop => dispatch => (
         shop => (
             dispatch(receiveShop(shop))
         ), err => (
-            dispatch(receiveErrors(err.responseJSON))
+            dispatch(receiveShopsErrors(err.responseJSON))
         )
     )
 );
@@ -32,7 +32,7 @@ export const updateShop = shop => dispatch => (
         shop => (
             dispatch(receiveShop(shop))
         ), err => (
-            dispatch(receiveErrors(err.responseJSON))
+            dispatch(receiveShopsErrors(err.responseJSON))
         )
     )
 );

@@ -532,6 +532,7 @@ a.btn-block {
     display: flex;
     flex-direction: column;
     text-align: center;
+    position: relative;
 }
 
 .shop-name {
@@ -580,10 +581,17 @@ a.btn-block {
 }
 
 .image-preview {
-    width: 350px;
+    width: 200px;
     background: gray;
     margin: 0 auto 30px auto;
-    height: 350px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.image-preview > img {
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
 }
 
 .shop-image-upload > input {
@@ -595,7 +603,14 @@ a.btn-block {
     margin: 0 auto;
 }
 
-
+.shop-errors {
+    font-size: 14px;
+    color: red;
+    position: absolute;
+    left: 980px;
+    top: 180px;
+    font-style: italic;
+}
 
 
 // Create shop page

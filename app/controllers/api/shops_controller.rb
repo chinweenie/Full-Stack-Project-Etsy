@@ -6,7 +6,7 @@ class Api::ShopsController < ApplicationController
         if @shop.save
             render :show
         else    
-            render json: @shop.errors.full_messages, status: 422
+            render json: ['You can only create ONE shop'], status: 422
         end
     end
 

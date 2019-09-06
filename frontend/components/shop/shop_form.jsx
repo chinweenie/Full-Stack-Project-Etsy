@@ -4,17 +4,17 @@ class ShopForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = this.props.shop;
-        this.handleSubmit = this
-            .handleSubmit
-            .bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleFile = this.handleFile.bind(this);
     };
 
     handleSubmit(event) {
         event.preventDefault();
         const formData = new FormData();
-        formData.append('shop[name]', this.state.name)
-        if (this.state.shop_image) {
-            formData.append('shop[shop_image]', this.state.shopImage);
+        formData.append('shop[name]', this.state.name);
+        formData.append('shop[owner_id]', this.state.ownerId);
+        if (this.state.imageFile) {
+            formData.append('shop[shop_image]', this.state.imageFile);
         }
         this.props.action(formData);
     };
@@ -26,10 +26,10 @@ class ShopForm extends React.Component {
     };
 
     handleFile(event) {
-        const file = event.target.file[0];
+        const file = event.currentTarget.files[0];
         const fileReader = new FileReader();
         fileReader.onloadend = () => {
-            this.setState({shopImage: file, imageUrl: fileReader.result});
+            this.setState({imageFile: file, imageUrl: fileReader.result});
         }
         if (file) {
             fileReader.readAsDataURL(file);
@@ -40,10 +40,15 @@ class ShopForm extends React.Component {
         const preview = this.state.imageUrl
             ? <img src={this.state.imageUrl}/>
             : null;
+        let { errors } = this.props;
 
         return (
             <form onSubmit={this.handleSubmit} className="shop-form">
 
+                <div className="shop-errors">
+                    {errors}
+                </div>
+                
                 <div className="shop-name">
                     <label htmlFor="name">
                         Name your shop
@@ -71,6 +76,7 @@ class ShopForm extends React.Component {
                     <br/>
 
                     <div className="image-preview">
+                        {preview}
                     </div>
 
                     <input type="file" id="shop-image" onChange={this.handleFile}/>
