@@ -2,6 +2,7 @@ import {connect} from 'react-redux';
 import {updateShop, fetchShop} from '../../actions/shops_actions';
 import ShopForm from './shop_form';
 import React from 'react';
+import LoadingIcon from '../loading_icon';
 
 const mapStateToProps = (state, ownProps) => {
     
@@ -33,6 +34,13 @@ class EditShopForm extends React.Component {
 
     render() {
         const {action, shop} = this.props;
+
+        if (!shop) {
+            return (
+                <LoadingIcon/>
+            )
+        };
+
         return (
             <ShopForm action={action} shop={shop}/>
         )
