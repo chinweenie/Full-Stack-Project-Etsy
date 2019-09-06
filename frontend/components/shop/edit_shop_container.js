@@ -1,17 +1,44 @@
-import { connect } from 'react-redux';
-import { updateShop } from '../../actions/shops_actions';
+import {connect} from 'react-redux';
+import {updateShop, fetchShop} from '../../actions/shops_actions';
 import ShopForm from './shop_form';
+import React from 'react';
 
 const mapStateToProps = (state, ownProps) => {
-    const shopId = ownProps.match.params.shopId;
+    
+    const shopId = parseInt(ownProps.match.params.shopId);
     const shop = state.entities.shops[shopId];
-    return {
-        shop: shop
-    };
+    const errors = state.errors.shop;
+    return {shop: shop, errors: errors};
 };
 
 const mapDispatchToProps = dispatch => ({
-    action: shop => dispatch(updateShop(shop))
+    action: shop => dispatch(updateShop(shop)),
+    fetchShop: id => dispatch(fetchShop(id))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ShopForm);
+class EditShopForm extends React.Component {
+    componentDidMount() {
+        this
+            .props
+            .fetchShop(this.props.match.params.shopId);
+    };
+
+    componentDidUpdate(prevProps) {
+        if (this.props.match.params.shopId !== prevProps.match.params.shopId) {
+            this
+                .props
+                .fetchShop(this.props.match.params.shopId);
+        }
+    };
+
+    render() {
+        const {action, shop} = this.props;
+        return (
+            <ShopForm action={action} shop={shop}/>
+        )
+    }
+}
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditShopForm);

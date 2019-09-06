@@ -37,6 +37,7 @@ class ShopForm extends React.Component {
     }
 
     render() {
+        
         const preview = this.state.imageUrl
             ? <img src={this.state.imageUrl}/>
             : null;

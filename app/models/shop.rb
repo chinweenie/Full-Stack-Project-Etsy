@@ -17,7 +17,7 @@ class Shop < ApplicationRecord
     has_one_attached :shop_image
     
     has_many :favorites, as: :favoritable, dependent: :destroy
-    has_many :users_who_favorited_me, through: :favorites
+    has_many :users_who_favorited_me, through: :favorites, source: :user
 
 
     belongs_to :owner,
