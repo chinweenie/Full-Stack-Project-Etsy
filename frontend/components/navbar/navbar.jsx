@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import LoggedInNavbar from './logged_in_navbar';
 import LoggedOutNavbar from './logged_out_navbar';
+import { Link } from 'react-router-dom';
 
 class Navbar extends React.Component{
     render() {
@@ -11,14 +12,14 @@ class Navbar extends React.Component{
             <div className="navbar">
                 {component}
                 <ul className="category-ul">
-                    <li>Jewelry & Accessories</li>
-                    <li>Clothing & Shoes</li>
-                    <li>Home & Living</li>
-                    <li>Wedding & Party</li>
-                    <li>Toys & Entertainment</li>
-                    <li>Art & Collectibles</li>
-                    <li>Craft Supplies & Tools</li>
-                    <li>Vintage</li>
+                    <li><a href="#"> Jewelry & Accessories</a></li>
+                    <li><a href="#">Clothing & Shoes</a></li>
+                    <li><a href="#">Home & Living</a></li>
+                    <li><a href="#">Wedding & Party</a></li>
+                    <li><a href="#">Toys & Entertainment</a></li>
+                    <li><a href="#">Art & Collectibles</a></li>
+                    <li><a href="#">Craft Supplies & Tools</a></li>
+                    <li><a href="#">Vintage</a></li>
                 </ul>
             </div>
         );

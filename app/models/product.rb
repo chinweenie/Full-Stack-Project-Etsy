@@ -15,6 +15,7 @@
 class Product < ApplicationRecord
     validates :title, :description, :price, :shop_id, :category_id, presence: true
     validates :price, numericality: { greater_than: 0 }
+    validates :quantity, numericality: { greater_than_or_equal_to: 0}
 
     belongs_to :shop 
     belongs_to :category

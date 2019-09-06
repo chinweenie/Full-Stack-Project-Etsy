@@ -20,7 +20,7 @@ class SessionForm extends React.Component {
         event.preventDefault();
         const demo = Object.assign({}, {
             fname: '',
-            email: 'chinwn@gmail.com',
+            email: 'admin@epsy.com',
             password: 'hunter12'
         });
         this

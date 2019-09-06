@@ -26,6 +26,6 @@ class Api::ShopsController < ApplicationController
 
     private
     def shop_params
-        parmas.require(:shop).permit(:name, :owner_id, :shop_image)
+        params.require(:shop).permit(:name, :owner_id, :shop_image)
     end
 end

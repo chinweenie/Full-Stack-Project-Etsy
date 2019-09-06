@@ -196,6 +196,7 @@ a.btn-block {
 .navbar-ul {
     left: 200px;
     padding-left: 30px;
+    padding-right: 30px;
     border-bottom: 1px solid rgba(34, 34, 34, 0.15);
     height: 113.978px;
     display: flex;
@@ -248,7 +249,7 @@ a.btn-block {
 
 .search-icon {
     position: absolute;
-    left: 762px;
+    left: 750px;
 }
 
 // Logged in navbar
@@ -419,8 +420,6 @@ a.btn-block {
 
 // Logged out navbar
 .logged-out-navbar-ul {
-    left: 200px;
-    padding-left: 30px;
     border-bottom: 1px solid rgba(34, 34, 34, 0.15);
     height: 113.978px;
     display: flex;
@@ -436,20 +435,23 @@ a.btn-block {
     color: #595959;
 }
 
+.logged-out-navbar-ul .logo-nav {
+    margin-left: 10px;
+}
+
 .logged-out-navbar-ul .sell-on-epsy{
     margin-left: 30px;
-    padding-right: 30px;
     text-align: center;
     padding-top: 35px;
     height: 30px;
-    padding-bottom: 18px;
+    padding-bottom: 50px;
 }
 
 .login-signup {
     padding-top: 35px;
     padding-right: 20px;
     padding-bottom: 35px;
-    border-right: 1px solid rgba(34, 34, 34, 0.15);
+    border-right: 1px solid rgba(165, 165, 165, 0.15);
 }
 
 .login-signup > span > a {
@@ -470,7 +472,7 @@ a.btn-block {
 .logged-out-navbar-ul .cart-nav {
     margin-left: 25px;
     position: relative;
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 .logged-out-navbar-ul .cart-nav .fa-shopping-cart {
@@ -486,16 +488,23 @@ a.btn-block {
 .navbar .category-ul {
     display: flex;
     position: absolute;
-    bottom: -5px;
-    left: 80px;
+    bottom: 10px;
+    left: 60px;
     font-size: 14px;
     color: gray;
+    margin: 0 auto;
 }
 
 .category-ul > li {
     list-style: none;
     padding-right: 50px;
 }
+
+.category-ul > li > a {
+    text-decoration: none;
+    color: gray;
+}
+
 // Category navbar
 
 // Errors ul styling 
@@ -517,3 +526,76 @@ a.btn-block {
     left: 20px;
 }
 // Errors ul styling 
+
+// Create shop page
+.shop-form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.shop-name {
+    font-size: 30px;
+    font-weight: bold;
+    padding-bottom: 50px;
+    margin-top: 50px;
+}
+
+.shop-name  p {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.shop-name-input > input {
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    width: 500px;
+    margin: 10px 50px 10px 50px;
+    padding-left: 20px;
+}
+
+.shop-name-input {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin: 0 auto;
+    padding: 0 0;
+    width: 1200px;
+    color: gray;
+}
+
+.shop-name-input > p {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.shop-image-upload {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.shop-image-upload > p {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.image-preview {
+    width: 350px;
+    background: gray;
+    margin: 0 auto 30px auto;
+    height: 350px;
+}
+
+.shop-image-upload > input {
+    margin: 0 auto 30px auto;
+}
+
+#save-shop {
+    width: 20%;
+    margin: 0 auto;
+}
+
+
+
+
+// Create shop page
