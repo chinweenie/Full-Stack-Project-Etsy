@@ -4,7 +4,7 @@ class Api::ShopsController < ApplicationController
     def create
         @shop = Shop.new(shop_params)
         if @shop.save
-            render :show
+            render 'api/shops/show'
         else    
             render json: ['You can only create ONE shop'], status: 422
         end
@@ -16,7 +16,7 @@ class Api::ShopsController < ApplicationController
     end
 
     def update
-        @shop = current_user.shop.find(params[:id])
+        @shop = Shop.find(params[:id])
         if @shop.update(shop_params)
             render :show
         else
@@ -26,6 +26,6 @@ class Api::ShopsController < ApplicationController
 
     private
     def shop_params
-        params.require(:shop).permit(:name, :owner_id, :shop_image)
+        params.require(:shop).permit(:name, :owner_id, :shop_image, :id)
     end
 end

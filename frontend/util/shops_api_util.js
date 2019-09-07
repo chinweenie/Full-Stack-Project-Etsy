@@ -8,15 +8,17 @@ export const createShop = formData => (
     })
 );
 
-export const updateShop = formData => (
-    $.ajax({
+export const updateShop = (formData ) => {
+    return $.ajax({
         method: 'PATCH',
-        url: `/api/shops/${shop.id}`,
+        url: `/api/shops/${formData.get('shop[id]')}`,
         data: formData,
         contentType: false,
         processData: false
     })
-);
+
+};
+
 
 export const fetchShop = id => (
     $.ajax({

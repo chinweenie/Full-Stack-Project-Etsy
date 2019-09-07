@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = state => {
     const ownerId = state.session.id;
-    const shop = { name: '', ownerId: ownerId, imageFile: null, imageUrl: null};
+    const shop = { name: '', owner: {id: ownerId}, imageFile: null, imageUrl: null};
     const errors = state.errors.shop;
     return {
         shop,

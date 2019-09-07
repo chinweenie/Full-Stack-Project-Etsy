@@ -156,7 +156,7 @@ a.btn-block {
     padding: 12px 28px;
     border: 0;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
     height: 48px;
     opacity: 0.9;
     border-radius: 5px;
@@ -287,6 +287,7 @@ a.btn-block {
     text-align: center;
     padding-right: 30px;
     margin-top: 15px;
+    cursor: pointer;
 }
 
 #store-icon {
@@ -304,6 +305,7 @@ a.btn-block {
 .dropdown {
     position: relative;
     display: inline-block;
+    
 }
 
 .dropdown:hover .dropdown-menu {
@@ -324,6 +326,7 @@ a.btn-block {
     padding-right: 30px;
     border-right: 1px solid rgba(34, 34, 34, 0.15);
     padding-bottom: 25px;
+    cursor: pointer;
 }
 
 .user-icon {
@@ -380,9 +383,17 @@ a.btn-block {
     background-repeat: no-repeat;
 }
 
-.fname {
+#profile-pic > img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.dropdown-header .fname {
+    text-align: center;
+    width: 100px;
     position: absolute;
-    left: 100px;
+    margin-left: 80px;
     top: 7px;
     font-weight: bolder;
     text-decoration: underline;
@@ -533,6 +544,7 @@ a.btn-block {
     flex-direction: column;
     text-align: center;
     position: relative;
+    margin-bottom: 50px;
 }
 
 .shop-name {
@@ -689,32 +701,43 @@ a.btn-block {
     display: inline-flex;
     flex-flow: row;
     border-bottom: 1px solid lightgray;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
     margin: 0 50px;
 }
 
-.shop-logo {
-    margin-left: 20px;
-}
 .shop-logo > img {
     border-radius: 50%;
-    width: 160px;
-    height: 160px;
+    width: 180px;
+    height: 180px;
+    margin-left: 13px;
+}
+.stock-edit-button {
+    margin-top: 20px;
+    margin-left: 15px;
+    font-size: 10px;
 }
 
-.shop-name {
+.edit-your-shop-button {
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+
+.shop-name-show {
     margin-top: 30px;
     margin-left: 41px;
     font-size: 25px;
+    width: 178px;
 }
 
 .favorite-shop {
-    margin-left: 50px;
+    margin-left: 30px;
     border: 1px solid gray;
     border-radius: 5px;
     color: gray;
-    padding: 5px 10px;
+    padding: 5px 15px;
+    margin-top: 100px;
 }
+
 
 
 .fa-heart-o {
@@ -722,11 +745,12 @@ a.btn-block {
 }
 
 .owner-info {
-    margin-left: 700px;
+    margin-left: 539px;
     text-align: center;
     color: gray;
-    margin-top: 10px;
+    margin-top: 20px;
     margin-bottom: 10px;
+    width: 360px;
 }
 
 .owner-info > p {

@@ -5,8 +5,10 @@ import { fetchShop } from '../../actions/shops_actions';
 const mapStateToProps = (state, ownProps) => {
     const shopId = ownProps.match.params.shopId;
     const shop = state.entities.shops[shopId];
+    const currentUserId = state.session.id;
     return {
-        shop: shop
+        shop,
+        currentUserId
     }
 }
 

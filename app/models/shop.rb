@@ -10,8 +10,7 @@
 #
 
 class Shop < ApplicationRecord
-    validates :name, :owner_id, presence: true, uniqueness: true
-
+    validates :name, :owner_id, presence: true
     has_many :products
 
     has_one_attached :shop_image

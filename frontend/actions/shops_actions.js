@@ -27,8 +27,8 @@ export const createShop = shop => dispatch => (
     )
 );
 
-export const updateShop = shop => dispatch => (
-    ShopsApiUtil.updateShop(shop).then(
+export const updateShop = (formData, shopId )=> dispatch => (
+    ShopsApiUtil.updateShop(formData, shopId).then(
         shop => (
             dispatch(receiveShop(shop))
         ), err => (

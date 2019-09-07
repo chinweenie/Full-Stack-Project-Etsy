@@ -2,12 +2,11 @@ import React from 'react';
 import {connect} from 'react-redux';
 import LoggedInNavbar from './logged_in_navbar';
 import LoggedOutNavbar from './logged_out_navbar';
-import { Link } from 'react-router-dom';
 
 class Navbar extends React.Component{
     render() {
-        let {navbar} = this.props;
-        const component = !navbar ? <LoggedOutNavbar/> : <LoggedInNavbar/>;
+        let {navbar, hasShop} = this.props;
+        const component = !navbar ? <LoggedOutNavbar/> : <LoggedInNavbar hasShop={hasShop}/>;
         return (
             <div className="navbar">
                 {component}
@@ -28,9 +27,16 @@ class Navbar extends React.Component{
     
 
 const mapStateToProps = state => {
-    
+    let hasShop;
+    if (state.session.id){
+        hasShop = state.entities.users[state.session.id].shop;
+    } else {
+        hasShop = null;
+    };
+
     return {
-        navbar: Boolean(state.session.id)
+        navbar: Boolean(state.session.id),
+        hasShop
     }
   
 };

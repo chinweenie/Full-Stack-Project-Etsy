@@ -1,19 +1,18 @@
-import {connect} from 'react-redux';
-import {updateShop, fetchShop} from '../../actions/shops_actions';
+import { connect } from 'react-redux';
+import { updateShop, fetchShop } from '../../actions/shops_actions';
 import ShopForm from './shop_form';
 import React from 'react';
 import LoadingIcon from '../loading_icon';
 
 const mapStateToProps = (state, ownProps) => {
-    
     const shopId = parseInt(ownProps.match.params.shopId);
     const shop = state.entities.shops[shopId];
     const errors = state.errors.shop;
-    return {shop: shop, errors: errors};
+    return { shop: shop, errors: errors };
 };
 
-const mapDispatchToProps = dispatch => ({
-    action: shop => dispatch(updateShop(shop)),
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    action: formData => dispatch(updateShop(formData)),
     fetchShop: id => dispatch(fetchShop(id))
 });
 
@@ -33,16 +32,16 @@ class EditShopForm extends React.Component {
     };
 
     render() {
-        const {action, shop} = this.props;
+        const { action, shop } = this.props;
 
         if (!shop) {
             return (
-                <LoadingIcon/>
+                <LoadingIcon />
             )
         };
 
         return (
-            <ShopForm action={action} shop={shop}/>
+            <ShopForm action={action} shop={shop} />
         )
     }
 }

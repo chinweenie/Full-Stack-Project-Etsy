@@ -1,9 +1,12 @@
 import React from 'react';
 import LoadingIcon from '../loading_icon';
+import { withRouter } from 'react-router-dom';
 
 class ShopShow extends React.Component {
     constructor() {
         super();
+        this.handleEdit = this.handleEdit.bind(this);
+        this.handleStock = this.handleStock.bind(this);
     }
 
     componentDidMount() {
@@ -16,28 +19,58 @@ class ShopShow extends React.Component {
         }
     }
 
+    handleEdit(event){
+        event.preventDefault();
+        this.props.history.push(`/shops/${this.props.shop.id}/edit`);  
+    }
+
+    handleStock(event){
+        event.preventDefault();
+        this.props.history.push(`/shops/${this.props.shop.id}/products/new`);   
+    }
+
     render() {
-        let { shop } = this.props;
+        let { shop, currentUserId } = this.props;
         if (!shop) {
             return (
                 <LoadingIcon />
             )
         }
+        let stockItemButton;
+        if ( currentUserId === shop.owner.id ){
+            stockItemButton = (
+                <div className="stock-edit-button">
+                    <button className="clicky" onClick={this.handleStock}>
+                        Stock your shop
+                    </button>
+
+                    <button className="clicky edit-your-shop-button" onClick={this.handleEdit}>
+                        Edit your shop
+                    </button>
+                </div>
+                
+            );
+        } else {
+            stockItemButton = '';
+        };
+
         return (
             <div className="shop-show">
                 <div className="shop-show-header">
                     <div className="shop-logo">
                         <img src={shop.imageUrl} />
+                        {stockItemButton}
                     </div>
 
                     <div className="shop-info">
-                        <div className="shop-name">
+                        <div className="shop-name-show">
                             {shop.name}
                         </div>
                         <div className="favorite-shop">
                             <i className="fa fa-heart-o" aria-hidden="true"></i>
                             Favorite shop ({shop.users_who_favorited_me.length})
                         </div>
+                        
                     </div>
 
                     <div className="owner-info">
@@ -49,6 +82,7 @@ class ShopShow extends React.Component {
                             {shop.owner.email}
                         </div>
                     </div>
+                    
                 </div>
 
                 <div className="products-listing">
@@ -63,4 +97,4 @@ class ShopShow extends React.Component {
     };
 }
 
-export default ShopShow;
+export default withRouter(ShopShow);

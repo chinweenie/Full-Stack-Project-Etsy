@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
 
 class ShopForm extends React.Component {
     constructor(props) {
@@ -12,12 +13,16 @@ class ShopForm extends React.Component {
         event.preventDefault();
         const formData = new FormData();
         formData.append('shop[name]', this.state.name);
-        formData.append('shop[owner_id]', this.state.ownerId);
+        formData.append('shop[owner_id]', this.state.owner.id);
+        formData.append('shop[id]', this.state.id);
+        formData.append('shop[owner_id]', this.state.owner.id);
         if (this.state.imageFile) {
             formData.append('shop[shop_image]', this.state.imageFile);
         }
-        this.props.action(formData);
-    };
+        this.props.action(formData).then(action => {
+            this.props.history.push(`/shops/${action.shop.id}`)
+        })
+    }
 
     update(field) {
         return event => {
@@ -86,6 +91,7 @@ class ShopForm extends React.Component {
                 
 
                 <button className="clicky" id="save-shop">Save and continue</button>
+
             </form>
         )
 
@@ -93,4 +99,4 @@ class ShopForm extends React.Component {
 
 }
 
-export default ShopForm;
+export default withRouter(ShopForm);

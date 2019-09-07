@@ -38,7 +38,9 @@ const Greeting = ({currentUser, logout, openModal}) => {
                             <i className="fa fa-caret-right" aria-hidden="true"></i>
                         </span>
                         <span className="fname">{currentUser.fname}</span>
-                        <div id="profile-pic"></div>
+                        <div id="profile-pic">
+                            <img src={currentUser.imageUrl}/>
+                        </div>
                     </a>
                     
                 </div>
