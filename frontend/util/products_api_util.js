@@ -9,7 +9,7 @@ export const fetchProduct = (id) => (
 export const createProduct = formData => {
     const shopId = formData.get('product[shop_id]');
     return $.ajax({
-        methid: 'POST',
+        method: 'POST',
         url: `/api/shops/${shopId}/products`,
         data: formData,
         contentType: false,

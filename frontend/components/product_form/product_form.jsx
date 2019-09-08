@@ -16,13 +16,16 @@ class ProductForm extends React.Component {
         formData.append('product[title]', this.state.title);
         formData.append('product[description]', this.state.description);
         formData.append('product[category_id]', this.state.categoryId);
+        formData.append('product[shop_id]', this.state.shopId);
+        formData.append('product[price]', this.state.price);
+        formData.append('product[quantity]', this.state.quantity);
         if (this.state.id){
             formData.append('product[id]', this.state.id);
         };
 
-        let {imageUrls} = this.state;
-        for (let i = 0; i < imageUrls.length; i++){
-            formData.append('product[images][]', imageUrls[i]);
+        let {imageFiles} = this.state;
+        for (let i = 0; i < imageFiles.length; i++){
+            formData.append('product[images][]', imageFiles[i]);
         }
         
         this.props.action(formData).then(action => (
@@ -155,7 +158,7 @@ class ProductForm extends React.Component {
                             </p>
                         </div>
                         
-                        <input type="text" value={this.state.title} id="title" onChange={this.update('title')} />
+                        <input type="text" value={this.state.title || ''} id="title" onChange={this.update('title')} />
                     </div>
 
                     <div className="description">
@@ -172,7 +175,7 @@ class ProductForm extends React.Component {
                             </p>
                         </div>
                         
-                        <textarea id="description" value={this.state.description} onChange={this.update('description')} cols="30" rows="10"></textarea>
+                        <textarea id="description" value={this.state.description || ''} onChange={this.update('description')} cols="30" rows="10"></textarea>
                     </div>
 
                    <div className="category">
@@ -182,14 +185,15 @@ class ProductForm extends React.Component {
                             <p>Pick a category for your item</p>
                        </div>
                         
-                        <select value={this.state.categoryId} id="category" onChange={this.update('categoryId')}>
-                            <option value={41}>Jewelry & Accessories</option>
-                            <option value={42}>Clothing & Shoes</option>
-                            <option value={43}>Home & Living</option>
-                            <option value={44}>Wedding & Party</option>
-                            <option value={45}>Toys & Entertainment</option>
-                            <option value={46}>Art & Collectibles</option>
-                            <option value={47}>Craft Supplies & Tools</option>
+                        <select value={this.state.categoryId || ''} id="category" onChange={this.update('categoryId')}>
+                            <option disabled hidden value=''>--Select a category--</option>
+                            <option value='41'>Jewelry & Accessories</option>
+                            <option value='42'>Clothing & Shoes</option>
+                            <option value='43'>Home & Living</option>
+                            <option value='44'>Wedding & Party</option>
+                            <option value='45'>Toys & Entertainment</option>
+                            <option value='46'>Art & Collectibles</option>
+                            <option value='47'>Craft Supplies & Tools</option>
                         </select>
                    </div>
                 </div>
@@ -205,7 +209,7 @@ class ProductForm extends React.Component {
                                Consider the total price buyers will pay too
                             </p>
                         </div>
-                        <input type="number" value={this.state.price} id="price" onChange={this.update('price')} />
+                        <input type="number" value={this.state.price || ''} id="price" onChange={this.update('price')} />
                     </div>
 
                     <div className="quantity">
@@ -216,7 +220,7 @@ class ProductForm extends React.Component {
                                 this listing will renew automatically until it sells out.
                             </p>
                         </div>
-                        <input type="number" value={this.state.quantity} id="quantity" onChange={this.update('quantity')} />
+                        <input type="number" value={this.state.quantity || ''} id="quantity" onChange={this.update('quantity')} />
                     </div>
                     
                 </div>
