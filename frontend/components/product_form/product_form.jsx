@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class ProductForm extends React.Component {
     constructor(props){
@@ -93,13 +94,22 @@ class ProductForm extends React.Component {
         return (
             <form onSubmit={this.handleSubmit} className="product-form">
 
-                <div className="product-errors">
-                    {errors}
-                </div>
+                
 
                 <div className="product-images">
                     <h3>Photos</h3>
                     <ul >
+                        <div className="explanation">
+                            <p>Use up to five photos to show your 
+                                item's most important qualities.</p>
+                                <ul>
+                                    Tips:
+                                    <li>Use natural light and no flash.</li>
+                                    <li>Include a common object for scale.</li>
+                                    <li>Show the item being held, worn, or used.</li>
+                                    <li>Shoot against a clean, simple background.</li>
+                                </ul>
+                        </div>
                         <li className="first-preview">
                             {previews[0]}
                         </li>
@@ -117,48 +127,105 @@ class ProductForm extends React.Component {
                         </li>
                             
                     </ul>
-                    <button onClick={this.handleClearAll}>Clear all</button>
-                    <input type="file" onChange={this.handleFile} multiple/>
-                    <p>You can upload up to 5 pictures of the product</p>
+                    <div className="images-input-button">
+                        <button onClick={this.handleClearAll}>Clear all</button>
+                        <input type="file" onChange={this.handleFile} multiple />
+                        <p>You can upload up to 5 pictures of the product</p>
+                    </div>
+                    
                 </div>
 
                 <div className="listing-details">
                     <h3>Listing details</h3>
-                    
+                    <p>Tell the world all about your item
+                        and why they'll love it
+                    </p>
+
+                    <div className="product-errors">
+                        {errors}
+                    </div>
                     <br/>
-                    <label htmlFor="title">Title</label>
-                    <br/>
-                    <input type="text" value={this.state.title} id="title" onChange={this.update('title')} />
 
+                    <div className="title">
+                        <div className="label-description">
+                            <label htmlFor="title">Title *</label>
+                            <p>
+                                Include keywords that buyers would
+                                use to search for your item.
+                            </p>
+                        </div>
+                        
+                        <input type="text" value={this.state.title} id="title" onChange={this.update('title')} />
+                    </div>
 
-                    <label htmlFor="description">Description</label>
-                    <textarea id="description" value={this.state.description} onChange={this.update('description')} cols="30" rows="10"></textarea>
+                    <div className="description">
 
-                    <label htmlFor="category">Category</label>
-                    <select value={this.state.categoryId} id="category" onChange={this.update('categoryId')}>
-                        <option value={41}>Jewelry & Accessories</option>
-                        <option value={42}>Clothing & Shoes</option>
-                        <option value={43}>Home & Living</option>
-                        <option value={44}>Wedding & Party</option>
-                        <option value={45}>Toys & Entertainment</option>
-                        <option value={46}>Art & Collectibles</option>
-                        <option value={47}>Craft Supplies & Tools</option>
-                    </select>
+                        <div className="label-description">
+                            <label htmlFor="description">Description *</label>
+                            <p>
+                                Start with a brief overview that describes your item’s finest features.
+                                Shoppers will only see the first few lines of your description at first, so make it count!
+                            </p>
+                            <p>
+                                Not sure what else to say? Shoppers also like hearing about your process, and the story
+                                behind this item.
+                            </p>
+                        </div>
+                        
+                        <textarea id="description" value={this.state.description} onChange={this.update('description')} cols="30" rows="10"></textarea>
+                    </div>
 
+                   <div className="category">
+
+                       <div className="label-description">
+                            <label htmlFor="category">Category *</label>
+                            <p>Pick a category for your item</p>
+                       </div>
+                        
+                        <select value={this.state.categoryId} id="category" onChange={this.update('categoryId')}>
+                            <option value={41}>Jewelry & Accessories</option>
+                            <option value={42}>Clothing & Shoes</option>
+                            <option value={43}>Home & Living</option>
+                            <option value={44}>Wedding & Party</option>
+                            <option value={45}>Toys & Entertainment</option>
+                            <option value={46}>Art & Collectibles</option>
+                            <option value={47}>Craft Supplies & Tools</option>
+                        </select>
+                   </div>
                 </div>
                
 
                 <div className="inventory-pricing">
                     <h3>Inventory and pricing</h3>
 
-                    <label htmlFor="price">Price</label>
-                    <input type="number" value={this.state.price} id="price" onChange={this.update('price')} />
+                    <div className="price">
+                        <div className="label-description">
+                            <label htmlFor="price">Price *</label>
+                            <p>Factor in the costs of materials and labor, plus any related business expenses.
+                               Consider the total price buyers will pay too
+                            </p>
+                        </div>
+                        <input type="number" value={this.state.price} id="price" onChange={this.update('price')} />
+                    </div>
 
-                    <label htmlFor="quantity">Quantity</label>
-                    <input type="number" value={this.state.quantity} id="quantity" onChange={this.update('quantity')} />
+                    <div className="quantity">
+                        <div className="label-description">
+                            <label htmlFor="quantity">Quantity</label>
+                            <p>
+                                For quantities greater than one, 
+                                this listing will renew automatically until it sells out.
+                            </p>
+                        </div>
+                        <input type="number" value={this.state.quantity} id="quantity" onChange={this.update('quantity')} />
+                    </div>
+                    
                 </div>
-
-                <button className="clicky">Save and continue</button>
+                <div className="sticky-bar">
+                    <Link to={`/shops/${this.state.shopId}`}className="clicky">Cancel</Link>
+                    <p><strong>This listing isn't active yet.</strong> It will be available to shoppers once you open your shop.</p>
+                    <button className="clicky">Save and continue</button>
+                </div>
+                
             </form>
         );
     }
