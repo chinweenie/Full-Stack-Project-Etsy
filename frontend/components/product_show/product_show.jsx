@@ -5,3 +5,5 @@ const ProductShow = (props) => (
         
     </div>
 );
+
+export default ProductShow;

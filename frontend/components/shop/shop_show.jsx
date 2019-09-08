@@ -1,6 +1,6 @@
 import React from 'react';
 import LoadingIcon from '../loading_icon';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 class ShopShow extends React.Component {
     constructor() {
@@ -26,6 +26,7 @@ class ShopShow extends React.Component {
 
     handleStock(event){
         event.preventDefault();
+        
         this.props.history.push(`/shops/${this.props.shop.id}/products/new`);   
     }
 
@@ -40,7 +41,7 @@ class ShopShow extends React.Component {
         if ( currentUserId === shop.owner.id ){
             stockItemButton = (
                 <div className="stock-edit-button">
-                    <button className="clicky" onClick={this.handleStock}>
+                    <button className="clicky stock-your-shop-button" onClick={this.handleStock}>
                         Stock your shop
                     </button>
 

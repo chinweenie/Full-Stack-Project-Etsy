@@ -1,12 +1,20 @@
 import { connect } from "react-redux";
 import ProductForm from "./product_form";
+import { createProduct } from '../../actions/products_actions';
 
-const mapStateToProps = state => ({
-    product: {title: '', description: '', quantity: '', price: '', categoryId: '', shopId: ''}
-});
+const mapStateToProps = (state, ownProps) => {    
+    const shopId = ownProps.match.params.shopId;
+    const product = {title: '', description: '', price: '', categoryId: '', shopId: shopId, imageUrls: [], imageFiles: [] };
+    const errors = state.errors.product;
+    return {
+        product,
+        errors
+    };
+};
+
 
 const mapDispatchToProps = dispatch => ({
-    action: product => dispatch(createProduct(product))
+    action: formData => dispatch(createProduct(formData))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductForm);

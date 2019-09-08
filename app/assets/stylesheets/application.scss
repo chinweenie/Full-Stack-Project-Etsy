@@ -771,9 +771,72 @@ a.btn-block {
 .fa-envelope-o {
     margin-right: 5px;
 }
-
-
-
-
-
 // Shop show page
+
+// Product form
+.product-form {
+    background:#FAF9F5;
+    padding-top: 20px;
+}
+
+.product-images {
+    background: white;
+    border: 1px solid lightgray;
+    width: 95%;
+    margin: 0 auto;
+    border-radius: 5px;
+    padding: 5px 20px;
+}
+
+.product-images > ul {
+    display: flex;
+    list-style: none;
+    height: 150px;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.product-images > p {
+    color: gray;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.product-images > ul > li {
+    background-size: fill;
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+    
+}
+
+.product-images > ul > li > img {
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+}
+
+.product-images > input {
+    color: white;
+}
+
+.first-preview {
+    background-image: image-url('placeholder-1.svg');
+}
+
+.second-preview {
+    background-image: image-url('placeholder-2.svg');
+}
+.third-preview {
+    background-image: image-url('placeholder-3.svg');
+}
+.forth-preview {
+    background-image: image-url('placeholder-4.svg');
+}
+.fifth-preview {
+    background-image: image-url('placeholder-5.svg');
+}
+
+
+// Product form

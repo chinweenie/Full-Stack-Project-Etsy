@@ -5,12 +5,12 @@ import {AuthRoute, ProtectedRoute} from '../util/route_util';
 import Modal from './modal/modal';
 import Navbar from './navbar/navbar';
 import EditShopContainer from './shop/edit_shop_container';
-import {
-    Route,
-    Switch,
-} from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import CreateShopContainer from './shop/create_shop_container';
 import ShopShowContainer from './shop/shop_show_container';
+import CreateProductContainer from './product_form/create_product_container';
+import EditProductForm from './product_form/edit_product_container';
+import ProductShowContainer from './product_show/product_show_container';
 
 
 
@@ -28,11 +28,11 @@ const App = () => (
 
             <ProtectedRoute exact path='/shops/:shopId/edit' component={EditShopContainer} />
             <ProtectedRoute exact path='/shops/new' component={CreateShopContainer}/>
-            <Route path='/shops/:shopId' component={ShopShowContainer}/>
+            <Route exact path='/shops/:shopId' component={ShopShowContainer}/>
 
-            {/* <ProtectedRoute exact path='/shops/:shopId/products/new' component={}/>
-            <ProtectedRoute exact path='/shops/:shopId/products/:productId/edit' component={}/>
-            <Route path='/products/:productId' component={}/> */}
+            <ProtectedRoute exact path='/shops/:shopId/products/new' component={CreateProductContainer}/>
+            <ProtectedRoute exact path='/products/:productId/edit' component={EditProductForm}/>
+            <Route exact path='/products/:productId' component={ProductShowContainer}/>
 
         </Switch>
         

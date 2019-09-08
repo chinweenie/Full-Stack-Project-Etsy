@@ -14,11 +14,17 @@ class ShopForm extends React.Component {
         const formData = new FormData();
         formData.append('shop[name]', this.state.name);
         formData.append('shop[owner_id]', this.state.owner.id);
-        formData.append('shop[id]', this.state.id);
+
+        if (this.state.id){
+            formData.append('shop[id]', this.state.id);
+        };
+
         formData.append('shop[owner_id]', this.state.owner.id);
+
         if (this.state.imageFile) {
             formData.append('shop[shop_image]', this.state.imageFile);
-        }
+        };
+
         this.props.action(formData).then(action => {
             this.props.history.push(`/shops/${action.shop.id}`)
         })
@@ -42,7 +48,6 @@ class ShopForm extends React.Component {
     }
 
     render() {
-        
         const preview = this.state.imageUrl
             ? <img src={this.state.imageUrl}/>
             : null;
