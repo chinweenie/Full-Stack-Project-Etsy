@@ -4,7 +4,7 @@ import { createProduct } from '../../actions/products_actions';
 
 const mapStateToProps = (state, ownProps) => {    
     const shopId = ownProps.match.params.shopId;
-    const product = {title: '', description: '', price: '', categoryId: '', shopId: shopId, imageUrls: [], imageFiles: [], quantity: '' };
+    const product = {title: '', description: '', price: '', categoryId: '', shopId: shopId,  quantity: '' };
     const errors = state.errors.product;
     return {
         product,

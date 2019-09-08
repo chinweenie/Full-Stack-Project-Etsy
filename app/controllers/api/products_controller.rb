@@ -17,6 +17,10 @@ class Api::ProductsController < ApplicationController
 
     def update 
         @product = current_user.shop.products.find(params[:id])
+        # implement check to limit the number of images stored
+        if params[:product][:images].length + @product.images.length > 5
+            @product.images.purge
+        end
         if @product.update(product_params)
             render :show
         else

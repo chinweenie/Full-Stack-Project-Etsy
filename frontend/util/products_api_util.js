@@ -22,7 +22,7 @@ export const updateProduct = formData => {
     return $.ajax({
         method: 'PATCH',
         url: `/api/products/${productId}`,
-        dat: formData,
+        data: formData,
         contentType: false,
         processData: false
     })

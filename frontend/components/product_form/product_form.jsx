@@ -1,10 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class ProductForm extends React.Component {
     constructor(props){
         super(props);
-        this.state = this.props.product;
+        this.state = Object.assign({}, {
+            imageUrls: [],
+            imageFiles: [],
+        }, this.props.product);
+        
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFile = this.handleFile.bind(this);
         this.handleClearAll = this.handleClearAll.bind(this);
@@ -19,24 +23,28 @@ class ProductForm extends React.Component {
         formData.append('product[shop_id]', this.state.shopId);
         formData.append('product[price]', this.state.price);
         formData.append('product[quantity]', this.state.quantity);
+
         if (this.state.id){
             formData.append('product[id]', this.state.id);
         };
 
         let {imageFiles} = this.state;
-        for (let i = 0; i < imageFiles.length; i++){
-            formData.append('product[images][]', imageFiles[i]);
+        
+        if (imageFiles.length > 0) {
+            for (let i = 0; i < imageFiles.length; i++) {
+                formData.append('product[images][]', imageFiles[i]);
+            }
         }
         
-        this.props.action(formData).then(action => (
+        
+        this.props.action(formData).then(action => {
             this.props.history.push(`/products/${action.product.id}`)
-        ));
+        });
     }
 
     handleFile(event){
         event.preventDefault();
-        
-        if (this.state.imageFiles.length === 5) {
+        if (this.state.imageFiles.length === 5 || this.state.imageUrls.length === 5) {
             alert('Oops, maximum number of images reached!');
             return;
         };
@@ -235,4 +243,4 @@ class ProductForm extends React.Component {
     }
 };
 
-export default ProductForm;
+export default withRouter(ProductForm);
