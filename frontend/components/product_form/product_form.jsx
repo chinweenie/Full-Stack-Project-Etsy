@@ -198,14 +198,25 @@ class ProductForm extends React.Component {
                        </div>
                         
                         <select value={this.state.categoryId || ''} id="category" onChange={this.update('categoryId')}>
+                            {/* Development category id */}
+                            {/* <option disabled hidden value=''>--Select a category--</option>
+                            <option value='48'>Jewelry & Accessories</option>
+                            <option value='49'>Clothing & Shoes</option>
+                            <option value='50'>Home & Living</option>
+                            <option value='51'>Wedding & Party</option>
+                            <option value='52'>Toys & Entertainment</option>
+                            <option value='53'>Art & Collectibles</option>
+                            <option value='54'>Craft Supplies & Tools</option> */}
+
+                            {/* Production category id */}
                             <option disabled hidden value=''>--Select a category--</option>
-                            <option value='41'>Jewelry & Accessories</option>
-                            <option value='42'>Clothing & Shoes</option>
-                            <option value='43'>Home & Living</option>
-                            <option value='44'>Wedding & Party</option>
-                            <option value='45'>Toys & Entertainment</option>
-                            <option value='46'>Art & Collectibles</option>
-                            <option value='47'>Craft Supplies & Tools</option>
+                            <option value='1'>Jewelry & Accessories</option>
+                            <option value='2'>Clothing & Shoes</option>
+                            <option value='3'>Home & Living</option>
+                            <option value='4'>Wedding & Party</option>
+                            <option value='5'>Toys & Entertainment</option>
+                            <option value='6'>Art & Collectibles</option>
+                            <option value='7'>Craft Supplies & Tools</option>
                         </select>
                    </div>
                 </div>
