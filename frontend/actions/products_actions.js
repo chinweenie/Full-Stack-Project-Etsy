@@ -3,6 +3,14 @@ import  * as ProductsApiUtil  from '../util/products_api_util';
 export const RECEIVE_PRODUCT = 'RECEIVE_PRODUCT';
 export const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
 export const RECEIVE_PRODUCTS_ERRORS = 'RECEIVE_PRODUCTS_ERRORS';
+export const RECEIVE_PRODUCTS = 'RECEIVE_PRODUCTS'
+
+export const receiveProducts = products => {
+    return {
+        type: RECEIVE_PRODUCTS,
+        products
+    }
+};
 
 export const receiveProduct = (product) => {
     return {
@@ -23,6 +31,9 @@ export const receiveProductsErrors = errors => ({
     errors
 });
 
+export const fetchProducts = shopId => dispatch => (
+    ProductsApiUtil.fetchProducts(shopId).then(response => dispatch(receiveProducts(response)))
+)
 
 export const fetchProduct = (product) => dispatch => (
     ProductsApiUtil.fetchProduct(product).then(response => dispatch(receiveProduct(response)) )

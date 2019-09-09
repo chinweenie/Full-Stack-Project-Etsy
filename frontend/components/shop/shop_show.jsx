@@ -7,15 +7,19 @@ class ShopShow extends React.Component {
         super();
         this.handleEdit = this.handleEdit.bind(this);
         this.handleStock = this.handleStock.bind(this);
+        this.toProductPage = this.toProductPage.bind(this);
+        // this.editDeleteButton = this.editDeleteButton.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchShop(this.props.match.params.shopId);
+        this.props.fetchProducts(this.props.match.params.shopId);
     };
 
     componentDidUpdate(prevProps) {
         if (this.props.match.params.shopId !== prevProps.match.params.shopId) {
             this.props.fetchShop(this.props.match.params.shopId);
+            this.props.fetchProducts(this.props.match.params.shopId);
         }
     }
 
@@ -26,13 +30,33 @@ class ShopShow extends React.Component {
 
     handleStock(event){
         event.preventDefault();
-        
         this.props.history.push(`/shops/${this.props.shop.id}/products/new`);   
     }
 
+    toProductPage(productId){
+        return (event) => {
+            event.preventDefault();
+            this.props.history.push(`/shops/${this.props.shop.id}/products/${productId}`)
+        }
+    }
+
+    editDeleteButton(product){
+        let { shop, currentUserId, deleteProduct } = this.props;
+        let editDeleteButton;
+        if (currentUserId === shop.owner.id) {
+            editDeleteButton = (
+                <div className="edit-delete-button">
+                    <Link to={`/products/${product.id}/edit`}>Edit item</Link>
+                    <button onClick={() => deleteProduct(product.id)}>Delete me</button>
+                </div>
+            );
+        };
+        return editDeleteButton;
+    }
+
     render() {
-        let { shop, currentUserId } = this.props;
-        if (!shop) {
+        let { shop, currentUserId, products } = this.props;
+        if (!shop || !products) {
             return (
                 <LoadingIcon />
             )
@@ -54,6 +78,22 @@ class ShopShow extends React.Component {
         } else {
             stockItemButton = '';
         };
+
+        
+
+        const productLi = products.map(product => {
+            return (
+                <li key={product.id}>
+                    <div onClick={this.toProductPage(product.id)}>
+                        <img src={product.imageUrl} />
+                        <p className="product-title">{product.title.slice(0, 27)}...</p>
+                        <p><strong>USD {product.price}</strong></p>
+                    </div>
+                    
+                    {this.editDeleteButton(product)}
+                </li>
+            )
+        });
 
         return (
             <div className="shop-show">
@@ -87,7 +127,10 @@ class ShopShow extends React.Component {
                 </div>
 
                 <div className="products-listing">
-
+                    <label>All items</label>
+                    <ul>
+                        {productLi}
+                    </ul>
                 </div>
 
                 {/* show products sold by this shop */}

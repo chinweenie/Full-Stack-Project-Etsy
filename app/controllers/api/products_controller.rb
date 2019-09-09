@@ -1,6 +1,12 @@
 class Api::ProductsController < ApplicationController
     before_action :require_login, only: [:create, :update]
 
+    def index
+        shop = Shop.find(params[:shop_id])
+        @products = shop.products
+        render :index
+    end
+
     def show
         @product = Product.find(params[:id])
         render :show
@@ -38,7 +44,11 @@ class Api::ProductsController < ApplicationController
 
     def destroy
         @product = current_user.shop.products.find(params[:id])
-        @product.destroy 
+        if @product.destroy
+            render :show
+        else
+            render json: @product.errors.full_messages, status: 422
+        end
     end
 
     

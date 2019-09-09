@@ -2,6 +2,7 @@ import React from 'react';
 import LoadingIcon from '../loading_icon';
 import { withRouter, Link } from 'react-router-dom';
 import Slider from '../carousel/slider';
+import NumericInput from 'react-numeric-input';
 
 class ProductShow extends React.Component {
     constructor(props){
@@ -30,12 +31,13 @@ class ProductShow extends React.Component {
     // handleAddToCart
 
     render(){
-        let {product, shop} = this.props;        
+        let {product, shop} = this.props;  
         if (!product || !shop){
             return (
                 <LoadingIcon/>
             )
         }
+        
         return (
             <div className="product-show">
                 <div className="carousel">
@@ -49,27 +51,23 @@ class ProductShow extends React.Component {
                             
                         </li>
                         <li>{product.title}</li>
-                        <li>{product.price}</li>
+                        <li className="price"><strong>USD {product.price}</strong></li>
                         <li>
-                            <label htmlFor="quantity">Quantity</label>
+                            <label className="quantity" htmlFor="quantity">Quantity</label>
                             <br/>
-                            <select value={this.state.quantity} id="">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
+                            {/* <input type="number" value={this.state.quantity} id="quantity" min="1" max="5" required="true"/> */}
+                            <NumericInput value={this.state.quantity} id="quantity" min={1} max={product.quantity}/>
+                            <span>Only <strong>{product.quantity}</strong> in stock!</span>
                         </li>
                         <li>
-                            <a href="#">Add to cart</a>
+                            <a className="add-to-cart" href="#">Add to cart</a>
                         </li>
-                        <li>
-                            <label htmlFor="details">Item details</label>
-                            {product.description}
-                        </li>
-                        <li></li>
+                        
                     </ul>
+                    <div className="product-details">
+                        <label htmlFor="details">Item details</label>
+                        {product.description}
+                    </div>
                     <div className="owner-info">
                         <p>Meet {shop.owner.fname}</p>
                         <img src={shop.profilePicUrl} />

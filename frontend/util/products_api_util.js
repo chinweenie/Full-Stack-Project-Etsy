@@ -1,4 +1,11 @@
 
+export const fetchProducts = (shopId) => (
+    $.ajax({
+        method: 'GET',
+        url: `api/shops/${shopId}/products`
+    })
+)
+
 export const fetchProduct = (id) => (
      $.ajax({
         method: 'GET',

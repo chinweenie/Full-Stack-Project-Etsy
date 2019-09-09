@@ -1,6 +1,7 @@
 import React from 'react';
 import Slide from './slide';
 import Arrow from './arrow';
+import LoadingIcon from '../loading_icon';
 
 
 export default class Slider extends React.Component {
@@ -37,6 +38,11 @@ export default class Slider extends React.Component {
     };
 
     render() {
+        if (!this.props.imageUrls){
+            return (
+                <LoadingIcon/>
+            )
+        }
 
         return (
             <div className="slider">

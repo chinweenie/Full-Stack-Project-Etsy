@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :products, only: [:show, :update, :destroy]
 
     resources :shops, only: [:show, :create, :update] do    
-      resources :products, only: [:create]
+      resources :products, only: [:create, :index]
     end
 
   end

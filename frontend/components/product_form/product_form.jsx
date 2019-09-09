@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import LoadingIcon from '../loading_icon';
 
 class ProductForm extends React.Component {
     constructor(props){
@@ -35,7 +36,6 @@ class ProductForm extends React.Component {
                 formData.append('product[images][]', imageFiles[i]);
             }
         }
-        debugger
         
         this.props.action(formData).then(action => {
             this.props.history.push(`/shops/${this.state.shopId}/products/${action.product.id}`)
@@ -92,6 +92,8 @@ class ProductForm extends React.Component {
         return this.setState({imageFiles: [], imageUrls: []});
     }
 
+    
+
     render(){
 
         let {errors} = this.props;
@@ -101,6 +103,8 @@ class ProductForm extends React.Component {
                 <img key={url} src={url}/>
             );
         });
+
+    
 
         return (
             <form onSubmit={this.handleSubmit} className="product-form">
