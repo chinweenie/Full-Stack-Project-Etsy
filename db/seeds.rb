@@ -1,4 +1,3 @@
-User.create!(email: 'admin@epsy.com', fname: 'admin', password: 'hunter12')
 
 Category.create!(name: 'Jewelry & Accessories')
 Category.create!(name: 'Clothing & Shoes')
