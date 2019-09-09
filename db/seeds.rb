@@ -1,0 +1,1 @@
+User.create!(email: 'admin@epsy.com', fname: 'admin', password: 'hunter12')
