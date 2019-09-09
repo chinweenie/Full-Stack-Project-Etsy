@@ -812,6 +812,9 @@ a.btn-block {
             flex-direction: row;
             justify-content: center;
             a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 text-decoration: none;
                 text-align: center;
                 height: 17px;
@@ -821,6 +824,9 @@ a.btn-block {
             }
 
             button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 height: 41px;
                 width: 113px;
                 font-size: 12px;
