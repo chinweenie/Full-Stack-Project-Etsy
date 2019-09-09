@@ -35,10 +35,10 @@ class ProductForm extends React.Component {
                 formData.append('product[images][]', imageFiles[i]);
             }
         }
-        
+        debugger
         
         this.props.action(formData).then(action => {
-            this.props.history.push(`/products/${action.product.id}`)
+            this.props.history.push(`/shops/${this.state.shopId}/products/${action.product.id}`)
         });
     }
 

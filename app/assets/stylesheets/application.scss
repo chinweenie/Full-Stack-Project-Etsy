@@ -974,11 +974,62 @@ a.btn-block {
     margin-bottom: 0;
     width: 954px;
 }
-
-
-
-
-
-
-
 // Product form
+
+// Product show
+.product-show {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    font-family: 'Hepta Slab', serif;
+}
+
+.product-show a {
+    text-decoration: none;
+    font-size: 15px;
+    color: grey;
+}
+
+.product-show .carousel {
+    height: 600px;
+    width: 500px;
+    margin-left: 50px;
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 20px;
+    padding-right: 205px;
+}
+
+.product-show .product-info {
+    margin: 0 auto;
+    font-weight: medium;
+}
+
+.product-show .product-info > ul {
+    list-style: none;
+    font-size: 23px;
+}
+
+.product-show .reviews {
+    background: gray;
+}
+
+.product-show .owner-info {
+    margin: 0 auto;
+}
+
+.slider {
+    height: 500px;
+    width: 400px;
+    display: flex;
+}
+
+.slide-arrow {
+    margin-top: 200px;
+    cursor: pointer;
+}
+
+.slider .image-slide {
+    width: 400px;
+    height: 400px;
+}
+// Product show

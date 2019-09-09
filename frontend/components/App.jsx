@@ -32,7 +32,7 @@ const App = () => (
 
             <ProtectedRoute exact path='/shops/:shopId/products/new' component={CreateProductContainer}/>
             <ProtectedRoute exact path='/products/:productId/edit' component={EditProductForm}/>
-            <Route exact path='/products/:productId' component={ProductShowContainer}/>
+            <Route exact path='/shops/:shopId/products/:productId' component={ProductShowContainer}/>
 
         </Switch>
         

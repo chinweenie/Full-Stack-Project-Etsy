@@ -17,10 +17,18 @@ class Api::ProductsController < ApplicationController
 
     def update 
         @product = current_user.shop.products.find(params[:id])
-        # implement check to limit the number of images stored
-        if params[:product][:images].length + @product.images.length > 5
-            @product.images.purge
+
+        # check if user submitted a patch request
+        # with or without uploading images
+        # this prevents calling .length on nil in case
+        # user did not upload new images 
+        if params[:product][:images]
+            # implement check to limit the number of images stored
+            if params[:product][:images].length + @product.images.length > 5
+                @product.images.purge
+            end
         end
+        
         if @product.update(product_params)
             render :show
         else
