@@ -200,13 +200,14 @@ class ProductForm extends React.Component {
                         <select value={this.state.categoryId || ''} id="category" onChange={this.update('categoryId')}>
                             {/* Development category id */}
                             {/* <option disabled hidden value=''>--Select a category--</option>
-                            <option value='48'>Jewelry & Accessories</option>
-                            <option value='49'>Clothing & Shoes</option>
-                            <option value='50'>Home & Living</option>
-                            <option value='51'>Wedding & Party</option>
-                            <option value='52'>Toys & Entertainment</option>
-                            <option value='53'>Art & Collectibles</option>
-                            <option value='54'>Craft Supplies & Tools</option> */}
+                            <option value='56'>Jewelry & Accessories</option>
+                            <option value='57'>Clothing & Shoes</option>
+                            <option value='58'>Home & Living</option>
+                            <option value='59'>Wedding & Party</option>
+                            <option value='60'>Toys & Entertainment</option>
+                            <option value='61'>Art & Collectibles</option>
+                            <option value='62'>Craft Supplies & Tools</option>
+                            <option value='63'>Vintage</option> */}
 
                             {/* Production category id */}
                             <option disabled hidden value=''>--Select a category--</option>
@@ -217,6 +218,7 @@ class ProductForm extends React.Component {
                             <option value='5'>Toys & Entertainment</option>
                             <option value='6'>Art & Collectibles</option>
                             <option value='7'>Craft Supplies & Tools</option>
+                            <option value='8'>Vintage</option>
                         </select>
                    </div>
                 </div>
