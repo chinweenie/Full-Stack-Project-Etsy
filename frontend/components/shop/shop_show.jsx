@@ -46,8 +46,8 @@ class ShopShow extends React.Component {
         if (currentUserId === shop.owner.id) {
             editDeleteButton = (
                 <div className="edit-delete-button">
-                    <Link to={`/products/${product.id}/edit`}>Edit item</Link>
-                    <button onClick={() => deleteProduct(product.id)}>Delete me</button>
+                    <Link to={`/products/${product.id}/edit`} className="clicky">Edit item</Link>
+                    <button onClick={() => deleteProduct(product.id)} className="clicky">Delete me</button>
                 </div>
             );
         };

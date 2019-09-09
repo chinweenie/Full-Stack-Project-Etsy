@@ -806,6 +806,27 @@ a.btn-block {
                 margin-bottom: 0;
             }
         }
+
+        .edit-delete-button {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            a {
+                text-decoration: none;
+                text-align: center;
+                height: 17px;
+                width: 56px;
+                font-size: 12px;
+                margin: 5px 5px;
+            }
+
+            button {
+                height: 41px;
+                width: 113px;
+                font-size: 12px;
+                margin: 5px 5px;
+            }
+        }
     }
 }
 
