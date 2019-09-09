@@ -24,6 +24,11 @@ class Api::ShopsController < ApplicationController
         end
     end
 
+    def index
+        @shops = Shop.all 
+        render :index
+    end
+
     private
     def shop_params
         params.require(:shop).permit(:name, :owner_id, :shop_image, :id)

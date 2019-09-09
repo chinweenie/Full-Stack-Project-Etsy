@@ -23,6 +23,10 @@ const mapDispatchToProps = dispatch => {
 };
 
 class EditProductForm extends React.Component {
+    constructor(){
+        super();
+        this.state = {};
+    }
     componentDidMount(){
         this.props.fetchProduct(this.props.match.params.productId);
     };
@@ -40,7 +44,6 @@ class EditProductForm extends React.Component {
                 <LoadingIcon />
             )
         };
-
         return (
             <ProductForm action={action} product={product}/>
         )

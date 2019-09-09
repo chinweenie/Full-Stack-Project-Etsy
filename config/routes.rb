@@ -3,12 +3,12 @@ Rails.application.routes.draw do
 
     resources :users, only: [:create, :show, :update]   
     
-    resources :categories, only: [:show]
+    resources :categories, only: [:show, :index]
     resource :session, only: [:create, :destroy]
-    resources :products, only: [:show, :update, :destroy]
+    resources :products, only: [:show, :update, :destroy, :index]
 
-    resources :shops, only: [:show, :create, :update] do    
-      resources :products, only: [:create, :index]
+    resources :shops, only: [:show, :create, :update, :index] do    
+      resources :products, only: [:create]
     end
 
   end

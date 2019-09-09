@@ -26,3 +26,10 @@ export const fetchShop = id => (
         url: `api/shops/${id}`
     })
 );
+
+export const fetchShops = () => (
+    $.ajax({
+        method: 'GET',
+        url: `api/shops`
+    })
+);

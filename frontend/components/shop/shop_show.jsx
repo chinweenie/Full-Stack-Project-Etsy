@@ -8,18 +8,17 @@ class ShopShow extends React.Component {
         this.handleEdit = this.handleEdit.bind(this);
         this.handleStock = this.handleStock.bind(this);
         this.toProductPage = this.toProductPage.bind(this);
-        // this.editDeleteButton = this.editDeleteButton.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchShop(this.props.match.params.shopId);
-        this.props.fetchProducts(this.props.match.params.shopId);
+        this.props.fetchProducts();
     };
 
     componentDidUpdate(prevProps) {
         if (this.props.match.params.shopId !== prevProps.match.params.shopId) {
             this.props.fetchShop(this.props.match.params.shopId);
-            this.props.fetchProducts(this.props.match.params.shopId);
+            this.props.fetchProducts();
         }
     }
 
@@ -82,17 +81,21 @@ class ShopShow extends React.Component {
         
 
         const productLi = products.map(product => {
-            return (
-                <li key={product.id}>
-                    <div onClick={this.toProductPage(product.id)}>
-                        <img src={product.imageUrl} />
-                        <p className="product-title">{product.title.slice(0, 27)}...</p>
-                        <p><strong>USD {product.price}</strong></p>
-                    </div>
-                    
-                    {this.editDeleteButton(product)}
-                </li>
-            )
+
+            // if (product.shopId === shop.id){
+                return (
+                    <li key={product.id}>
+                        <div onClick={this.toProductPage(product.id)}>
+                            <img src={product.imageUrls[0]} />
+                            <p className="product-title">{product.title.slice(0, 27)}...</p>
+                            <p><strong>USD {product.price}</strong></p>
+                        </div>
+
+                        {this.editDeleteButton(product)}
+                    </li>
+                )
+            // }
+            
         });
 
         return (

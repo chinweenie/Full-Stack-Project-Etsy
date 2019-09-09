@@ -9,6 +9,7 @@ class ProductForm extends React.Component {
             imageUrls: [],
             imageFiles: [],
         }, this.props.product);
+
         
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFile = this.handleFile.bind(this);
@@ -104,7 +105,6 @@ class ProductForm extends React.Component {
             );
         });
 
-    
 
         return (
             <form onSubmit={this.handleSubmit} className="product-form">

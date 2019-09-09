@@ -31,8 +31,8 @@ export const receiveProductsErrors = errors => ({
     errors
 });
 
-export const fetchProducts = shopId => dispatch => (
-    ProductsApiUtil.fetchProducts(shopId).then(response => dispatch(receiveProducts(response)))
+export const fetchProducts = () => dispatch => (
+    ProductsApiUtil.fetchProducts().then(response => dispatch(receiveProducts(response)))
 )
 
 export const fetchProduct = (product) => dispatch => (

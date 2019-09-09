@@ -2,6 +2,7 @@ import * as ShopsApiUtil from '../util/shops_api_util';
 
 export const RECEIVE_SHOP = 'RECEIVE_SHOP';
 export const RECEIVE_SHOPS_ERRORS = 'RECEIVE_SHOPS_ERRORS';
+export const RECEIVE_SHOPS = 'RECEIVE_SHOPS';
 
 export const receiveShop = shop => ({
     type: RECEIVE_SHOP,
@@ -13,8 +14,19 @@ export const receiveShopsErrors = errors => ({
     errors
 });
 
+export const receiveShops = shops => ({
+    type: RECEIVE_SHOPS,
+    shops
+})
+
 export const fetchShop = id => dispatch => (
     ShopsApiUtil.fetchShop(id).then(shop => dispatch(receiveShop(shop)))
+);
+
+export const fetchShops = () => dispatch => (
+    ShopsApiUtil.fetchShops().then(response => (
+        dispatch(receiveShops(response))
+    ))
 );
 
 export const createShop = shop => dispatch => (

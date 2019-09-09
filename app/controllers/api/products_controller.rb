@@ -2,8 +2,7 @@ class Api::ProductsController < ApplicationController
     before_action :require_login, only: [:create, :update]
 
     def index
-        shop = Shop.find(params[:shop_id])
-        @products = shop.products
+        @products = Product.all
         render :index
     end
 

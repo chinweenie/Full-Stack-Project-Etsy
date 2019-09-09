@@ -21,6 +21,10 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+a {
+    cursor: pointer;
+}
+
 .arrow-up {
   width: 0; 
   height: 0; 
@@ -71,6 +75,7 @@ a.btn-block {
     color: white;
     text-decoration: none;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 /* Login and signup form */
@@ -220,6 +225,7 @@ a.btn-block {
     position: relative;
     width: 60px;
     margin-left: 50px;
+    cursor: pointer;
 }
 
 

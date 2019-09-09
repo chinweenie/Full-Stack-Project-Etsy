@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from "./components/root";
-import { fetchProducts } from './actions/products_actions';
+import { fetchShops } from './actions/shops_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById('root');
@@ -30,4 +30,4 @@ document.addEventListener("DOMContentLoaded", () => {
     
 });
 
-window.fetchProducts = fetchProducts;
+window.fetchShops = fetchShops;

@@ -5,7 +5,7 @@
     json.shopId product.shop_id
 
     if product.images.attached?
-        json.imageUrl url_for(product.images[0])
+      json.imageUrls product.images.map { |file| url_for(file) }
     end    
 
   end
