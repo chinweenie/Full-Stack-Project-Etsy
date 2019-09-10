@@ -69,6 +69,7 @@ class ShopForm extends React.Component {
                     
                     <div className="shop-name-input">
                         <input
+                            required
                             type="text"
                             value={this.state.name}
                             id="name"

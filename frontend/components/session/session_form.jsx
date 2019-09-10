@@ -86,6 +86,7 @@ class SessionForm extends React.Component {
                     </label>
 
                     <input
+                        required
                         type="text"
                         value={this.state.fname}
                         onChange={this.update('fname')}
@@ -115,6 +116,7 @@ class SessionForm extends React.Component {
                                 <span className="text-orange">*</span>
                             </label>
                             <input
+                                required
                                 type="email"
                                 value={this.state.email}
                                 onChange={this.update('email')}
@@ -127,6 +129,7 @@ class SessionForm extends React.Component {
                                 <span className="text-orange">*</span>
                             </label>
                             <input
+                                required
                                 type="password"
                                 value={this.state.password}
                                 onChange={this.update('password')}

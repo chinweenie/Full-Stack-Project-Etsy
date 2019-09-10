@@ -170,7 +170,7 @@ class ProductForm extends React.Component {
                             </p>
                         </div>
                         
-                        <input type="text" value={this.state.title || ''} id="title" onChange={this.update('title')} />
+                        <input required type="text" value={this.state.title || ''} id="title" onChange={this.update('title')} />
                     </div>
 
                     <div className="description">
@@ -234,7 +234,7 @@ class ProductForm extends React.Component {
                                Consider the total price buyers will pay too
                             </p>
                         </div>
-                        <input type="number" value={this.state.price || ''} id="price" onChange={this.update('price')} />
+                        <input required type="number" value={this.state.price || ''} id="price" onChange={this.update('price')} />
                     </div>
 
                     <div className="quantity">
@@ -245,7 +245,7 @@ class ProductForm extends React.Component {
                                 this listing will renew automatically until it sells out.
                             </p>
                         </div>
-                        <input type="number" value={this.state.quantity || ''} id="quantity" onChange={this.update('quantity')} />
+                        <input required type="number" value={this.state.quantity || ''} id="quantity" onChange={this.update('quantity')} />
                     </div>
                     
                 </div>

@@ -55,8 +55,7 @@ class ProductShow extends React.Component {
                         <li>
                             <label className="quantity" htmlFor="quantity">Quantity</label>
                             <br/>
-                            {/* <input type="number" value={this.state.quantity} id="quantity" min="1" max="5" required="true"/> */}
-                            <NumericInput value={this.state.quantity} id="quantity" min={1} max={product.quantity}/>
+                            <NumericInput required value={this.state.quantity} id="quantity" min={1} max={product.quantity}/>
                             <span>Only <strong>{product.quantity}</strong> in stock!</span>
                         </li>
                         <li>
