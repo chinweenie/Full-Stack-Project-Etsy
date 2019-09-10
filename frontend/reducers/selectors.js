@@ -32,3 +32,7 @@ export const currentUserHasShop = (sessionId, allUsers) => {
 export const selectAllUsers = (allUsers) => {
     return Object.keys(allUsers).map(id => allUsers[id]);
 }
+
+export const selectCurrentUser = (allUsers, sessionId) => {
+    return allUsers[sessionId];
+}

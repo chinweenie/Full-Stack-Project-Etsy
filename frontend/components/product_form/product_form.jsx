@@ -105,6 +105,35 @@ class ProductForm extends React.Component {
             );
         });
 
+        const development = (
+            <select value={this.state.categoryId || ''} id="category" onChange={this.update('categoryId')}>
+                {/* Development category id */}
+                <option disabled hidden value=''>--Select a category--</option>
+                <option value='56'>Jewelry & Accessories</option>
+                <option value='57'>Clothing & Shoes</option>
+                <option value='58'>Home & Living</option>
+                <option value='59'>Wedding & Party</option>
+                <option value='60'>Toys & Entertainment</option>
+                <option value='61'>Art & Collectibles</option>
+                <option value='62'>Craft Supplies & Tools</option>
+                <option value='63'>Vintage</option>
+            </select>
+        );
+
+        const production = (
+            <select value={this.state.categoryId || ''} id="category" onChange={this.update('categoryId')}>
+                <option disabled hidden value=''>--Select a category--</option>
+                <option value='1'>Jewelry & Accessories</option>
+                <option value='2'>Clothing & Shoes</option>
+                <option value='3'>Home & Living</option>
+                <option value='4'>Wedding & Party</option>
+                <option value='5'>Toys & Entertainment</option>
+                <option value='6'>Art & Collectibles</option>
+                <option value='7'>Craft Supplies & Tools</option>
+                <option value='8'>Vintage</option>
+            </select>
+        )
+
 
         return (
             <form onSubmit={this.handleSubmit} className="product-form">
@@ -197,29 +226,8 @@ class ProductForm extends React.Component {
                             <p>Pick a category for your item</p>
                        </div>
                         
-                        <select value={this.state.categoryId || ''} id="category" onChange={this.update('categoryId')}>
-                            {/* Development category id */}
-                            <option disabled hidden value=''>--Select a category--</option>
-                            <option value='56'>Jewelry & Accessories</option>
-                            <option value='57'>Clothing & Shoes</option>
-                            <option value='58'>Home & Living</option>
-                            <option value='59'>Wedding & Party</option>
-                            <option value='60'>Toys & Entertainment</option>
-                            <option value='61'>Art & Collectibles</option>
-                            <option value='62'>Craft Supplies & Tools</option>
-                            <option value='63'>Vintage</option>
-
-                            {/* Production category id */}
-                            {/* <option disabled hidden value=''>--Select a category--</option>
-                            <option value='1'>Jewelry & Accessories</option>
-                            <option value='2'>Clothing & Shoes</option>
-                            <option value='3'>Home & Living</option>
-                            <option value='4'>Wedding & Party</option>
-                            <option value='5'>Toys & Entertainment</option>
-                            <option value='6'>Art & Collectibles</option>
-                            <option value='7'>Craft Supplies & Tools</option>
-                            <option value='8'>Vintage</option> */}
-                        </select>
+                        {development}
+                        {/* {production} */}
                    </div>
                 </div>
                

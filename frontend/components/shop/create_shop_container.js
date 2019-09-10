@@ -6,7 +6,7 @@ import {fetchAllUsers} from'../../actions/users_actions';
 
 const mapStateToProps = state => {
     const ownerId = state.session.id;
-    const shop = { name: '', owner: {id: ownerId}, imageFile: null, imageUrl: null};
+    const shop = { name: '', owner: {id: ownerId}, imageFile: undefined, imageUrl: undefined};
     const errors = state.errors.shop;
     return {
         shop,

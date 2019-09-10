@@ -60,11 +60,6 @@ a {
   border-right:10px solid blue; 
 }
 
-
-/* Main body */
-
-
-
 a.btn-block {
     display: block;
     padding: 5px 3px;
@@ -77,6 +72,19 @@ a.btn-block {
     border-radius: 5px;
     cursor: pointer;
 }
+
+.normal-button {
+    height: 26px;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Main body */
+
+
+
+
 
 /* Login and signup form */
 #demo-login {
@@ -763,6 +771,16 @@ a.btn-block {
     color: black;
     font-weight: bold;
 }
+
+.owner-info {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    background-image: image-url("default_avatar_400x400.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
 .owner-info > img {
     border-radius: 50%;
     width: 100px;
@@ -1186,3 +1204,133 @@ a.btn-block {
     }
 }
 // Category show
+
+// Edit user profile page
+.user-profile-edit {
+
+    p {
+        color: gray;
+        font-style: italic;
+        font-size: 13px; 
+    }
+
+   div.title {
+       margin: 0 auto;
+       width: 100%;
+       text-align: center;
+   }
+
+   div.header-section {
+        display: flex;
+        flex-direction: row;
+        width: 65%;
+        margin: 0 auto;
+
+        p {
+            width: 100%
+        }
+   }
+    
+
+    .btn-block {
+        font-size: 13px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .profile-pic {
+        width: 158px;
+        height: 158px;
+        background-image: image-url("default_avatar_400x400.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        border-radius: 50%;
+
+        img {
+          width:158px;
+          height: 158px;
+          border-radius: 50%;  
+        }
+    }
+
+    form {
+        border: 1px solid lightgray;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        padding-top: 50px;
+        padding-left: 58px;
+        width: 65%;
+        margin: 0 auto;
+        padding-bottom: 50px;
+        font-size: 13px;
+
+        button.clicky {
+            margin-left: 653px;
+            margin-top: 24px;
+        }
+    }
+
+    div.section {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid lightgray;
+        width: 90%;
+        .label {
+            margin-right: 100px;
+            width: 100px;
+            font-weight: bold;
+
+            p {
+                font-weight: normal;
+            }
+        }
+
+        
+    }
+
+    input {
+        height: 30px;
+        border-radius: 5px;
+        border: 1px solid lightgray;
+        padding-left: 20px;
+    }
+
+    input[type="file"] {
+        border: none;
+    }
+
+    label {
+        margin-right: 20px;
+        margin-bottom: 5px;
+
+        
+    }
+
+    div.gender {
+            display: flex;
+            flex-direction: column;
+
+            div {
+                display: inherit;
+                align-items: center;
+
+                label {
+                    width: 50px;
+                    text-align: center;
+                    padding-top: 5px;
+                }
+
+                input {
+                    padding-bottom: 5px;
+                }
+            }
+            
+        }
+    
+    
+}
+// Edit user profile page

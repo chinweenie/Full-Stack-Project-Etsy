@@ -1,4 +1,4 @@
-json.extract! user, :id, :fname
+json.extract! user, :id, :fname, :gender, :city, :birthday, :about
 json.shopId user.shop.id if user.shop
 
 if user.profile_pic.attached?
