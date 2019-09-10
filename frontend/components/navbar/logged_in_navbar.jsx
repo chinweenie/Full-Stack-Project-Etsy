@@ -10,8 +10,8 @@ class LoggedInNavbar extends React.Component {
 
     redirectToTarget(event){
         event.preventDefault();
-        let { hasShop } = this.props;
-        const shopManagerLink = this.props.hasShop ? `/shops/${hasShop.id}` : "/shops/new";
+        let { shopId } = this.props;
+        const shopManagerLink = shopId ? `/shops/${shopId}` : "/shops/new";
         this.props.history.push(shopManagerLink);
     }
 

@@ -3,11 +3,18 @@ import {connect} from 'react-redux';
 import LoggedInNavbar from './logged_in_navbar';
 import LoggedOutNavbar from './logged_out_navbar';
 import {withRouter, Link} from 'react-router-dom'; 
+import { currentUserHasShop, selectAllUsers } from '../../reducers/selectors';
+import LoadingIcon from '../loading_icon';
 
 class Navbar extends React.Component{
+    componentDidMount(){
+        this.props.fetchAllUsers();
+    }
+    
     render() {
-        let {navbar, hasShop} = this.props;
-        const component = !navbar ? <LoggedOutNavbar/> : <LoggedInNavbar hasShop={hasShop}/>;
+
+        let {navbar, shopId} = this.props;
+        const component = !navbar ? <LoggedOutNavbar/> : <LoggedInNavbar shopId={shopId} />;
         return (
             <div className="navbar">
                 {component}
@@ -41,19 +48,24 @@ class Navbar extends React.Component{
     
 
 const mapStateToProps = state => {
-    let hasShop;
+    let shopId;
     if (state.session.id){
-        hasShop = state.entities.users[state.session.id].shop;
+        shopId = currentUserHasShop(state.session.id, state.entities.users)
     } else {
-        hasShop = null;
+        shopId = false;
     };
 
     return {
         navbar: Boolean(state.session.id),
-        hasShop
+        shopId,
+        users: selectAllUsers(state.entities.users),
     }
   
 };
 
+const mapDispatchToProps = dispatch => ({
+    fetchAllUsers: () => dispatch(fetchAllUsers())
+})
 
-export default withRouter(connect(mapStateToProps, null)(Navbar));
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Navbar));

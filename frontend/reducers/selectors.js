@@ -22,3 +22,13 @@ export const selectCategoryProducts = (allProducts, categoryId) => {
 export const selectAllShops = allShops => {
     return Object.keys(allShops).map(id => allShops[id]);
 }
+
+export const currentUserHasShop = (sessionId, allUsers) => {
+    const user = allUsers[sessionId];
+    const shopId = user.shopId
+    return shopId;
+}
+
+export const selectAllUsers = (allUsers) => {
+    return Object.keys(allUsers).map(id => allUsers[id]);
+}

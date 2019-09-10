@@ -3,6 +3,7 @@ import { updateShop, fetchShop } from '../../actions/shops_actions';
 import ShopForm from './shop_form';
 import React from 'react';
 import LoadingIcon from '../loading_icon';
+import {fetchAllUsers} from'../../actions/users_actions';
 
 const mapStateToProps = (state, ownProps) => {
     const shopId = parseInt(ownProps.match.params.shopId);
@@ -13,7 +14,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
     action: formData => dispatch(updateShop(formData)),
-    fetchShop: id => dispatch(fetchShop(id))
+    fetchShop: id => dispatch(fetchShop(id)),
+    fetchAllUsers: () => dispatch(fetchAllUsers())
 });
 
 class EditShopForm extends React.Component {
@@ -21,6 +23,7 @@ class EditShopForm extends React.Component {
         this
             .props
             .fetchShop(this.props.match.params.shopId);
+        this.props.fetchAllUsers();
     };
 
     componentDidUpdate(prevProps) {
@@ -28,6 +31,7 @@ class EditShopForm extends React.Component {
             this
                 .props
                 .fetchShop(this.props.match.params.shopId);
+                this.props.fetchAllUsers();
         }
     };
 

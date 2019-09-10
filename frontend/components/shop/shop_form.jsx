@@ -27,7 +27,8 @@ class ShopForm extends React.Component {
 
         this.props.action(formData).then(action => {
             this.props.history.push(`/shops/${action.shop.id}`)
-        })
+        }).then(() => this.props.fetchAllUsers());
+        
     }
 
     update(field) {
