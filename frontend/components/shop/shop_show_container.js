@@ -9,7 +9,6 @@ const mapStateToProps = (state, ownProps) => {
     const shop = state.entities.shops[shopId];
     const currentUserId = state.session.id;
     const products = selectShopProducts(state.entities.products, shopId);
-    debugger
     // const products = Object.keys(state.entities.products).map(id => state.entities.products[id]);
     return {
         shop,

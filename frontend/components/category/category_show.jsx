@@ -23,21 +23,20 @@ class CategoryShow extends React.Component {
         if (!category || Object.keys(shops).length === 0 || !products){
             return <LoadingIcon/>
         }
-        
-        debugger
+
         const categoryItems = products.map(product => {
             return (
-                <li key={product.id}>
+                <li key={product.id} >
                     <img src={product.imageUrls[0]} />
-                    <p>{product.title}</p>
-                    <p>{shops[product.shopId].name}</p>
-                    <p>{product.price}</p>
+                    <p>{product.title.slice(0, 35)}...</p>
+                    <p className="category-shop-name">{shops[product.shopId].name}</p>
+                    <p>USD {product.price}</p>
 
                 </li>
             )
         });
         return (
-            <div className="product-listing">
+            <div className="products-listing" id="category-show">
                 <ul>
                     {categoryItems}
                 </ul>
