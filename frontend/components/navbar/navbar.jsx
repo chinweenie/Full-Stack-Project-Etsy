@@ -13,25 +13,25 @@ class Navbar extends React.Component{
                 {component}
                 <ul className="category-ul">
                     {/* Development */}
-                    <li><Link to={`/categories/56`}>Jewelry & Accessories</Link></li>
+                    {/* <li><Link to={`/categories/56`}>Jewelry & Accessories</Link></li>
                     <li><Link to={`/categories/57`}>Clothing & Shoes</Link></li>
                     <li><Link to={`/categories/58`}>Home & Living</Link></li>
                     <li><Link to={`/categories/59`}>Wedding & Party</Link></li>
                     <li><Link to={`/categories/60`}>Toys & Entertainment</Link></li>
                     <li><Link to={`/categories/61`}>Art & Collectibles</Link></li>
                     <li><Link to={`/categories/62`}>Craft Supplies & Tools</Link></li>
-                    <li><Link to={`/categories/63`}>Vintage</Link></li>
+                    <li><Link to={`/categories/63`}>Vintage</Link></li> */}
 
                     {/*Production  */}
-                    {/* <li><Link to={`categories/${1}`}>Jewelry & Accessories</Link></li>
-                    <li><Link to={`categories/${2}`}>Clothing & Shoes</Link></li>
-                    <li><Link to={`categories/${3}`}>Home & Living</Link></li>
-                    <li><Link to={`categories/${4}`}>Wedding & Party</Link></li>
-                    <li><Link to={`categories/${5}`}>Toys & Entertainment</Link></li>
-                    <li><Link to={`categories/${6}`}>Art & Collectibles</Link></li>
-                    <li><Link to={`categories/${7}`}>Craft Supplies & Tools</Link></li>
-                    <li><Link to={`categories/${8}`}>Vintage</Link></li>
-                     */}
+                    <li><Link to={`/categories/1`}>Jewelry & Accessories</Link></li>
+                    <li><Link to={`/categories/2`}>Clothing & Shoes</Link></li>
+                    <li><Link to={`/categories/3`}>Home & Living</Link></li>
+                    <li><Link to={`/categories/4`}>Wedding & Party</Link></li>
+                    <li><Link to={`/categories/5`}>Toys & Entertainment</Link></li>
+                    <li><Link to={`/categories/6`}>Art & Collectibles</Link></li>
+                    <li><Link to={`/categories/7`}>Craft Supplies & Tools</Link></li>
+                    <li><Link to={`/categories/8`}>Vintage</Link></li>
+                    
                 </ul>
                 
             </div>
