@@ -17,16 +17,15 @@ class EditUserProfleForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFile = this.handleFile.bind(this);
         this.removeProfilePicture = this.removeProfilePicture.bind(this);
+        debugger;
     };
 
     handleSubmit(event){
         event.preventDefault();
         const formData = new FormData();
-        formData.append('user[email]', this.state.email);
         formData.append('user[fname]', this.state.fname);
         formData.append('user[id]', this.state.id);
         formData.append('user[gender]', this.state.gender);
-        formData.append('user[city]', this.state.city);
         formData.append('user[city]', this.state.city);
         formData.append('user[birthday]', this.state.birthday);
         formData.append('user[about]', this.state.about);
@@ -34,6 +33,8 @@ class EditUserProfleForm extends React.Component {
         if (this.state.imageFile){
             formData.append('user[profile_pic]', this.state.imageFile)
         };
+
+        debugger;
 
         this.props.updateUser(formData);
         this.props.fetchAllUsers();
@@ -130,7 +131,7 @@ class EditUserProfleForm extends React.Component {
                         <div className="label">
                             City
                         </div>
-                        <input type="text" value={this.state.city} onChange={this.update('birthday')} id="city" />
+                        <input type="text" value={this.state.city} onChange={this.update('city')} id="city" />
                     </div>
 
                     <div className="section">
