@@ -44,8 +44,8 @@ class Navbar extends React.Component{
         return (
             <div className="navbar">
                 {component}
-                {development}
-                {/* {production} */}
+                {/* {development} */}
+                {production}
             </div>
         );
     };
