@@ -1,13 +1,14 @@
 import React from 'react';
 import GreetingContainer from '../greeting/greeting_container';
 import {withRouter} from 'react-router-dom';
-import SearchProducts from '../search/search_products';
-
+import SearchProductsFormContainer from '../search/search_products_form_container';
+ 
 
 class LoggedInNavbar extends React.Component {
     constructor(props){
         super(props);
         this.redirectToTarget = this.redirectToTarget.bind(this);
+        this.searchPage = this.searchPage.bind(this);
     };
 
     redirectToTarget(event){
@@ -15,6 +16,11 @@ class LoggedInNavbar extends React.Component {
         let { shopId } = this.props;
         const shopManagerLink = shopId ? `/shops/${shopId}` : "/shops/new";
         this.props.history.push(shopManagerLink);
+    }
+
+    searchPage(event){
+        event.preventDefault();
+        this.props.history.push('/search');
     }
 
     render(){
@@ -25,11 +31,9 @@ class LoggedInNavbar extends React.Component {
                     <a href="/" id="logo"></a>
                 </li>
 
-                <li className="search-nav">Search
-                <span className="search-icon">
-                        <i className="fa fa-search" aria-hidden="true"></i>
-                    </span>
-                </li>
+                
+                <SearchProductsFormContainer/>
+                
 
                 <li className="notification-nav">
                     <div className="bell-icon">

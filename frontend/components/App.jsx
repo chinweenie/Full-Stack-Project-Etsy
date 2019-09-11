@@ -42,7 +42,7 @@ const App = () => (
             <Route exact path='/users/:userId' component={UserProfileShowContainer}/>
             <ProtectedRoute exact path='/users/:userId/edit' component={EditUserProfileContainer}/>
             
-            <Route exact path='/search' component={SearchProductsContainer}/>
+            <Route exact path='/search/:searchQuery' component={SearchProductsContainer}/>
         </Switch>
         
     </div>

@@ -236,24 +236,37 @@ a.btn-block {
     top: -13px;
 }
 
-.search-nav {
+.search-products-form {
     width: 795px;
+    display: flex;
+    flex-direction: row;
     height: 30px;
+    margin-top: 15px;
+    align-items: center;
+}
+
+.search-products-form > input {
+    width: 95%;
+    height: 100%;
     border: 1px solid gray;
     border-radius: 10px;
     text-align: left;
-    color: lightgray;
-    padding-top: 12px;
+    padding-top: 5px;
     padding-left: 20px;
     position: relative;
     margin-left: 50px;
-    margin-top: 15px;
+    
 }
 
-.search-icon {
-    position: absolute;
-    left: 750px;
+.search-products-form > button {
+    width: 5%;
+    height: 100%;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 5%;
 }
+
 
 // Logged in navbar
 
@@ -1398,3 +1411,11 @@ a.btn-block {
 }
 
 // User profile show page
+
+// Search products listing page
+.search-shop-name {
+    font-size: 14px;
+    color: gray;
+    font-family: "Hepta";
+}
+// Search products listing page

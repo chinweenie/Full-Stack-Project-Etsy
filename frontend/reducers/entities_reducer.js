@@ -10,7 +10,7 @@ const entitiesReducer = combineReducers({
     users: usersReducer,
     shops: shopsReducer,
     categories: categoriesReducer,
-    search: searchProductsReducer
+    searchProducts: searchProductsReducer
     // cartItems: cartItemsReducer,
     // reviews: reviewsReducer,
     // favorites: favoritesReducer
