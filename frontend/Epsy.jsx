@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from "./components/root";
-import {fetchAllUsers} from'./actions/users_actions';
+import { fetchSearchProducts } from './actions/search_products_actions';
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById('root');
@@ -30,4 +31,4 @@ document.addEventListener("DOMContentLoaded", () => {
     
 });
 
-window.fetchAllUsers = fetchAllUsers;
+window.fetchSearchProducts = fetchSearchProducts;

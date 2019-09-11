@@ -15,7 +15,7 @@ import ProductShowContainer from './product_show/product_show_container';
 import CategoryShowContainer from './category/category_show_container';
 import EditUserProfileContainer from './user/edit_user_profile_container';
 import UserProfileShowContainer from './user/user_profile_show_container';
-
+import SearchProductsContainer from './search/search_products_container';
 
 
 const App = () => (
@@ -38,11 +38,11 @@ const App = () => (
             <ProtectedRoute exact path='/products/:productId/edit' component={EditProductForm}/>
             <Route exact path='/shops/:shopId/products/:productId' component={ProductShowContainer}/>
 
-            {/* <Route exact path='/categories' component={}/> */}
             <Route exact path='/categories/:categoryId' component={CategoryShowContainer}/>
             <Route exact path='/users/:userId' component={UserProfileShowContainer}/>
             <ProtectedRoute exact path='/users/:userId/edit' component={EditUserProfileContainer}/>
             
+            <Route exact path='/search' component={SearchProductsContainer}/>
         </Switch>
         
     </div>

@@ -11,6 +11,8 @@ Rails.application.routes.draw do
       resources :products, only: [:create]
     end
 
+    resources :search_products, only: [:index]
+
   end
 
   

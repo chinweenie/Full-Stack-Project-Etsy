@@ -4,6 +4,8 @@ import LoggedInNavbar from './logged_in_navbar';
 import LoggedOutNavbar from './logged_out_navbar';
 import {withRouter, Link} from 'react-router-dom'; 
 import { currentUserHasShop, selectAllUsers } from '../../reducers/selectors';
+import { fetchAllUsers } from '../../actions/users_actions';
+
 
 class Navbar extends React.Component{
     componentDidMount(){
@@ -44,8 +46,8 @@ class Navbar extends React.Component{
         return (
             <div className="navbar">
                 {component}
-                {/* {development} */}
-                {production}
+                {development}
+                {/* {production} */}
             </div>
         );
     };

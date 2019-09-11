@@ -40,3 +40,11 @@ export const selectCurrentUser = (allUsers, sessionId) => {
 export const selectCurrentUserShop = (allShops, shopId) => {
     return allShops[shopId];
 }
+
+export const selectAllProducts = (allProducts) => {
+    return Object.keys(allProducts).map(id => allProducts[id]);
+}
+
+export const selectAllSearch = (allSearch) => {
+    return Object.keys(allSearch).map(id => allSearch[id]);
+}

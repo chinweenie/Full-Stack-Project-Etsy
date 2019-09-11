@@ -17,6 +17,14 @@ class CategoryShow extends React.Component {
         }
     }
 
+    toProductPage(product) {
+        event.preventDefault();
+        return (event) => {
+            event.preventDefault();
+            this.props.history.push(`/shops/${product.shopId}/products/${product.id}`)
+        }
+    }
+
     render(){
         let {category, shops, products} = this.props;
 
@@ -26,7 +34,7 @@ class CategoryShow extends React.Component {
 
         const categoryItems = products.map(product => {
             return (
-                <li key={product.id} >
+                <li key={product.id} onClick={this.toProductPage(product)} >
                     <img src={product.imageUrls[0]} />
                     <p>{product.title.slice(0, 35)}...</p>
                     <p className="category-shop-name">{shops[product.shopId].name}</p>

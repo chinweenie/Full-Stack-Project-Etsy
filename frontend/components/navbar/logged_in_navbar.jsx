@@ -1,6 +1,8 @@
 import React from 'react';
 import GreetingContainer from '../greeting/greeting_container';
 import {withRouter} from 'react-router-dom';
+import SearchProducts from '../search/search_products';
+
 
 class LoggedInNavbar extends React.Component {
     constructor(props){
