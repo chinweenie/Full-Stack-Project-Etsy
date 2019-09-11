@@ -28,7 +28,7 @@ class UserProfileShow extends React.Component {
                     </div>
                     <div className="enter-shop">
                         <span className="profile-shop-name">{shop.name}</span>
-                        <Link to={`shops/${shop.id}`} className="btn-block">Visit shop</Link>
+                        <Link to={`/shops/${shop.id}`} className="btn-block">Visit shop</Link>
                     </div>
                 </div>
             )
