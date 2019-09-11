@@ -13,7 +13,6 @@
  *= require_tree .
  *= require_self
  */
-
 @import "font-awesome";
 
 /* Main body */
@@ -26,43 +25,43 @@ a {
 }
 
 .arrow-up {
-  width: 0; 
-  height: 0; 
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 10px solid rgb(245, 241, 241);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid rgb(245, 241, 241);
 }
 
 .arrow-down {
-  width: 0; 
-  height: 0; 
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  
-  border-top: 20px solid #f00;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+
+    border-top: 20px solid #f00;
 }
 
 .arrow-right {
-  width: 0; 
-  height: 0; 
-  border-top: 60px solid transparent;
-  border-bottom: 60px solid transparent;
-  
-  border-left: 60px solid green;
+    width: 0;
+    height: 0;
+    border-top: 60px solid transparent;
+    border-bottom: 60px solid transparent;
+
+    border-left: 60px solid green;
 }
 
 .arrow-left {
-  width: 0; 
-  height: 0; 
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent; 
-  
-  border-right:10px solid blue; 
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+
+    border-right: 10px solid blue;
 }
 
 a.btn-block {
     display: block;
-    padding: 5px 3px;
+    padding: 10px;
     background: black;
     text-align: center;
     height: 20px;
@@ -81,10 +80,6 @@ a.btn-block {
 }
 
 /* Main body */
-
-
-
-
 
 /* Login and signup form */
 #demo-login {
@@ -127,7 +122,7 @@ a.btn-block {
     font-weight: 560;
 }
 
-.login-header  h1 {
+.login-header h1 {
     margin-top: 0;
     font-size: 20px;
     font-weight: bold;
@@ -149,7 +144,6 @@ a.btn-block {
     color: orangered;
 }
 /* Login and signup form */
-
 
 /* Button 3d effect */
 .clicky {
@@ -177,7 +171,6 @@ a.btn-block {
 
 }
 /* Button 3d effect */
-
 
 /* Modal */
 .modal-background {
@@ -216,16 +209,13 @@ a.btn-block {
     align-content: center;
 }
 
-
-.navbar-ul  li {
+.navbar-ul li {
     list-style: none;
     display: inline-block;
-    
+
     font-size: 12px;
     color: #595959;
 }
-
-
 
 .logo-nav {
     margin-right: 25px;
@@ -235,7 +225,6 @@ a.btn-block {
     margin-left: 50px;
     cursor: pointer;
 }
-
 
 #logo {
     background-image: image-url("logo.png");
@@ -271,7 +260,7 @@ a.btn-block {
 .notification-nav {
     position: relative;
     padding-right: 25px;
-    border-right: 1px solid  rgba(34, 34, 34, 0.15);
+    border-right: 1px solid rgba(34, 34, 34, 0.15);
     height: 40px;
     padding-top: 25px;
     margin-left: 30px;
@@ -288,9 +277,8 @@ a.btn-block {
     position: absolute;
     left: 21px;
     bottom: 42px;
-    font-size: 20px
+    font-size: 20px;
 }
-
 
 .shop-nav {
     position: relative;
@@ -315,18 +303,15 @@ a.btn-block {
     left: 25px;
 }
 
-
 .dropdown {
     position: relative;
     display: inline-block;
-    
-}
 
+}
 .dropdown:hover .dropdown-menu {
     display: block;
     z-index: 1;
 }
-
 
 .dropdown-btn {
     background: white;
@@ -356,15 +341,14 @@ a.btn-block {
     right: -52px;
 }
 
-.dropdown-menu  a {
+.dropdown-menu a {
     text-decoration: none;
     display: block;
     padding-bottom: 10px;
     color: inherit;
     padding-top: 10px;
 }
-
-.dropdown-menu  a:hover {
+.dropdown-menu a:hover {
     background: lightgray;
 }
 
@@ -382,13 +366,12 @@ a.btn-block {
     border-radius: 5px;
 }
 
-.fa-caret-right{
+.fa-caret-right {
     margin-left: 5px;
 }
 
-
-#profile-pic{
-    margin-left: 10px;    
+#profile-pic {
+    margin-left: 10px;
     background-image: image-url("default_avatar_400x400.png");
     width: 50px;
     height: 50px;
@@ -464,7 +447,7 @@ a.btn-block {
     margin-left: 10px;
 }
 
-.logged-out-navbar-ul .sell-on-epsy{
+.logged-out-navbar-ul .sell-on-epsy {
     margin-left: 30px;
     text-align: center;
     padding-top: 35px;
@@ -484,7 +467,7 @@ a.btn-block {
     color: inherit;
 }
 
-.login-signup > span{
+.login-signup > span {
     margin-left: 20px;
 }
 
@@ -568,7 +551,7 @@ a.btn-block {
     margin-top: 50px;
 }
 
-.shop-name  p {
+.shop-name p {
     font-size: 12px;
     font-weight: normal;
 }
@@ -578,7 +561,7 @@ a.btn-block {
     border-radius: 5px;
     border: 1px solid lightgray;
     width: 500px;
-    margin: 10px 50px 10px 50px;
+    margin: 10px 50px;
     padding-left: 20px;
 }
 
@@ -586,7 +569,7 @@ a.btn-block {
     border: 1px solid lightgray;
     border-radius: 5px;
     margin: 0 auto;
-    padding: 0 0;
+    padding: 0;
     width: 1200px;
     color: gray;
 }
@@ -609,7 +592,7 @@ a.btn-block {
 .image-preview {
     width: 200px;
     background: gray;
-    margin: 0 auto 30px auto;
+    margin: 0 auto 30px;
     height: 200px;
     border-radius: 50%;
 }
@@ -621,7 +604,7 @@ a.btn-block {
 }
 
 .shop-image-upload > input {
-    margin: 0 auto 30px auto;
+    margin: 0 auto 30px;
 }
 
 #save-shop {
@@ -642,71 +625,71 @@ a.btn-block {
 
 // Loading icon
 .loader,
-.loader:before,
-.loader:after {
-  border-radius: 50%;
+.loader:after,
+.loader:before {
+    border-radius: 50%;
 }
 .loader {
-  color: orange;
-  font-size: 11px;
-  text-indent: -99999em;
-  margin: 55px auto;
-  position: relative;
-  width: 10em;
-  height: 10em;
-  box-shadow: inset 0 0 0 1em;
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0);
+    color: orange;
+    font-size: 11px;
+    text-indent: -99999em;
+    margin: 55px auto;
+    position: relative;
+    width: 10em;
+    height: 10em;
+    box-shadow: inset 0 0 0 1em;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
 }
-.loader:before,
-.loader:after {
-  position: absolute;
-  content: '';
+.loader:after,
+.loader:before {
+    position: absolute;
+    content: '';
 }
 .loader:before {
-  width: 5.2em;
-  height: 10.2em;
-  background: white;
-  border-radius: 10.2em 0 0 10.2em;
-  top: -0.1em;
-  left: -0.1em;
-  -webkit-transform-origin: 5.2em 5.1em;
-  transform-origin: 5.2em 5.1em;
-  -webkit-animation: load2 2s infinite ease 1.5s;
-  animation: load2 2s infinite ease 1.5s;
+    width: 5.2em;
+    height: 10.2em;
+    background: white;
+    border-radius: 10.2em 0 0 10.2em;
+    top: -0.1em;
+    left: -0.1em;
+    -webkit-transform-origin: 5.2em 5.1em;
+    transform-origin: 5.2em 5.1em;
+    -webkit-animation: load2 2s infinite ease 1.5s;
+    animation: load2 2s infinite ease 1.5s;
 }
 .loader:after {
-  width: 5.2em;
-  height: 10.2em;
-  background: white;
-  border-radius: 0 10.2em 10.2em 0;
-  top: -0.1em;
-  left: 5.1em;
-  -webkit-transform-origin: 0px 5.1em;
-  transform-origin: 0px 5.1em;
-  -webkit-animation: load2 2s infinite ease;
-  animation: load2 2s infinite ease;
+    width: 5.2em;
+    height: 10.2em;
+    background: white;
+    border-radius: 0 10.2em 10.2em 0;
+    top: -0.1em;
+    left: 5.1em;
+    -webkit-transform-origin: 0 5.1em;
+    transform-origin: 0 5.1em;
+    -webkit-animation: load2 2s infinite ease;
+    animation: load2 2s infinite ease;
 }
 @-webkit-keyframes load2 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
 }
 @keyframes load2 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
 }
 // Loading icon
 
@@ -751,8 +734,6 @@ a.btn-block {
     padding: 5px 15px;
     margin-top: 100px;
 }
-
-
 
 .fa-heart-o {
     margin-right: 10px;
@@ -844,7 +825,7 @@ a.btn-block {
                 height: 17px;
                 width: 56px;
                 font-size: 12px;
-                margin: 5px 5px;
+                margin: 5px;
             }
 
             button {
@@ -854,7 +835,7 @@ a.btn-block {
                 height: 41px;
                 width: 113px;
                 font-size: 12px;
-                margin: 5px 5px;
+                margin: 5px;
             }
         }
     }
@@ -864,7 +845,7 @@ a.btn-block {
 
 // Product form
 .product-form {
-    background:#FAF9F5;
+    background: #FAF9F5;
     padding-top: 20px;
 }
 
@@ -877,7 +858,6 @@ a.btn-block {
     padding: 5px 20px;
     margin-bottom: 30px;
 }
-
 
 .product-images > ul {
     display: flex;
@@ -892,7 +872,7 @@ a.btn-block {
     font-size: 12px;
     color: gray;
     width: 200px;
-    padding-left: 0;   
+    padding-left: 0;
 }
 
 .product-images .explanation > ul {
@@ -901,15 +881,13 @@ a.btn-block {
     list-style: disc;
 }
 
-
-
 .product-images > ul > li {
     background-size: fill;
     background-repeat: no-repeat;
     width: 150px;
     height: 150px;
     border-radius: 5px;
-    
+
 }
 
 .product-images > ul > li > img {
@@ -917,8 +895,6 @@ a.btn-block {
     height: 150px;
     border-radius: 5px;
 }
-
-
 
 .first-preview {
     background-image: image-url('placeholder-1.svg');
@@ -936,7 +912,6 @@ a.btn-block {
 .fifth-preview {
     background-image: image-url('placeholder-5.svg');
 }
-
 
 .images-input-button {
     width: 50%;
@@ -967,7 +942,6 @@ a.btn-block {
     font-size: 14px;
     margin-top: 10px;
 }
-
 
 .listing-details > div {
     display: flex;
@@ -1109,7 +1083,6 @@ a.btn-block {
     font-size: 12px;
 }
 
-
 .product-show .product-info input {
     border-radius: 5px;
     height: 36px;
@@ -1149,7 +1122,6 @@ a.btn-block {
     transition: 0.3s;
     margin: auto 10px;
 }
-
 .slide-arrow:hover {
     opacity: 1;
 }
@@ -1188,19 +1160,18 @@ a.btn-block {
     .category-shop-name {
         color: gray;
     }
-    
+
     ul {
         li {
             img {
                 opacity: 1;
-	            -webkit-transition: .3s ease-in-out;
-	            transition: .3s ease-in-out;
+                -webkit-transition: 0.3s ease-in-out;
+                transition: 0.3s ease-in-out;
             }
         }
     }
-
     li:hover img {
-        opacity: .5;
+        opacity: 0.5;
     }
 }
 // Category show
@@ -1211,26 +1182,25 @@ a.btn-block {
     p {
         color: gray;
         font-style: italic;
-        font-size: 13px; 
+        font-size: 13px;
     }
 
-   div.title {
-       margin: 0 auto;
-       width: 100%;
-       text-align: center;
-   }
+    div.title {
+        margin: 0 auto;
+        width: 100%;
+        text-align: center;
+    }
 
-   div.header-section {
+    div.header-section {
         display: flex;
         flex-direction: row;
         width: 65%;
         margin: 0 auto;
 
         p {
-            width: 100%
+            width: 100%;
         }
-   }
-    
+    }
 
     .btn-block {
         font-size: 13px;
@@ -1248,9 +1218,9 @@ a.btn-block {
         border-radius: 50%;
 
         img {
-          width:158px;
-          height: 158px;
-          border-radius: 50%;  
+            width: 158px;
+            height: 158px;
+            border-radius: 50%;
         }
     }
 
@@ -1289,7 +1259,6 @@ a.btn-block {
             }
         }
 
-        
     }
 
     input {
@@ -1307,30 +1276,125 @@ a.btn-block {
         margin-right: 20px;
         margin-bottom: 5px;
 
-        
     }
 
     div.gender {
-            display: flex;
-            flex-direction: column;
+        display: flex;
+        flex-direction: column;
 
-            div {
-                display: inherit;
-                align-items: center;
+        div {
+            display: inherit;
+            align-items: center;
 
-                label {
-                    width: 50px;
-                    text-align: center;
-                    padding-top: 5px;
-                }
-
-                input {
-                    padding-bottom: 5px;
-                }
+            label {
+                width: 50px;
+                text-align: center;
+                padding-top: 5px;
             }
-            
+
+            input {
+                padding-bottom: 5px;
+            }
         }
-    
-    
+
+    }
+
 }
 // Edit user profile page
+
+// User profile show page
+.user-profile-show {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 70px auto;
+
+    div.shop-section {
+        flex-direction: column;
+
+        div {
+            display: flex;
+            flex-direction: row;
+        }
+
+        div.enter-shop {
+            flex-direction: column;
+            margin-left: 10px;
+            text-align: center;
+            color: gray;
+        }
+    }
+}
+
+.user-info {
+    width: 75%;
+    margin: 0 auto;
+}
+
+#default-shop-logo {
+    background-image: image-url('store.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+}
+
+.user-info > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    div {
+        display: flex;
+
+        img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            margin-right: 45px;
+            background-image: image-url("default_avatar_400x400.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+
+        }
+
+        div {
+            flex-direction: column;
+            height: 124px;
+
+            .fa-pencil {
+                margin-right: 10px;
+            }
+        }
+
+    }
+
+}
+
+.favorite-lists-navbar {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+}
+
+.favorite-lists-navbar > ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding-left: 100px;
+}
+
+.favorite-lists-navbar > ul > li {
+    margin-right: 50px;
+    
+}
+
+.favorite-lists-navbar > ul > li > a {
+    text-decoration: none;
+    color: gray;
+}
+
+// User profile show page

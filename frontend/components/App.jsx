@@ -14,6 +14,7 @@ import EditProductForm from './product_form/edit_product_container';
 import ProductShowContainer from './product_show/product_show_container';
 import CategoryShowContainer from './category/category_show_container';
 import EditUserProfileContainer from './user/edit_user_profile_container';
+import UserProfileShowContainer from './user/user_profile_show_container';
 
 
 
@@ -39,7 +40,7 @@ const App = () => (
 
             {/* <Route exact path='/categories' component={}/> */}
             <Route exact path='/categories/:categoryId' component={CategoryShowContainer}/>
-
+            <Route exact path='/users/:userId' component={UserProfileShowContainer}/>
             <ProtectedRoute exact path='/users/:userId/edit' component={EditUserProfileContainer}/>
             
         </Switch>

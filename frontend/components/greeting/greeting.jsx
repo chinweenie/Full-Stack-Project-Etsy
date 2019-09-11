@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link, withRouter} from 'react-router-dom';
 
 const Greeting = ({currentUser, logout, openModal}) => {
 
@@ -32,7 +33,7 @@ const Greeting = ({currentUser, logout, openModal}) => {
                 {/* <div className="arrow-up" id="navbar-arrow"></div> */}
                
                 <div className="dropdown-header">
-                    <a href="#">
+                    <Link to={`/users/${currentUser.id}`}>
                         <span className="view-profile">
                             View profile
                             <i className="fa fa-caret-right" aria-hidden="true"></i>
@@ -41,7 +42,7 @@ const Greeting = ({currentUser, logout, openModal}) => {
                         <div id="profile-pic">
                             <img src={currentUser.imageUrl}/>
                         </div>
-                    </a>
+                    </Link>
                     
                 </div>
                 <div className="dropdown-content">
@@ -60,4 +61,4 @@ const Greeting = ({currentUser, logout, openModal}) => {
         : sessionLinks());
 };
 
-export default Greeting;
+export default withRouter(Greeting);

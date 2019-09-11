@@ -36,3 +36,7 @@ export const selectAllUsers = (allUsers) => {
 export const selectCurrentUser = (allUsers, sessionId) => {
     return allUsers[sessionId];
 }
+
+export const selectCurrentUserShop = (allShops, shopId) => {
+    return allShops[shopId];
+}

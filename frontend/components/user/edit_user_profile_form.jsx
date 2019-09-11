@@ -17,7 +17,6 @@ class EditUserProfleForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFile = this.handleFile.bind(this);
         this.removeProfilePicture = this.removeProfilePicture.bind(this);
-        debugger;
     };
 
     handleSubmit(event){
@@ -34,7 +33,6 @@ class EditUserProfleForm extends React.Component {
             formData.append('user[profile_pic]', this.state.imageFile)
         };
 
-        debugger;
 
         this.props.updateUser(formData);
         this.props.fetchAllUsers();
