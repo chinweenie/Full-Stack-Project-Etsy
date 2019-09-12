@@ -9,11 +9,7 @@ const LoggedOutNavbar = (props) => {
                 <a href="/" id="logo"></a>
             </li>
 
-            <li className="search-nav">Search
-                <span className="search-icon">
-                    <i className="fa fa-search" aria-hidden="true"></i>
-                </span>
-            </li>
+            <SearchProductsFormContainer />
 
             <li className="sell-on-epsy">
                 Sell on Epsy
