@@ -4,6 +4,7 @@ export const RECEIVE_CART_ITEMS = 'RECEIVE_CART_ITEMS';
 export const REMOVE_CART_ITEM = 'REMOVE_CART_ITEM';
 export const RECEIVE_SUCCESS_MESSAGE = 'RECEIVE_SUCCESS_MESSAGE';
 export const RECEIVE_ITEM_ERRORS = 'RECEIVE_ITEM_ERRORS';
+export const REMOVE_CART_ITEM = 'REMOVE_CART_ITEM';
 
 export const receiveCartItems = cartItems => ({
     type: RECEIVE_CART_ITEMS,
@@ -18,6 +19,11 @@ export const receiveSuccessMessage = (message) => ({
 export const receiveItemErrors = errors => ({
     type: RECEIVE_ITEM_ERRORS,
     errors
+})
+
+export const deleteCartItem = cartItemId => ({
+    type: REMOVE_CART_ITEM,
+    cartItemId
 })
 
 export const fetchCartItems = () => dispatch => (
@@ -46,7 +52,9 @@ export const updateCartItem = cartItem => dispatch => (
 );
 
 export const removeCartItem = cartItemId => dispatch => (
-    CartItemsApiUtil.removeCartItem(cartItemId).then(message => (
+    CartItemsApiUtil.removeCartItem(cartItemId)
+    .then(() => dispatch(deleteCartItem(cartItemId)))
+    .then(message => (
         dispatch(receiveSuccessMessage(message))
     ), err => (
         dispatch(receiveItemErrors(err.responseJSON))
