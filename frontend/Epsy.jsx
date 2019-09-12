@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from "./components/root";
-import { fetchSearchProducts } from './actions/search_products_actions';
+import { fetchCartItems, addToCart } from './actions/cart_items_actions';
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -31,4 +31,5 @@ document.addEventListener("DOMContentLoaded", () => {
     
 });
 
-window.fetchSearchProducts = fetchSearchProducts;
+window.fetchCartItems = fetchCartItems;
+window.addToCart = addToCart;

@@ -10,4 +10,9 @@
 #
 
 class CartItem < ApplicationRecord
+    validates :product_id, :quantity, presence: true 
+    validates :product_id, :quantity, numericality: true
+    validates :quantity, numericality: {greater_than_or_equal_to: 0}
+
+    belongs_to :product
 end

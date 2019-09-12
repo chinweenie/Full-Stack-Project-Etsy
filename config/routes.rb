@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     end
 
     resources :search_products, only: [:index]
-
+    resources :cart_items, only: [:index, :create, :update, :destroy]
   end
 
   
