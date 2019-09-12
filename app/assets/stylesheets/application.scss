@@ -766,19 +766,13 @@ a.btn-block {
     font-weight: bold;
 }
 
-.owner-info {
+#owner-info-image {
     border-radius: 50%;
     width: 100px;
     height: 100px;
     background-image: image-url("default_avatar_400x400.png");
     background-size: contain;
     background-repeat: no-repeat;
-}
-
-.owner-info > img {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
 }
 
 .shop-owner-name {

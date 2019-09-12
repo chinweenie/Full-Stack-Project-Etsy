@@ -69,7 +69,7 @@ class ProductShow extends React.Component {
                     </div>
                     <div className="owner-info">
                         <p>Meet {shop.owner.fname}</p>
-                        <img src={shop.profilePicUrl} />
+                        <img id="owner-info-image" src={shop.profilePicUrl} />
                         <div className="shop-owner-name">{shop.owner.fname}</div>
                         <div className="shop-owner-email">
                             <i className="fa fa-envelope-o" aria-hidden="true"></i>
