@@ -18,6 +18,7 @@ class User < ApplicationRecord
     after_initialize :ensure_session_token
 
     has_many :favorites
+    has_many :cart_items
     has_one :shop,
     class_name: :Shop,
     primary_key: :id,

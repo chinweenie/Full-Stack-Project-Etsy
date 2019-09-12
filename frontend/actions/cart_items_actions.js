@@ -2,18 +2,17 @@ import * as CartItemsApiUtil from '../util/cart_items_api_util';
 
 export const RECEIVE_CART_ITEMS = 'RECEIVE_CART_ITEMS';
 export const REMOVE_CART_ITEM = 'REMOVE_CART_ITEM';
-export const RECEIVE_SUCCESS_MESSAGE = 'RECEIVE_SUCCESS_MESSAGE';
+export const RECEIVE_CART_ITEM = 'RECEIVE_CART_ITEM';
 export const RECEIVE_ITEM_ERRORS = 'RECEIVE_ITEM_ERRORS';
-export const REMOVE_CART_ITEM = 'REMOVE_CART_ITEM';
 
 export const receiveCartItems = cartItems => ({
     type: RECEIVE_CART_ITEMS,
     cartItems
 });
 
-export const receiveSuccessMessage = (message) => ({
-    type: RECEIVE_SUCCESS_MESSAGE,
-    message
+export const receiveCartItem = (cartItem) => ({
+    type: RECEIVE_CART_ITEM,
+    cartItem
 });
 
 export const receiveItemErrors = errors => ({
@@ -34,18 +33,17 @@ export const fetchCartItems = () => dispatch => (
     ))
 );
 
-export const addToCart = cartItem => dispatch => (
-    CartItemsApiUtil.addToCart(cartItem).then(message => {
-            debugger
-            return dispatch(receiveSuccessMessage(message))
+export const addToCart = cartItem => dispatch => {
+    return CartItemsApiUtil.addToCart(cartItem).then(cartItem => {
+            return dispatch(receiveCartItem(cartItem))
         }, err => (
         dispatch(receiveItemErrors(err.responseJSON))
     ))
-);
+        };
 
 export const updateCartItem = cartItem => dispatch => (
-    CartItemsApiUtil.updateCartItem(cartItem).then(message => (
-        dispatch(receiveSuccessMessage(message))
+    CartItemsApiUtil.updateCartItem(cartItem).then(cartItem => (
+        dispatch(receiveCartItem(cartItem))
     ), err => (
         dispatch(receiveItemErrors(err.responseJSON))
     ))
@@ -53,10 +51,9 @@ export const updateCartItem = cartItem => dispatch => (
 
 export const removeCartItem = cartItemId => dispatch => (
     CartItemsApiUtil.removeCartItem(cartItemId)
-    .then(() => dispatch(deleteCartItem(cartItemId)))
-    .then(message => (
-        dispatch(receiveSuccessMessage(message))
-    ), err => (
+    .then(() => dispatch(deleteCartItem(cartItemId))
+    , err => (
         dispatch(receiveItemErrors(err.responseJSON))
     ))
+
 );

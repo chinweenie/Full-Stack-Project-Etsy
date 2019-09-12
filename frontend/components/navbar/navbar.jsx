@@ -5,11 +5,13 @@ import LoggedOutNavbar from './logged_out_navbar';
 import {withRouter, Link} from 'react-router-dom'; 
 import { currentUserHasShop, selectAllUsers } from '../../reducers/selectors';
 import { fetchAllUsers } from '../../actions/users_actions';
+import { fetchCartItems } from '../../actions/cart_items_actions';
 
 
 class Navbar extends React.Component{
     componentDidMount(){
         this.props.fetchAllUsers();
+        // this.props.fetchCartItems();
     }
     
     render() {
@@ -71,7 +73,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    fetchAllUsers: () => dispatch(fetchAllUsers())
+    fetchAllUsers: () => dispatch(fetchAllUsers()),
+    fetchCartItems: () => dispatch(fetchCartItems())
 })
 
 

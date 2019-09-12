@@ -16,6 +16,7 @@ import CategoryShowContainer from './category/category_show_container';
 import EditUserProfileContainer from './user/edit_user_profile_container';
 import UserProfileShowContainer from './user/user_profile_show_container';
 import SearchProductsContainer from './search/search_products_container';
+import CartItemsContainer from './cart/cart_items_container';
 
 
 const App = () => (
@@ -43,6 +44,9 @@ const App = () => (
             <ProtectedRoute exact path='/users/:userId/edit' component={EditUserProfileContainer}/>
             
             <Route exact path='/search/:searchQuery' component={SearchProductsContainer}/>
+
+            <ProtectedRoute exact path='/cartItems' component={CartItemsContainer}/>
+            
         </Switch>
         
     </div>

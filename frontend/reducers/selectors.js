@@ -48,3 +48,7 @@ export const selectAllProducts = (allProducts) => {
 export const selectAllSearch = (allSearch) => {
     return Object.keys(allSearch).map(id => allSearch[id]);
 }
+
+export const selectAllCartItems = (allCartItems) => {
+    return Object.keys(allCartItems).map(id => allCartItems[id]);
+}

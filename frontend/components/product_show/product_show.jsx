@@ -7,8 +7,14 @@ import NumericInput from 'react-numeric-input';
 class ProductShow extends React.Component {
     constructor(props){
         super(props);
-        this.state = {quantity: 1};
+        this.state = {
+            product_id: this.props.match.params.productId,
+            quantity: 0, 
+        };
+
         this.handleEdit = this.handleEdit.bind(this);
+        this.handleAddToCart = this.handleAddToCart.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     componentDidMount() {
@@ -28,16 +34,26 @@ class ProductShow extends React.Component {
         this.props.history.push(`/products/${this.props.product.id}/edit`);
     }
 
-    // handleAddToCart
+    handleAddToCart(event){
+        event.preventDefault();
+        this.props.addToCart(this.state);
+        this.props.history.push('/cartItems');
+    }
+
+    handleChange(event){
+        // event.preventDefault();
+        this.setState({quantity: event});
+    }
 
     render(){
-        let {product, shop} = this.props;  
+        let {product, shop, currentUserId} = this.props;  
         if (!product || !shop){
             return (
                 <LoadingIcon/>
             )
         }
         
+        const addToCartButton = currentUserId === product.ownerId ? '' : <button className="clicky" onClick={this.handleAddToCart}>Add to cart</button>;
         return (
             <div className="product-show">
                 <div className="carousel">
@@ -55,11 +71,11 @@ class ProductShow extends React.Component {
                         <li>
                             <label className="quantity" htmlFor="quantity">Quantity</label>
                             <br/>
-                            <NumericInput required value={this.state.quantity} id="quantity" min={1} max={product.quantity}/>
+                            <NumericInput required value={this.state.quantity} id="quantity" min={1} max={product.quantity} onChange={this.handleChange}/>
                             <span>Only <strong>{product.quantity}</strong> in stock!</span>
                         </li>
                         <li>
-                            <a className="add-to-cart" href="#">Add to cart</a>
+                            {addToCartButton}
                         </li>
                         
                     </ul>
