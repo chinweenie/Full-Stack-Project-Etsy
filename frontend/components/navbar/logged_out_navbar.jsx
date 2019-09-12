@@ -1,5 +1,6 @@
 import React from 'react';
 import GreetingContainer from '../greeting/greeting_container';
+import SearchProductsFormContainer from '../search/search_products_form_container';
 
 const LoggedOutNavbar = (props) => {
     return (
