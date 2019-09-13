@@ -1577,3 +1577,152 @@ div.cart-shop-logo {
     margin-top: 20px;
 }
 // Cart items page
+
+// Homepage
+.homepage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.homepage > h1 {
+    font-family: "Hepta";
+    font-weight: normal;
+}
+
+.homepage > div.homepage-banner {
+    background-image: image-url('jewelry_ep_1680x280.4.jpg');
+    height: 280.4px;
+    width: 1680px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.homepage > div.homepage-banner > h1 {
+    font-weight: normal;
+    font-family: "Hepta";
+    margin-right: 587px;
+    font-size: 50px;
+    width: 569px;
+}
+.homepage > div.homepage-banner > button {
+    background: white;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 12px 17px;
+    margin-right: 970px;
+    margin-bottom: 20px;
+}
+
+.homepage > div.middle-banner {
+    width: 100%;
+}
+
+.homepage > div.middle-banner > ul.middle-banner-list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    padding: 0;
+}
+
+.fa-check {
+    color: #E55400;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.homepage > div.middle-banner > ul.middle-banner-list > li {
+    font-weight: normal;
+    font-family: "Hepta";
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 300px;
+}
+
+.homepage > div.middle-banner > ul.middle-banner-list > li > h3 {
+    font-weight: normal;
+    font-family: "Hepta";
+    margin-bottom: 0;
+}
+
+.bottom-banner {
+    font-family: "Hepta";
+}
+
+.bottom-banner  h4 {
+    font-weight: normal;
+    margin: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.bottom-banner > ul.category-images-ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.bottom-banner > ul.category-images-ul > li {
+    margin-right: 15px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#wedding-gifts {
+    background-image: image-url('wedding_gifts.jpg');
+    width: 200px;
+    height: 180px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#her-gifts {
+    background-image: image-url('her_gifts.jpg');
+    width: 200px;
+    height: 180px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#housewarming {
+    background-image: image-url('housewarming.jpg');
+    width: 200px;
+    height: 180px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#vintage-goodies {
+    background-image: image-url('vintage.jpg');
+    width: 200px;
+    height: 180px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#artsy-crafts {
+    background-image: image-url('artsy.jpg');
+    width: 200px;
+    height: 180px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#handmade-clothing {
+    background-image: image-url('clothing.jpg');
+    width: 200px;
+    height: 180px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+// Homepage

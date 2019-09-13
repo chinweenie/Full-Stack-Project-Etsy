@@ -17,6 +17,8 @@ import EditUserProfileContainer from './user/edit_user_profile_container';
 import UserProfileShowContainer from './user/user_profile_show_container';
 import SearchProductsContainer from './search/search_products_container';
 import CartItemsContainer from './cart/cart_items_container';
+import HomePageContainer from './homepage/homepage_container';
+
 
 
 const App = () => (
@@ -28,7 +30,7 @@ const App = () => (
 
         {/* Route declaration */}
         <Switch>
-            {/* <Route path='/' component={HomePageContainer}/> */}
+            <Route exact path='/' component={HomePageContainer}/>
             <AuthRoute path='/signup' component={SignupFormContainer} />
             <AuthRoute path='/login' component={LoginFormContainer} />
 

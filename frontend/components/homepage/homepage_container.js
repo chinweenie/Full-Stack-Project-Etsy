@@ -4,11 +4,12 @@ import { fetchCategories } from '../../actions/categories_actions';
 import { fetchProducts } from '../../actions/products_actions';
 import { fetchShops } from '../../actions/shops_actions';
 import { fetchAllUsers } from '../../actions/users_actions';
+import HomePage from './homepage';
 
-const mapStateToProps = state => ({
+// const mapStateToProps = state => ({
     
 
-});
+// });
 
 const mapDispatchToProps = dispatch => ({
     fetchCartItems: () => dispatch(fetchCartItems()),
@@ -18,4 +19,4 @@ const mapDispatchToProps = dispatch => ({
     fetchAllUsers: () => dispatch(fetchAllUsers())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+export default connect(null, mapDispatchToProps)(HomePage);
