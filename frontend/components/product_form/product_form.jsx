@@ -232,8 +232,8 @@ class ProductForm extends React.Component {
                             <p>Pick a category for your item</p>
                        </div>
                         
-                        {development}
-                        {/* {production} */}
+                        {/* {development} */}
+                        {production}
                    </div>
                 </div>
                
