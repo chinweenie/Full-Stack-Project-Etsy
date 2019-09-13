@@ -14,6 +14,7 @@ class EditUserProfleForm extends React.Component {
             imageUrl: undefined,
             imageFile: undefined
         }, this.props.user);
+        
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFile = this.handleFile.bind(this);
         this.removeProfilePicture = this.removeProfilePicture.bind(this);
@@ -40,17 +41,20 @@ class EditUserProfleForm extends React.Component {
     }
 
     handleFile(event){
+        debugger
         const file = event.currentTarget.files[0];
         const fileReader = new FileReader();
         fileReader.onloadend = () => {
+            debugger
             this.setState({
                 imageFile: file,
                 imageUrl: fileReader.result
             })
-            if (file){
-                fileReader.readAsDataURL(file);
-            }
+            
         };
+        if (file) {
+            fileReader.readAsDataURL(file);
+        }
     };
 
     update(field){
@@ -65,7 +69,8 @@ class EditUserProfleForm extends React.Component {
     }
     
     render(){
-        const preview = this.state.imageUrl ? <img src={this.state.imageUrl}/> : null;
+        debugger
+        const preview = this.state.imageUrl ? <img src={this.state.imageUrl}/> : '';
         let {user} = this.props
         return (
             <div className="user-profile-edit">
