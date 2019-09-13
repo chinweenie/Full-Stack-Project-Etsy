@@ -34,7 +34,56 @@ bundle exec rails s
 npm run webpack
 ```
 <h2>Technical details</h2>
+The navbar shows different button when a user is logged in. The implementation of this involves a check on whether there is a
+session id.
 
+```javascript
+const mapStateToProps = state => {
+    let shopId;
+    if (state.session.id){
+        shopId = currentUserHasShop(state.session.id, state.entities.users)
+    } else {
+        shopId = false;
+    };
+
+    return {
+        navbar: Boolean(state.session.id),
+        shopId,
+        users: selectAllUsers(state.entities.users),
+    }
+  
+};
+```
+
+Another important feature is the edit and stock item buttons on the 
+shop show page. If the current user is the owner of the shop,
+those buttons will show up, else, other users who visit the shop
+will not be able to see those buttons.
+
+```javascript
+  let stockItemButton;
+    if ( currentUserId === shop.owner.id ){
+        stockItemButton = (
+            <div className="stock-edit-button">
+                <button className="clickystock-your-shop-button" onClick{this.handleStock}>
+                    Stock your shop
+                </button>
+                <button className="clickyedit-your-shop-button" onClick={this.handleEdit}>
+                    Edit your shop
+                </button>
+            </div>
+            
+        );
+    } else {
+        stockItemButton = '';
+    };
+```
+
+<h2>Author</h2>
+Winnie Chin
+
+<h2>Acknowledgments</h2>
+Thank you Andy for providing me user feedbacks throughout the project development.
 
 
 
