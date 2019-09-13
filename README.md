@@ -55,28 +55,65 @@ const mapStateToProps = state => {
 };
 ```
 
-Another important feature is the edit and stock item buttons on the 
-shop show page. If the current user is the owner of the shop,
-those buttons will show up, else, other users who visit the shop
-will not be able to see those buttons.
+Also, if a user adds a product(which has already been added before) into the cart, the create action automatically update the quantity of the cart item instead of creating a new cart item with the same product id. The create and update action also checks if the cart item quantity is still within the maximum quantity allowed (based of the availability of the product). 
 
-```javascript
-  let stockItemButton;
-    if ( currentUserId === shop.owner.id ){
-        stockItemButton = (
-            <div className="stock-edit-button">
-                <button className="clickystock-your-shop-button" onClick{this.handleStock}>
-                    Stock your shop
-                </button>
-                <button className="clickyedit-your-shop-button" onClick={this.handleEdit}>
-                    Edit your shop
-                </button>
-            </div>
+```ruby
+def create
+        if check_current_cart(product_id, quantity)
+            @cart_item = CartItem.find_by(product_id: product_id, user_id: current_user.id)
+
+            total = @cart_item.quantity + quantity.to_i
+            maximum_quantity = Product.find_by(id: product_id).quantity 
+
+            if total > maximum_quantity
+                render json: ['Sorry, not enough stock!'], status: 422 
+                return 
+            else
+                if @cart_item.update(quantity: total)
+                    render :show
+                else
+                    render json: @cart_item.errors.full_messages, status: 422
+                end
+            end
+        else
+            @cart_item = CartItem.new(cart_item_params)
+            @cart_item.user_id = current_user.id
+            if @cart_item.save
+                render :show
+            else
+                render json: @cart_item.errors.full_messages, status: 422
+            end
+
+        end
+    end
+
+    def update
+        @cart_item = CartItem.where(user_id: current_user.id, id: params[:id]).first
+        if params[:cart_item][:quantity] == '0'
+            @cart_item.destroy 
+        else
+
+            maximum_quantity = Product.find_by(id: @cart_item.product_id).quantity  
+            total = quantity + @cart_item.quantity 
+
+            if quantity > maximum_quantity 
+                @cart_item.quantity = maximum_quantity
+                @cart_item.save!  
+                render :show   
+
+            else         
+                if @cart_item.update(cart_item_params)
+                    render :show
+                else
+                    render json: @cart_item.errors.full_messages
+                end
+            end
             
-        );
-    } else {
-        stockItemButton = '';
-    };
+            
+        end
+        
+    end
+
 ```
 
 <h2>Author</h2>
