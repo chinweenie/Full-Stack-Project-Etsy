@@ -9,6 +9,7 @@ class LoggedInNavbar extends React.Component {
         super(props);
         this.redirectToTarget = this.redirectToTarget.bind(this);
         this.searchPage = this.searchPage.bind(this);
+        this.goToCart = this.goToCart.bind(this);
     };
 
     redirectToTarget(event){
@@ -21,6 +22,11 @@ class LoggedInNavbar extends React.Component {
     searchPage(event){
         event.preventDefault();
         this.props.history.push('/search');
+    }
+
+    goToCart(event){
+        event.preventDefault();
+        this.props.history.push('/cartItems');
     }
 
     render(){
@@ -49,8 +55,8 @@ class LoggedInNavbar extends React.Component {
                     <div id="store-icon"></div>
                     Shop Manager
                 </li>
-                    <li className="greeting-nav"><GreetingContainer /></li>
-                    <li className="cart-nav">
+                <li className="greeting-nav"><GreetingContainer /></li>
+                <li className="cart-nav" onClick={this.goToCart}>
                         <i className="fa fa-shopping-cart" aria-hidden="true"></i>
                         Cart
                 </li>

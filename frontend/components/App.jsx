@@ -28,6 +28,7 @@ const App = () => (
 
         {/* Route declaration */}
         <Switch>
+            {/* <Route path='/' component={HomePageContainer}/> */}
             <AuthRoute path='/signup' component={SignupFormContainer} />
             <AuthRoute path='/login' component={LoginFormContainer} />
 

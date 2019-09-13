@@ -118,7 +118,7 @@ class ShopShow extends React.Component {
 
                     <div className="owner-info">
                         <p>Shop owner</p>
-                        <img src={shop.profilePicUrl} />
+                        <img src={shop.profilePicUrl} id="owner-info-image" />
                         <div className="shop-owner-name">{shop.owner.fname}</div>
                         <div className="shop-owner-email">
                             <i className="fa fa-envelope-o" aria-hidden="true"></i>

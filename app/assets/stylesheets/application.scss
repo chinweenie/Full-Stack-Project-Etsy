@@ -428,6 +428,7 @@ a.btn-block {
     margin-left: 35px;
     position: relative;
     margin-top: 45px;
+    cursor: pointer;
 }
 
 .fa-shopping-cart {
@@ -466,6 +467,7 @@ a.btn-block {
     padding-top: 35px;
     height: 30px;
     padding-bottom: 50px;
+    cursor: pointer;
 }
 
 .login-signup {
@@ -494,6 +496,7 @@ a.btn-block {
     margin-left: 25px;
     position: relative;
     margin-right: 10px;
+    cursor: pointer;
 }
 
 .logged-out-navbar-ul .cart-nav .fa-shopping-cart {
@@ -789,65 +792,65 @@ a.btn-block {
     font-size: 16px;
     font-weight: bold;
     padding-top: 30px;
-
-    label {
-        margin-left: 70px;
-    }
-
-    ul {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: flex-start;
-        list-style: none;
-        margin: 30px auto;
-
-        li {
-            width: 250px;
-            font-weight: normal;
-            margin: 10px 30px;
-            cursor: pointer;
-
-            img {
-                width: 250px;
-                height: 250px;
-            }
-
-            p {
-                margin-top: 5px;
-                margin-bottom: 0;
-            }
-        }
-
-        .edit-delete-button {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            a {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                text-decoration: none;
-                text-align: center;
-                height: 17px;
-                width: 56px;
-                font-size: 12px;
-                margin: 5px;
-            }
-
-            button {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                height: 41px;
-                width: 113px;
-                font-size: 12px;
-                margin: 5px;
-            }
-        }
-    }
 }
 
+.products-listing label {
+    margin-left: 70px;
+}
+
+.products-listing ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    list-style: none;
+    margin: 30px auto;
+}
+
+.products-listing ul > li {
+    width: 250px;
+    font-weight: normal;
+    margin: 10px 30px;
+    cursor: pointer;
+}
+
+.products-listing ul > li img {
+    width: 250px;
+    height: 250px;
+}
+
+.products-listing ul > li p {
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.products-listing ul .edit-delete-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.products-listing ul .edit-delete-button a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    text-align: center;
+    height: 17px;
+    width: 56px;
+    font-size: 12px;
+    margin: 5px;
+}
+
+.products-listing ul .edit-delete-button button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 41px;
+    width: 113px;
+    font-size: 12px;
+    margin: 5px;
+}
 // Shop show page
 
 // Product form
@@ -1421,6 +1424,7 @@ a.btn-block {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    height: -webkit-fill-available;
 }
 
 .cart-items-checkout > ul {

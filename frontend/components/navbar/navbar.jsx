@@ -11,7 +11,6 @@ import { fetchCartItems } from '../../actions/cart_items_actions';
 class Navbar extends React.Component{
     componentDidMount(){
         this.props.fetchAllUsers();
-        // this.props.fetchCartItems();
     }
     
     render() {
