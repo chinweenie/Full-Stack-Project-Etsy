@@ -94,7 +94,6 @@ class ShopShow extends React.Component {
                         {this.editDeleteButton(product)}
                     </li>
                 )
-            // }
             
         });
 

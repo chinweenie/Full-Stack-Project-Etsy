@@ -9,7 +9,7 @@ class ProductShow extends React.Component {
         super(props);
         this.state = {
             product_id: this.props.match.params.productId,
-            quantity: 0, 
+            quantity: 1, 
         };
 
         this.handleEdit = this.handleEdit.bind(this);
@@ -41,7 +41,6 @@ class ProductShow extends React.Component {
     }
 
     handleChange(event){
-        // event.preventDefault();
         this.setState({quantity: event});
     }
 
@@ -71,7 +70,7 @@ class ProductShow extends React.Component {
                         <li>
                             <label className="quantity" htmlFor="quantity">Quantity</label>
                             <br/>
-                            <NumericInput required value={this.state.quantity} id="quantity" min={1} max={product.quantity} onChange={this.handleChange}/>
+                            <NumericInput required value={this.state.quantity} id="quantity" min="1" max={product.quantity} onChange={this.handleChange}/>
                             <span>Only <strong>{product.quantity}</strong> in stock!</span>
                         </li>
                         <li>

@@ -44,16 +44,14 @@ class Api::CartItemsController < ApplicationController
             maximum_quantity = Product.find_by(id: @cart_item.product_id).quantity  
             total = quantity + @cart_item.quantity 
 
-            if total > maximum_quantity 
+            if quantity > maximum_quantity 
                 @cart_item.quantity = maximum_quantity
                 @cart_item.save!  
                 render :show   
 
             else         
-
                 if @cart_item.update(cart_item_params)
                     render :show
-                    # render json: ['Successfully update your cart!']
                 else
                     render json: @cart_item.errors.full_messages
                 end
