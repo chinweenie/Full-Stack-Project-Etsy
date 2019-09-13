@@ -105,6 +105,10 @@ class ProductForm extends React.Component {
             );
         });
 
+        const errorsLi = errors.map(error => {
+            return <li>{error}</li>
+        })
+
         const development = (
             <select value={this.state.categoryId || ''} id="category" onChange={this.update('categoryId')}>
                 {/* Development category id */}
@@ -186,7 +190,9 @@ class ProductForm extends React.Component {
                     </p>
 
                     <div className="product-errors">
-                        {errors}
+                        <ul>
+                            {errorsLi}
+                        </ul> 
                     </div>
                     <br/>
 
@@ -242,7 +248,7 @@ class ProductForm extends React.Component {
                                Consider the total price buyers will pay too
                             </p>
                         </div>
-                        <input required type="number" value={this.state.price || ''} id="price" onChange={this.update('price')} />
+                        <input required type="number" value={this.state.price || ''} id="price" onChange={this.update('price')} min="0.01" />
                     </div>
 
                     <div className="quantity">
@@ -253,7 +259,7 @@ class ProductForm extends React.Component {
                                 this listing will renew automatically until it sells out.
                             </p>
                         </div>
-                        <input required type="number" value={this.state.quantity || ''} id="quantity" onChange={this.update('quantity')} />
+                        <input required type="number" value={this.state.quantity || ''} id="quantity" onChange={this.update('quantity')} min="1" />
                     </div>
                     
                 </div>
