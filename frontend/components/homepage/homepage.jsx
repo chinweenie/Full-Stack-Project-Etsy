@@ -14,9 +14,6 @@ class HomePage extends React.Component {
     componentDidMount() {
         this
             .props
-            .fetchCartItems();
-        this
-            .props
             .fetchCategories();
         this
             .props
