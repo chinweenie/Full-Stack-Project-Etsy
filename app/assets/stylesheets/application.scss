@@ -203,10 +203,10 @@ a.btn-block {
     left: 200px;
     padding-left: 30px;
     padding-right: 30px;
-    border-bottom: 1px solid rgba(34, 34, 34, 0.15);
-    height: 113.978px;
+    height: 60.978px;
     display: flex;
     align-content: center;
+    justify-content: center;
 }
 
 .navbar-ul li {
@@ -434,7 +434,7 @@ a.btn-block {
 .fa-shopping-cart {
     position: absolute;
     font-size: 30px;
-    bottom: 70px;
+    bottom: 18px;
     right: 1px;
 }
 
@@ -507,16 +507,19 @@ a.btn-block {
 // Category navbar
 .navbar {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .navbar .category-ul {
     display: flex;
-    position: absolute;
-    bottom: 10px;
-    left: 60px;
     font-size: 14px;
     color: gray;
-    margin: 0 auto;
+    justify-content: center;
+    border-bottom: 1px solid rgba(34, 34, 34, 0.15);
+    padding-bottom: 15px;
+
 }
 
 .category-ul > li {

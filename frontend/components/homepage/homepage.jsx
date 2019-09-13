@@ -31,32 +31,32 @@ class HomePage extends React.Component {
 
     toWeddingGifts(event){
         event.preventDefault();
-        this.props.history.push('/categories/4');
+        this.props.history.push('/categories/59');
     }
 
     toHerGifts(event){
         event.preventDefault();
-        this.props.history.push('/categories/1');
+        this.props.history.push('/categories/56');
     }
 
     toHousewarming(event){
         event.preventDefault();
-        this.props.history.push('/categories/3');
+        this.props.history.push('/categories/58');
     }
 
     toVintage(event){
         event.preventDefault();
-        this.props.history.push('/categories/8');
+        this.props.history.push('/categories/63');
     }
 
     toArts(event){
         event.preventDefault();
-        this.props.history.push('/categories/6');
+        this.props.history.push('/categories/61');
     }
 
     toClothing(event){
         event.preventDefault();
-        this.props.history.push('/categories/2');
+        this.props.history.push('/categories/57');
     }
 
     render() {
