@@ -1,3 +1,4 @@
+
 json.extract! user, :id, :fname, :gender, :city, :birthday, :about
 json.shopId user.shop.id if user.shop
 json.gender user.gender if user.gender

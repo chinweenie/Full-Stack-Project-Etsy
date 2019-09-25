@@ -98,13 +98,16 @@ class ProductForm extends React.Component {
     render(){
 
         let {errors} = this.props;
-
         const previews = this.state.imageUrls.map(url => {
             return (
                 <img key={url} src={url}/>
             );
         });
-
+        
+        if (!errors){
+            return <LoadingIcon/>
+        }
+        
         const errorsLi = errors.map(error => {
             return <li>{error}</li>
         })
@@ -248,7 +251,7 @@ class ProductForm extends React.Component {
                                Consider the total price buyers will pay too
                             </p>
                         </div>
-                        <input required type="number" value={this.state.price || ''} id="price" onChange={this.update('price')} min="0.01" />
+                        <input required type="number" value={this.state.price || ''} id="price" onChange={this.update('price')} min="0.00" />
                     </div>
 
                     <div className="quantity">

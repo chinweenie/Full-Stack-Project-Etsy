@@ -70,7 +70,7 @@ class ProductShow extends React.Component {
                         <li>
                             <label className="quantity" htmlFor="quantity">Quantity</label>
                             <br/>
-                            <NumericInput required value={this.state.quantity} id="quantity" min="1" max={product.quantity} onChange={this.handleChange}/>
+                            <NumericInput required value={this.state.quantity} id="quantity" min={1} max={product.quantity} onChange={this.handleChange}/>
                             <span>Only <strong>{product.quantity}</strong> in stock!</span>
                         </li>
                         <li>

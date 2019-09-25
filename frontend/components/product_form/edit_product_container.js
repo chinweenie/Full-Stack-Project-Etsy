@@ -38,14 +38,14 @@ class EditProductForm extends React.Component {
     };
     
     render(){
-        const { product, action } = this.props;
+        const { product, action, errors } = this.props;
         if (!product){
             return (
                 <LoadingIcon />
             )
         };
         return (
-            <ProductForm action={action} product={product}/>
+            <ProductForm action={action} product={product} errors={errors}/>
         )
         
     };
