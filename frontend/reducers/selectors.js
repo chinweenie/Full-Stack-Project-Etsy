@@ -53,6 +53,6 @@ export const selectAllCartItems = (allCartItems) => {
     return Object.keys(allCartItems).map(id => allCartItems[id]);
 }
 
-// export const selectJewelry = (allProducts, allCategories) => {
-//     let categoryId;
-// }
+export const selectAllReviews = allReviews => {
+    return Object.keys(allReviews).map(id => allReviews[id]);
+};

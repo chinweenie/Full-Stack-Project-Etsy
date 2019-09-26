@@ -41,11 +41,9 @@ class EditUserProfleForm extends React.Component {
     }
 
     handleFile(event){
-        debugger
         const file = event.currentTarget.files[0];
         const fileReader = new FileReader();
         fileReader.onloadend = () => {
-            debugger
             this.setState({
                 imageFile: file,
                 imageUrl: fileReader.result
@@ -69,7 +67,6 @@ class EditUserProfleForm extends React.Component {
     }
     
     render(){
-        debugger
         const preview = this.state.imageUrl ? <img src={this.state.imageUrl}/> : '';
         let {user} = this.props
         return (

@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     
     resources :categories, only: [:show, :index]
     resource :session, only: [:create, :destroy]
-    resources :products, only: [:show, :update, :destroy, :index]
+    resources :products, only: [:show, :update, :destroy, :index] do    
+      resources :reviews, only: [:index, :create]
+    end
 
     resources :shops, only: [:show, :create, :update, :index] do    
       resources :products, only: [:create]
@@ -13,6 +15,7 @@ Rails.application.routes.draw do
 
     resources :search_products, only: [:index]
     resources :cart_items, only: [:index, :create, :update, :destroy]
+    resources :reviews, only: [:update]
   end
 
   

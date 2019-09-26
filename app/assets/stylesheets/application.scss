@@ -1727,3 +1727,36 @@ div.cart-shop-logo {
 }
 
 // Homepage
+
+// reviews index 
+.reviews-index {
+    background: white;
+    margin-left: 71px;
+}
+
+.reviews-index > ul {
+    list-style: none;
+}
+
+.reviews-index > ul > li {
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 10px;
+    width: 773px;
+    display: flex;
+    flex-direction: row;
+}
+
+.reviews-index > ul > li > div {
+    padding-left: 50px;
+}
+
+.reviews-index > ul > li img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.review-body {
+    margin-top: 1.67em;
+}
+// reviews index 
