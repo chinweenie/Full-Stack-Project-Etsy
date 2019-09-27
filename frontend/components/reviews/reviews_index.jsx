@@ -3,12 +3,19 @@ import {selectAllReviews} from '../../reducers/selectors';
 import {fetchReviews} from '../../actions/reviews_action';
 import React from 'react'
 import LoadingIcon from '../loading_icon';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import Pagination from '../pagination/pagination';
+import PaginationItems from '../pagination/pagination_items';
 import StarRatings from 'react-star-ratings';
 
 class ReviewsIndex extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            currentPage: 1,
+            reviewsPerPage: 5
+        };
+        this.paginate = this.paginate.bind(this);
     }
 
     componentDidMount() {
@@ -17,57 +24,55 @@ class ReviewsIndex extends React.Component {
             .fetchReviews(this.props.productId);
     }
 
-    render() {
+    paginate(pageNumber){
+        debugger
+        return (event) => {
+            this.setState({currentPage: pageNumber});
+            debugger
+        };
+    };
 
+    render() {
         let {reviews} = this.props;
         if (!reviews) {
             return (<LoadingIcon/>)
         }
 
+        // Setup for pagination
+        const indexOfLastReview = this.state.currentPage * this.state.reviewsPerPage;
+        const indexOfFirstReview = indexOfLastReview - this.state.reviewsPerPage;
+        const currentReviews = reviews.slice(indexOfFirstReview, indexOfLastReview);
+
+        debugger
+        // Calc for average rating
         let reviewsRating = 0;
-
-        const reviewsLi = reviews.map(review => {
+        reviews.forEach(review => {
             reviewsRating = review.rating + reviewsRating;
-            return (
-                <li key={review.id}>
-                    <div>
-                        <h5><Link to={`/users/${review.user_id}`}>{review.userName}</Link></h5>
-                        <img src={review.profilePicUrl} alt="user profile picture"/>
-                    </div>
-                    <div className="review-body">
-                        <p>
-                            <StarRatings
-                            rating={review.rating}
-                            starDimension="20px"
-                            starSpacing="4px"
-                            starRatedColor='#f2b01e'
-                            />
-                        </p>
-                        <p>{review.body}</p>
-                    </div>
-                </li>
-            )
-        })
+        });
+        let ratingAverage = reviews.length
+            ? reviewsRating / reviews.length
+            : reviewsRating;
 
-        let ratingAverage = reviews.length ? reviewsRating / reviews.length : reviewsRating;
+
         return (
             <div className="reviews-index">
                 <div className="reviews-index-title">
                     <h3>Reviews</h3>
                     <span>
                         <StarRatings
-                        rating={ratingAverage}
-                        starDimension="25px"
-                        starSpacing="4px"
-                        starRatedColor='#f2b01e'
-                        isAggregateRating={true}
-                        />
+                            rating={ratingAverage}
+                            starDimension="25px"
+                            starSpacing="4px"
+                            starRatedColor='#f2b01e'
+                            isAggregateRating={true}/>
                     </span>
                 </div>
 
-                <ul>
-                    {reviewsLi}
-                </ul>
+                <PaginationItems reviews={currentReviews}/>
+                <Pagination
+                    reviewsPerPage={this.state.reviewsPerPage}
+                    totalReviews={reviews.length}
+                    paginate={this.paginate}/>
             </div>
         )
     }
