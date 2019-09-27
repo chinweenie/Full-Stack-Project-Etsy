@@ -1,6 +1,6 @@
 import React from 'react';
 import LoadingIcon from '../loading_icon';
-import {withRouter, Link} from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import Slider from '../carousel/slider';
 import NumericInput from 'react-numeric-input';
 import ReviewForm from '../reviews/review_form';
@@ -65,14 +65,15 @@ class ProductShow extends React.Component {
     }
 
     handleChange(event) {
-        this.setState({quantity: event});
+        this.setState({ quantity: event });
     }
 
     render() {
-        let {product, shop, currentUserId} = this.props;
+        let { product, shop, currentUserId } = this.props;
         if (!product || !shop) {
-            return (<LoadingIcon/>)
+            return (<LoadingIcon />)
         }
+
 
         const addToCartButton = currentUserId === product.ownerId
             ? ''
@@ -80,14 +81,13 @@ class ProductShow extends React.Component {
         return (
             <div className="product-show">
                 <div className="carousel">
-                    <Slider imageUrls={product.imageUrls}/>
+                    <Slider imageUrls={product.imageUrls} />
                 </div>
 
                 <div className="product-info">
                     <ul>
                         <li>
                             <Link to={`/shops/${shop.id}`}>{shop.name}</Link>
-
                         </li>
                         <li>{product.title}</li>
                         <li className="price">
@@ -95,14 +95,14 @@ class ProductShow extends React.Component {
                         </li>
                         <li>
                             <label className="quantity" htmlFor="quantity">Quantity</label>
-                            <br/>
+                            <br />
                             <NumericInput
                                 required
                                 value={this.state.quantity}
                                 id="quantity"
                                 min={1}
                                 max={product.quantity}
-                                onChange={this.handleChange}/>
+                                onChange={this.handleChange} />
                             <span>Only
                                 <strong>{product.quantity}</strong>
                                 in stock!</span>
@@ -118,7 +118,7 @@ class ProductShow extends React.Component {
                     </div>
                     <div className="owner-info">
                         <p>Meet {shop.owner.fname}</p>
-                        <img id="owner-info-image" src={shop.profilePicUrl}/>
+                        <img id="owner-info-image" src={shop.profilePicUrl} />
                         <div className="shop-owner-name">{shop.owner.fname}</div>
                         <div className="shop-owner-email">
                             <i className="fa fa-envelope-o" aria-hidden="true"></i>
@@ -128,8 +128,9 @@ class ProductShow extends React.Component {
                 </div>
 
                 <div>
-                    <ReviewsIndex productId={this.props.match.params.productId}/>
-                    <ReviewForm productId={this.props.match.params.productId}/>
+                    <ReviewForm productId={this.props.match.params.productId} />
+                    <ReviewsIndex productId={this.props.match.params.productId} />
+                    
                 </div>
 
             </div>
