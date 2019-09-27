@@ -1756,7 +1756,22 @@ div.cart-shop-logo {
     border-radius: 50%;
 }
 
+ .reviews-index > ul > li a {
+     text-decoration: underline;
+     color: black;
+ }
+
 .review-body {
     margin-top: 1.67em;
+}
+
+.reviews-index-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.reviews-index-title > span {
+    margin-left: 20px;
 }
 // reviews index 

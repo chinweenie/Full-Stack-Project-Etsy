@@ -17,6 +17,7 @@
         "react-redux": "^4.4.5",
         "react-router": "^2.6.1",
         "react-router-dom": "^5.0.1",
+        "react-star-ratings": "^2.3.0",
         "redux": "^3.7.2",
         "redux-thunk": "^2.1.0",
         "webpack": "^4.20.2",

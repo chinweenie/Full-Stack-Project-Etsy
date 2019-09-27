@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import { createReview } from '../../actions/reviews_action';
 import React from 'react'
+import StarRatings from 'react-star-ratings';
+
 
 class ReviewForm extends React.Component {
     constructor(props){
@@ -19,10 +21,13 @@ class ReviewForm extends React.Component {
         this.props.createReview(this.state, this.props.productId)
     }
 
-    changeRating(event){
-        event.preventDefault();
-        this.setState({rating: event.target.value});
+    
+    changeRating(newRating) {
+        this.setState({
+            rating: newRating
+        });
     }
+    
 
     changeBody(event){
         event.preventDefault();
@@ -33,7 +38,16 @@ class ReviewForm extends React.Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <label htmlFor="rating">Rating</label>
-                <input type="number" id="rating" value={this.state.ratiing} onChange={this.changeRating}/>
+                <StarRatings
+                    rating={this.state.rating}
+                    starRatedColor='#f2b01e'
+                    starHoverColor='#f2b01e'
+                    changeRating={this.changeRating}
+                    numberOfStars={5}
+                    name='rating'
+                    starDimension="20px"
+                    starSpacing="4px"
+                />
 
                 <label htmlFor="body">Body</label>
                 <textarea value={this.state.body} id="body" cols="30" rows="10" onChange={this.changeBody}></textarea>
@@ -43,10 +57,6 @@ class ReviewForm extends React.Component {
         )
     };
 }
-
-
-
-
 
 const mapDispatchToProps = dispatch => ({
     createReview: (productId, review) => dispatch(createReview(productId, review))
