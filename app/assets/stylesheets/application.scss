@@ -1775,3 +1775,25 @@ div.cart-shop-logo {
     margin-left: 20px;
 }
 // reviews index 
+
+// pagination
+ul.pagination {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
+ul.pagination > li {
+    border: 1px solid lightgray;
+    margin-left: 5px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding-top: 15px;
+}
+
+ul.pagination > li.clicked {
+    color: white;
+    background: blue;
+}
+// pagination

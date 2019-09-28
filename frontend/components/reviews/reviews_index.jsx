@@ -25,10 +25,17 @@ class ReviewsIndex extends React.Component {
     }
 
     paginate(pageNumber){
-        debugger
         return (event) => {
+            const pageNumbersList = document.getElementsByClassName('page-link');
+
+            // Remove clicked className from other visited page numbers
+            for (let i = 0; i < pageNumbersList.length; i++){
+                if (pageNumbersList[i].classList.contains('clicked')){
+                    pageNumbersList[i].classList.toggle('clicked');
+                };
+            };
+            event.target.classList.toggle('clicked');
             this.setState({currentPage: pageNumber});
-            debugger
         };
     };
 
@@ -43,7 +50,6 @@ class ReviewsIndex extends React.Component {
         const indexOfFirstReview = indexOfLastReview - this.state.reviewsPerPage;
         const currentReviews = reviews.slice(indexOfFirstReview, indexOfLastReview);
 
-        debugger
         // Calc for average rating
         let reviewsRating = 0;
         reviews.forEach(review => {

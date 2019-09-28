@@ -128,8 +128,8 @@ class ProductShow extends React.Component {
                 </div>
 
                 <div>
-                    <ReviewForm productId={this.props.match.params.productId} />
                     <ReviewsIndex productId={this.props.match.params.productId} />
+                    <ReviewForm productId={this.props.match.params.productId} />
                     
                 </div>
 
