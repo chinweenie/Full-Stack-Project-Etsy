@@ -1727,3 +1727,73 @@ div.cart-shop-logo {
 }
 
 // Homepage
+
+// reviews index 
+.reviews-index {
+    background: white;
+    margin-left: 71px;
+}
+
+.reviews-index > ul {
+    list-style: none;
+}
+
+.reviews-index > ul > li {
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 10px;
+    width: 773px;
+    display: flex;
+    flex-direction: row;
+}
+
+.reviews-index > ul > li > div {
+    padding-left: 50px;
+}
+
+.reviews-index > ul > li img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+ .reviews-index > ul > li a {
+     text-decoration: underline;
+     color: black;
+ }
+
+.review-body {
+    margin-top: 1.67em;
+}
+
+.reviews-index-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.reviews-index-title > span {
+    margin-left: 20px;
+}
+// reviews index 
+
+// pagination
+ul.pagination {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
+ul.pagination > li {
+    border: 1px solid lightgray;
+    margin-left: 5px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding-top: 15px;
+}
+
+ul.pagination > li.clicked {
+    color: white;
+    background: blue;
+}
+// pagination

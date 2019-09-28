@@ -5,6 +5,7 @@ import shopsReducer from './shops_reducer';
 import categoriesReducer from './categories_reducer';
 import searchProductsReducer from './search_products_reducer';
 import cartItemsReducer from './cart_items_reducer';
+import reviewsReducer from './reviews_reducer';
 
 const entitiesReducer = combineReducers({
     products: productsReducer,
@@ -13,7 +14,7 @@ const entitiesReducer = combineReducers({
     categories: categoriesReducer,
     searchProducts: searchProductsReducer,
     cartItems: cartItemsReducer,
-    // reviews: reviewsReducer,
+    reviews: reviewsReducer,
     // favorites: favoritesReducer
 })
 

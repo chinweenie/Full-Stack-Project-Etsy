@@ -25,6 +25,6 @@ class Product < ApplicationRecord
     has_many :favorites, as: :favoritable, dependent: :destroy
     has_many :users_who_favorited_me, through: :favorites
 
-
+    has_many :reviews
    
 end

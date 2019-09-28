@@ -18,6 +18,8 @@ import UserProfileShowContainer from './user/user_profile_show_container';
 import SearchProductsContainer from './search/search_products_container';
 import CartItemsContainer from './cart/cart_items_container';
 import HomePageContainer from './homepage/homepage_container';
+import ReviewIndex from './reviews/reviews_index';
+import ReviewForm from './reviews/review_form';
 
 
 
@@ -49,7 +51,9 @@ const App = () => (
             <Route exact path='/search/:searchQuery' component={SearchProductsContainer}/>
 
             <ProtectedRoute exact path='/cartItems' component={CartItemsContainer}/>
-            
+            <ProtectedRoute exact path='/products/:productId/reviews' component={ReviewIndex}/>
+            <ProtectedRoute exact path='/products/:productId/reviews/new' component={ReviewForm}/>
+
         </Switch>
         
     </div>
