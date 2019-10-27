@@ -73,6 +73,7 @@ class ProductShow extends React.Component {
         let { currentUserId } = this.props;
         if (!currentUserId){
             alert("Please login or sign up first!");
+            return;
         };
 
         const reviewForm = document.getElementById("review-form");
