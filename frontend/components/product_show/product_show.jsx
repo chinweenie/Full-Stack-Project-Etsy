@@ -70,6 +70,11 @@ class ProductShow extends React.Component {
     }
 
     showReviewForm(event){
+        let { currentUserId } = this.props;
+        if (!currentUserId){
+            alert("Please login or sign up first!");
+        };
+        
         const reviewForm = document.getElementById("review-form");
         if (event.target.innerHTML === "Add review") {
             event.target.innerHTML = "Close form";
@@ -85,8 +90,7 @@ class ProductShow extends React.Component {
         if (!product || !shop) {
             return (<LoadingIcon />)
         }
-
-
+     
         const addToCartButton = currentUserId === product.ownerId
             ? ''
             : <button className="clicky" onClick={this.handleAddToCart}>Add to cart</button>;
