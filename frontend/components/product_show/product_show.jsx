@@ -74,7 +74,7 @@ class ProductShow extends React.Component {
         if (!currentUserId){
             alert("Please login or sign up first!");
         };
-        
+
         const reviewForm = document.getElementById("review-form");
         if (event.target.innerHTML === "Add review") {
             event.target.innerHTML = "Close form";
@@ -95,65 +95,68 @@ class ProductShow extends React.Component {
             ? ''
             : <button className="clicky" onClick={this.handleAddToCart}>Add to cart</button>;
         return (
-            <div className="product-show">
-                <div className="carousel">
-                    <Slider imageUrls={product.imageUrls} />
-                </div>
-
-                <div className="product-info">
-                    <ul>
-                        <li>
-                            <Link to={`/shops/${shop.id}`}>{shop.name}</Link>
-                        </li>
-                        <li>{product.title}</li>
-                        <li className="price">
-                            <strong>USD {product.price}</strong>
-                        </li>
-                        <li>
-                            <label className="quantity" htmlFor="quantity">Quantity</label>
-                            <br />
-                            <NumericInput
-                                required
-                                value={this.state.quantity}
-                                id="quantity"
-                                min={1}
-                                max={product.quantity}
-                                onChange={this.handleChange} />
-                            <span>Only
-                                <strong>{product.quantity}</strong>
-                                in stock!</span>
-                        </li>
-                        <li>
-                            {addToCartButton}
-                        </li>
-
-                    </ul>
-                    <div className="product-details">
-                        <label htmlFor="details">Item details</label>
-                        {product.description}
+            <div className="product-show-reviews">
+                <div className="product-show">              
+                    <div className="carousel">
+                        <Slider imageUrls={product.imageUrls} />
                     </div>
-                    <div className="owner-info">
-                        <p>Meet {shop.owner.fname}</p>
-                        <img id="owner-info-image" src={shop.profilePicUrl} />
-                        <div className="shop-owner-name">{shop.owner.fname}</div>
-                        <div className="shop-owner-email">
-                            <i className="fa fa-envelope-o" aria-hidden="true"></i>
-                            {shop.owner.email}
+
+                    <div className="product-info">
+                        <ul>
+                            <li>
+                                <Link to={`/shops/${shop.id}`}>{shop.name}</Link>
+                            </li>
+                            <li>{product.title}</li>
+                            <li className="price">
+                                <strong>USD {product.price}</strong>
+                            </li>
+                            <li>
+                                <label className="quantity" htmlFor="quantity">Quantity</label>
+                                <br />
+                                <NumericInput
+                                    required
+                                    value={this.state.quantity}
+                                    id="quantity"
+                                    min={1}
+                                    max={product.quantity}
+                                    onChange={this.handleChange} />
+                                <span>Only
+                                    <strong>{product.quantity}</strong>
+                                    in stock!</span>
+                            </li>
+                            <li>
+                                {addToCartButton}
+                            </li>
+
+                        </ul>
+                        <div className="product-details">
+                            <label htmlFor="details">Item details</label>
+                            {product.description}
                         </div>
+                        <div className="owner-info">
+                            <p>Meet {shop.owner.fname}</p>
+                            <img id="owner-info-image" src={shop.profilePicUrl} />
+                            <div className="shop-owner-name">{shop.owner.fname}</div>
+                            <div className="shop-owner-email">
+                                <i className="fa fa-envelope-o" aria-hidden="true"></i>
+                                {shop.owner.email}
+                            </div>
+                        </div>
+
                     </div>
-                </div>
 
-                <div className="review-section">
-                    <ReviewsIndex productId={this.props.match.params.productId} />
+                    <div className="review-section">
+                        <ReviewsIndex productId={this.props.match.params.productId} />
 
-                    <button className="show-review-form-button clicky" onClick={this.showReviewForm}>Add review</button>
+                        <button className="show-review-form-button clicky" onClick={this.showReviewForm}>Add review</button>
 
-                    <div id="review-form" className="hidden">
-                        <ReviewForm productId={this.props.match.params.productId} />
+                        <div id="review-form" className="hidden">
+                            <ReviewForm productId={this.props.match.params.productId} />
+                        </div>
+
                     </div>
-                    
-                </div>
 
+                </div>
             </div>
         )
     };

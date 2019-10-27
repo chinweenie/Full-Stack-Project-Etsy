@@ -1165,6 +1165,11 @@ a.btn-block {
     font-size: 16px;
     margin-bottom: 20px;
 }
+
+.product-show-reviews {
+    display: flex;
+    flex-direction: column;
+}
 // Product show
 
 // Category show
@@ -1735,14 +1740,15 @@ div.cart-shop-logo {
 // reviews index 
 .reviews-index {
     background: white;
-    margin-left: 71px;
+    // margin-left: 71px;
+    margin-left: 348px;
 }
 
 .no-review {
-    margin-left: 71px;
     margin-top: 30px;
     text-align: center;
     font-weight: bolder;
+    margin-bottom: 30px;
 }
 
 .reviews-index > ul {
@@ -1817,6 +1823,7 @@ ul.pagination > li.clicked {
     flex-direction: column;
     align-items: center;
     margin-bottom: 30px;
+    width: 50%;
 }
 
 .review-form {
