@@ -3,7 +3,6 @@ import { createReview } from '../../actions/reviews_action';
 import React from 'react'
 import StarRatings from 'react-star-ratings';
 
-
 class ReviewForm extends React.Component {
     constructor(props){
         super(props);
@@ -36,7 +35,7 @@ class ReviewForm extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form className="review-form" onSubmit={this.handleSubmit}>
                 <label htmlFor="rating">Rating</label>
                 <StarRatings
                     rating={this.state.rating}
@@ -50,9 +49,9 @@ class ReviewForm extends React.Component {
                 />
 
                 <label htmlFor="body">Body</label>
-                <textarea value={this.state.body} id="body" cols="30" rows="10" onChange={this.changeBody}></textarea>
+                <textarea value={this.state.body} id="body" cols="50" rows="10" onChange={this.changeBody}></textarea>
 
-                <button>Submit review</button>
+                <button className="clicky">Submit review</button>
             </form>
         )
     };

@@ -79,6 +79,10 @@ a.btn-block {
     cursor: pointer;
 }
 
+.hidden {
+    display: none;
+}
+
 /* Main body */
 
 /* Login and signup form */
@@ -1734,6 +1738,13 @@ div.cart-shop-logo {
     margin-left: 71px;
 }
 
+.no-review {
+    margin-left: 71px;
+    margin-top: 30px;
+    text-align: center;
+    font-weight: bolder;
+}
+
 .reviews-index > ul {
     list-style: none;
 }
@@ -1774,6 +1785,8 @@ div.cart-shop-logo {
 .reviews-index-title > span {
     margin-left: 20px;
 }
+
+
 // reviews index 
 
 // pagination
@@ -1797,3 +1810,27 @@ ul.pagination > li.clicked {
     background: blue;
 }
 // pagination
+
+// review form
+.review-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.review-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.review-form > label {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.review-form > textarea {
+    min-width: 583px;
+    margin-bottom: 10px;
+}
+// review form

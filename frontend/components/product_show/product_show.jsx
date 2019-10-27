@@ -23,6 +23,7 @@ class ProductShow extends React.Component {
         this.handleChange = this
             .handleChange
             .bind(this);
+        this.showReviewForm = this.showReviewForm.bind(this);
     }
 
     componentDidMount() {
@@ -66,6 +67,17 @@ class ProductShow extends React.Component {
 
     handleChange(event) {
         this.setState({ quantity: event });
+    }
+
+    showReviewForm(event){
+        const reviewForm = document.getElementById("review-form");
+        if (event.target.innerHTML === "Add review") {
+            event.target.innerHTML = "Close form";
+        } else {
+            event.target.innerHTML = "Add review";
+        }
+
+        reviewForm.classList.toggle("hidden");
     }
 
     render() {
@@ -127,9 +139,14 @@ class ProductShow extends React.Component {
                     </div>
                 </div>
 
-                <div>
+                <div className="review-section">
                     <ReviewsIndex productId={this.props.match.params.productId} />
-                    <ReviewForm productId={this.props.match.params.productId} />
+
+                    <button className="show-review-form-button clicky" onClick={this.showReviewForm}>Add review</button>
+
+                    <div id="review-form" className="hidden">
+                        <ReviewForm productId={this.props.match.params.productId} />
+                    </div>
                     
                 </div>
 

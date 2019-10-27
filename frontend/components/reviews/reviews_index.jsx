@@ -45,6 +45,13 @@ class ReviewsIndex extends React.Component {
             return (<LoadingIcon/>)
         }
 
+        if (reviews.length === 0){
+            return (
+                <div className="no-review">
+                    No reviews yet.
+                </div>
+            )
+        }
         // Setup for pagination
         const indexOfLastReview = this.state.currentPage * this.state.reviewsPerPage;
         const indexOfFirstReview = indexOfLastReview - this.state.reviewsPerPage;
