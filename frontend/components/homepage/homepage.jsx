@@ -70,7 +70,7 @@ class HomePage extends React.Component {
 
                 <div className="homepage-banner">
                     <h1>Personalized jewelry shines a little brighter</h1>
-                    <button>
+                    <button onClick={this.toHerGifts}>
                         Shop custom jewelry
                         <i className="fa fa-caret-right" aria-hidden="true"></i>
                     </button>

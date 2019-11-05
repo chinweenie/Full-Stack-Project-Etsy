@@ -8,6 +8,7 @@ class ShopShow extends React.Component {
         this.handleEdit = this.handleEdit.bind(this);
         this.handleStock = this.handleStock.bind(this);
         this.toProductPage = this.toProductPage.bind(this);
+        this.handleFavorite = this.handleFavorite.bind(this);
     }
 
     componentDidMount() {
@@ -20,6 +21,14 @@ class ShopShow extends React.Component {
             this.props.fetchShop(this.props.match.params.shopId);
             this.props.fetchProducts();
         }
+    }
+
+    handleFavorite(event){
+        event.preventDefault();
+        this.props.createFavorite({
+            favoritable_id: this.props.shop.id,
+            favoritable_type: 'Shop'
+        })
     }
 
     handleEdit(event){
@@ -109,7 +118,7 @@ class ShopShow extends React.Component {
                         <div className="shop-name-show">
                             {shop.name}
                         </div>
-                        <div className="favorite-shop">
+                        <div className="favorite-shop" onClick={this.handleFavorite}>
                             <i className="fa fa-heart-o" aria-hidden="true"></i>
                             Favorite shop ({shop.users_who_favorited_me.length})
                         </div>

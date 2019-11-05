@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :search_products, only: [:index]
     resources :cart_items, only: [:index, :create, :update, :destroy]
     resources :reviews, only: [:update]
+    resources :favorites, only: [:create, :destroy, :index]
   end
 
   
