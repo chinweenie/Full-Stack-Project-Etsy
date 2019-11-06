@@ -89,12 +89,15 @@ a.btn-block {
 #demo-login {
     font-size: 12px;
     padding: 0 10px;
+    width: 90%;
 }
 .login-form-container {
     display: flex;
-    justify-content: center;
+    align-items: center;
     margin-top: 100px;
     background: white;
+    flex-direction: column;
+    padding: 4%;
 }
 
 .login-form {
