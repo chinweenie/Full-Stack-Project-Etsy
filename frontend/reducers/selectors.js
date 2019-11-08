@@ -57,6 +57,10 @@ export const selectAllReviews = allReviews => {
     return Object.keys(allReviews).map(id => allReviews[id]);
 };
 
-// export const isFavorited = (shopId, currentUserId, allFavorites) => {
+export const isFavoritedShop = (shopId, favoriteIds, allFavorites) => {
     
-// }
+}
+
+export const isFavoritedProduct = (productId, favoriteIds, allFavorites) => {
+    
+}

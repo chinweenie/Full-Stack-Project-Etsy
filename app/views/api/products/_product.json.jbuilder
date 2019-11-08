@@ -8,3 +8,5 @@ json.reviewsLength product.reviews.length
 if product.images.attached?
     json.imageUrls product.images.map { |file| url_for(file) }
 end    
+
+json.usersWhoFavoritedMe product.users_who_favorited_me.map { |user| user.id }

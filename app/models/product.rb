@@ -23,7 +23,7 @@ class Product < ApplicationRecord
     has_many_attached :images
 
     has_many :favorites, as: :favoritable, dependent: :destroy
-    has_many :users_who_favorited_me, through: :favorites
+    has_many :users_who_favorited_me, through: :favorites, source: :user
 
     has_many :reviews
    
