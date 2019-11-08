@@ -16,7 +16,7 @@ const entitiesReducer = combineReducers({
     searchProducts: searchProductsReducer,
     cartItems: cartItemsReducer,
     reviews: reviewsReducer,
-    // favorites: favoritesReducer
+    favorites: favoritesReducer
 })
 
 export default entitiesReducer;

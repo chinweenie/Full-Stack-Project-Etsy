@@ -10,7 +10,7 @@ const errorsReducer = combineReducers({
     shop: shopErrorsReducer,
     product: productErrorsReducer,
     cartItem: cartItemErrorsReducer,
-    // favorite: favoriteErrorsReducer
+    favorite: favoriteErrorsReducer
 });
 
 

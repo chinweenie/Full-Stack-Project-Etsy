@@ -1,4 +1,4 @@
-class Api::CategoriesController < ApplicationController
+class Api::FavoritesController < ApplicationController
     before_action :require_login, only: [:create, :destroy]
 
     def index
