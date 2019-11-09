@@ -24,6 +24,8 @@ class ProductShow extends React.Component {
             .handleChange
             .bind(this);
         this.showReviewForm = this.showReviewForm.bind(this);
+        this.addToFavorite = this.addToFavorite.bind(this);
+        this.removeFromFavorite = this.removeFromFavorite.bind(this);
     }
 
     componentDidMount() {
@@ -33,6 +35,7 @@ class ProductShow extends React.Component {
         this
             .props
             .fetchShop(this.props.match.params.shopId);
+        this.props.fetchFavorites();
     };
 
     componentDidUpdate(prevProps) {
@@ -43,6 +46,7 @@ class ProductShow extends React.Component {
             this
                 .props
                 .fetchShop(this.props.match.params.shopId);
+            this.props.fetchFavorites();
         }
     }
 
@@ -69,6 +73,20 @@ class ProductShow extends React.Component {
         this.setState({ quantity: event });
     }
 
+    addToFavorite(event){
+        event.preventDefault();
+        this.props.createFavorite({
+            favoritable_id: this.props.match.params.productId,
+            favoritable_type: "Product"
+        });
+    }
+
+    removeFromFavorite(favoriteId){
+        return event => {
+            this.props.deleteFavorite(favoriteId);              
+        }
+    }
+
     showReviewForm(event){
         let { currentUserId } = this.props;
         if (!currentUserId){
@@ -87,14 +105,25 @@ class ProductShow extends React.Component {
     }
 
     render() {
-        let { product, shop, currentUserId } = this.props;
+        let { product, shop, currentUserId, favorite } = this.props;
         if (!product || !shop) {
             return (<LoadingIcon />)
         }
-     
-        const addToCartButton = currentUserId === product.ownerId
-            ? ''
-            : <button className="clicky" onClick={this.handleAddToCart}>Add to cart</button>;
+
+        const isFavorited = favorite;
+        let favoriteButton = <p>Login or register to add to favorite</p>;
+        let addToCartButton = <p>Login or register to add to cart</p>;
+
+        if (currentUserId){
+            if (currentUserId === product.ownerId){
+                favoriteButton = '';
+                addToCartButton = '';
+            } else {
+                favoriteButton = isFavorited ? <button className="clicky" onClick={this.removeFromFavorite(favorite.id)}>Remove from favorite</button> : <button className="clicky" onClick={this.addToFavorite}>Add to favorite</button>
+                addToCartButton = <button className="clicky" onClick={this.handleAddToCart}>Add to cart</button>;
+            }
+        }
+
         return (
             <div className="product-show-reviews">
                 <div className="product-show">              
@@ -121,12 +150,15 @@ class ProductShow extends React.Component {
                                     min={1}
                                     max={product.quantity}
                                     onChange={this.handleChange} />
-                                <span>Only
-                                    <strong>{product.quantity}</strong>
+                                <span>Only <strong>{product.quantity}</strong>
                                     in stock!</span>
+                                    
                             </li>
                             <li>
                                 {addToCartButton}
+                            </li>
+                            <li>
+                                {favoriteButton}
                             </li>
 
                         </ul>

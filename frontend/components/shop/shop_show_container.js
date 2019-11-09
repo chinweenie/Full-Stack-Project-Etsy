@@ -9,12 +9,11 @@ const mapStateToProps = (state, ownProps) => {
     const shopId = ownProps.match.params.shopId;
     const shop = state.entities.shops[shopId];
     const currentUserId = state.session.id;
-    // const favorited = isFavorited(shop.id, currentUserId, state.entities.favorites);
     const products = selectShopProducts(state.entities.products, shopId);
     return {
         shop,
         currentUserId,
-        products
+        products,
     }
 }
 

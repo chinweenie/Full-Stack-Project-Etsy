@@ -69,6 +69,7 @@ class ShopShow extends React.Component {
                 <LoadingIcon />
             )
         }
+        const isFavorited = shop.usersWhoFavoritedMe.includes(currentUserId);
         let stockItemButton;
         if ( currentUserId === shop.owner.id ){
             stockItemButton = (

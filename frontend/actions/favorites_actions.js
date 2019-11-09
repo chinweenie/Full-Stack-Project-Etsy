@@ -45,6 +45,6 @@ export const createFavorite = favorite => dispatch => {
 export const deleteFavorite = id => dispatch => {
     return FavoritesApiUtil.deleteFavorite(id)
         .then(response => {
-            return removeFavorite(response.id)
+            return dispatch(removeFavorite(response.id));
         })
 };

@@ -24,6 +24,7 @@ class HomePage extends React.Component {
         this
             .props
             .fetchAllUsers();
+        this.props.fetchFavorites();
     }
 
     toWeddingGifts(event){
