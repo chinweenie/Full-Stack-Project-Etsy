@@ -83,6 +83,10 @@ a.btn-block {
     display: none;
 }
 
+.active {
+    display: block;
+}
+
 /* Main body */
 
 /* Login and signup form */
@@ -1172,6 +1176,24 @@ a.btn-block {
 .product-show-reviews {
     display: flex;
     flex-direction: column;
+}
+
+.favorited {
+    color: palevioletred;
+    margin-right: 8%;
+}
+
+.not-favorited {
+    color: black;
+    margin-right: 8%;
+}
+
+.favorite-button {
+    width: 45%;
+    height: 32px;
+    border: 1px solid lightgray;
+    background: white;
+    border-radius: 5%;
 }
 // Product show
 

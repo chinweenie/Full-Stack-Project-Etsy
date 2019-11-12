@@ -121,7 +121,7 @@ class ShopShow extends React.Component {
                         </div>
                         <div className="favorite-shop" onClick={this.handleFavorite}>
                             <i className="fa fa-heart-o" aria-hidden="true"></i>
-                            Favorite shop ({shop.users_who_favorited_me.length})
+                            Favorite shop ({shop.usersWhoFavoritedMe.length})
                         </div>
                         
                     </div>

@@ -111,16 +111,19 @@ class ProductShow extends React.Component {
         }
 
         const isFavorited = favorite;
-        let favoriteButton = <p>Login or register to add to favorite</p>;
-        let addToCartButton = <p>Login or register to add to cart</p>;
-
+        let favoriteButton = <button>Login or register to add to favorite</button> ;
+        let addToCartButton = <button>Login or register to add to cart</button>;
+        let addReview = <button>Login or register to add review</button>
+        
         if (currentUserId){
             if (currentUserId === product.ownerId){
                 favoriteButton = '';
                 addToCartButton = '';
+                addReview = '';
             } else {
-                favoriteButton = isFavorited ? <button className="clicky" onClick={this.removeFromFavorite(favorite.id)}>Remove from favorite</button> : <button className="clicky" onClick={this.addToFavorite}>Add to favorite</button>
+                favoriteButton = isFavorited ? <button className="favorite-button" onClick={this.removeFromFavorite(favorite.id)}><i className="fa fa-heart favorited"></i>Remove from favorite</button> : <button className="favorite-button" onClick={this.addToFavorite}><i className="fa fa-heart not-favorited"></i>Add to favorite</button>
                 addToCartButton = <button className="clicky" onClick={this.handleAddToCart}>Add to cart</button>;
+                addReview = <button className="show-review-form-button clicky" onClick={this.showReviewForm}>Add review</button>
             }
         }
 
@@ -180,13 +183,10 @@ class ProductShow extends React.Component {
 
                     <div className="review-section">
                         <ReviewsIndex productId={this.props.match.params.productId} />
-
-                        <button className="show-review-form-button clicky" onClick={this.showReviewForm}>Add review</button>
-
+                        {addReview}
                         <div id="review-form" className="hidden">
                             <ReviewForm productId={this.props.match.params.productId} />
                         </div>
-
                     </div>
 
                 </div>

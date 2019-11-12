@@ -63,3 +63,21 @@ export const selectFavoriteId = (allFavorites, favoritableId, currentUserId) => 
     return favoriteId[0];
 }
 
+export const selectFavoritedShops = (allFavorites, currentUserId) => {
+    if (!currentUserId) return undefined;
+    const shops = [];
+    Object.values(allFavorites).forEach(favorite => {
+        if (favorite.userId == currentUserId && favoritabletype === "Shop") shops.push(favorite); 
+    })
+    return shops;
+}
+
+export const selectFavoritedItems = (allFavorites, currentUserId) => {
+    if (!currentUserId) return undefined;
+    const items = [];
+    Object.values(allFavorites).forEach(favorite => {
+        if (favorite.userId == currentUserId && favoritabletype === "Product") items.push(favorite);
+    })
+    return items;
+}
+

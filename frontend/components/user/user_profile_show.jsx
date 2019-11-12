@@ -1,9 +1,13 @@
 import React from 'react';
 import {withRouter, Link} from 'react-router-dom';
+import FavoriteShopsIndex from '../favorite/favorite_shops_index';
+import FavoriteItemsIndex from '../favorite/favorite_items_index';
 
 class UserProfileShow extends React.Component {
     constructor(props){
         super(props);
+        this.openTab = this.openTab.bind(this);
+        this.showDetail = this.showDetail.bind(this);
     }
 
     componentDidMount(){
@@ -16,6 +20,30 @@ class UserProfileShow extends React.Component {
             this.props.fetchAllUsers();
             this.props.fetchShops();
         }
+    }
+
+    openTab(field){
+        return event => {
+            const nonActiveAnchors = document.getElementsByClassName("user-tab");
+            for (let i = 0; i < nonActiveAnchors.length; i++){
+                if (!nonActiveAnchors[i].classList.contains("hidden")){
+                    nonActiveAnchors[i].classList.toggle("hidden");
+                }
+            }
+            const activeAnchor = document.getElementsByClassName(field)[0];
+            activeAnchor.classList.toggle("hidden");
+        }
+    }
+
+    showDetail(event){
+        event.preventDefault();
+        const lis = document.getElementsByClassName("nav-link");
+        for (let i = 0; i < lis.length; i++){
+            if (lis[i].classList.contains("active")){
+                lis[i].classList.toggle("active");
+            }
+        }
+        event.target.classList.toggle("active");
     }
 
     render(){
@@ -36,7 +64,6 @@ class UserProfileShow extends React.Component {
 
         return (
             <div className="user-profile-show">
-
                 <div className="user-info">
                     <div>
                         <div>
@@ -60,16 +87,21 @@ class UserProfileShow extends React.Component {
                 </div>
 
                 <div className="favorite-lists-navbar">
-                    <ul>
-                        <li><a href="#">Favorite items</a></li>
-                        <li><a href="#">Favorite shops</a></li>
+                    <ul className="nav nav-tabs" onClick={this.showDetail}>
+                        <li className="nav-item">
+                            <p id="favorite-items" className="nav-link active" onClick={this.openTab("user-detail")}>{t("p.setting")}</p>
+                        </li>
+                        <li className="nav-item">
+                            <p id="favorite-shops" className="nav-link" onClick={this.openTab("user-items")}>{t("p.items")}</p>
+                        </li>
                     </ul>
-                    {/* favorite items, favorite shops  */}
                 </div>
 
-                <div className="favorite-list">
-                    {/* list of items or shops favorited by user */}
-                    {/* can use an onClick function to show the selected list*/}
+                <div className="user-tab favorite-items">
+                    <FavoriteItemsIndex/>
+                </div>
+                <div className="user-tab favorite-shops hidden">
+                    <FavoriteShopsIndex/>
                 </div>
 
             </div>
