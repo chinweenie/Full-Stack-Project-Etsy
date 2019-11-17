@@ -89,10 +89,10 @@ class UserProfileShow extends React.Component {
                 <div className="favorite-lists-navbar">
                     <ul className="nav nav-tabs" onClick={this.showDetail}>
                         <li className="nav-item">
-                            <p id="favorite-items" className="nav-link active" onClick={this.openTab("user-detail")}>{t("p.setting")}</p>
+                            <p id="favorite-items" className="nav-link active" onClick={this.openTab("favorite-items")}>Favorite Items</p>
                         </li>
                         <li className="nav-item">
-                            <p id="favorite-shops" className="nav-link" onClick={this.openTab("user-items")}>{t("p.items")}</p>
+                            <p id="favorite-shops" className="nav-link" onClick={this.openTab("favorite-shops")}>Favorite Shops</p>
                         </li>
                     </ul>
                 </div>

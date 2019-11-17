@@ -85,6 +85,7 @@ a.btn-block {
 
 .active {
     display: block;
+    color: black;
 }
 
 /* Main body */
@@ -1418,7 +1419,7 @@ a.btn-block {
 }
 
 .favorite-lists-navbar {
-    margin-top: 50px;
+    margin-top: 20px;
     margin-bottom: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -1430,18 +1431,20 @@ a.btn-block {
     list-style: none;
     display: flex;
     flex-direction: row;
-    padding-left: 100px;
+    padding-left: 15%;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: gray;
 }
 
 .favorite-lists-navbar > ul > li {
-    margin-right: 50px;
-    
+    margin-right: 10%;
 }
 
-.favorite-lists-navbar > ul > li > a {
-    text-decoration: none;
-    color: gray;
-}
+
+
+
+
 
 // User profile show page
 

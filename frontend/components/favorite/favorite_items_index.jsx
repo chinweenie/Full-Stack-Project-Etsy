@@ -28,19 +28,18 @@ class FavoriteItemsIndex extends React.Component {
         let favoritedItemLi;
 
         if (favoritedItems.length === 0){
-            favoritedItems = (
-                <li className="favorite-shop-li">
+            favoritedItemLi = (
+                <li className="favorite-item-li">
                     <div className="empty-item-list">
                         
                     </div>
                 </li>
             )
         }
-
         favoritedItemLi = favoritedItems.map(item => {
             let imageUrl = item.imageUrls.length > 0 ? <img className="favorited-item-image" src={item.imageUrls[0]} alt="" /> : <img className="favorited-item-image" src="default_avatar_400x400.png" alt="" />;
             return (
-                <li className="favorite-shop-li" onClick={this.toItem(item.shopId, item.id)}>
+                <li className="favorite-item-li" onClick={this.toItem(item.shopId, item.id)}>
                     <div>
                         {imageUrl}
                     </div>
@@ -57,7 +56,7 @@ class FavoriteItemsIndex extends React.Component {
         })
         return (
             <div>
-                <ul className="favorited-shops-ul">
+                <ul className="favorited-items-ul">
                     {favoritedItemLi}
                 </ul>
             </div>
