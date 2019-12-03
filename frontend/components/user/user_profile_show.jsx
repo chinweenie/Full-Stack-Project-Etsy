@@ -11,6 +11,7 @@ class UserProfileShow extends React.Component {
     }
 
     componentDidMount(){
+        this.props.fetchUser(this.props.match.params.userId);
         this.props.fetchAllUsers();
         this.props.fetchShops();
     }
@@ -61,7 +62,7 @@ class UserProfileShow extends React.Component {
                 </div>
             )
         }
-
+        debugger
         return (
             <div className="user-profile-show">
                 <div className="user-info">

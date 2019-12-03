@@ -54,6 +54,7 @@ class FavoriteItemsIndex extends React.Component {
                 </li>
             )
         })
+        debugger
         return (
             <div>
                 <ul className="favorited-items-ul">

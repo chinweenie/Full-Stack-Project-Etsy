@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import UserProfileShow from './user_profile_show';
 import { currentUserHasShop, selectCurrentUserShop } from '../../reducers/selectors';
-import { fetchAllUsers } from '../../actions/users_actions';
+import { fetchAllUsers, fetchUser } from '../../actions/users_actions';
 import {fetchShops} from '../../actions/shops_actions';
 
 const mapStateToProps = (state, ownProps) => {
@@ -20,7 +20,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
     fetchAllUsers: () => dispatch(fetchAllUsers()),
-    fetchShops: () => dispatch(fetchShops())
+    fetchShops: () => dispatch(fetchShops()),
+    fetchUser: (userId) => dispatch(fetchUser(userId))
 })
 
 
