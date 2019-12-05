@@ -54,7 +54,6 @@ class FavoriteItemsIndex extends React.Component {
                 </li>
             )
         })
-        debugger
         return (
             <div>
                 <ul className="favorited-items-ul">
@@ -65,9 +64,9 @@ class FavoriteItemsIndex extends React.Component {
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps =(state, ownProps) => {
     const currentUserId = state.session.id;
-    const favoritedItems = selectFavoritedItems(state.entities.favorites, currentUserId);
+    const favoritedItems = selectFavoritedItems(state.entities.favorites, ownProps.match.params.userId);
     return {
         currentUserId,
         favoritedItems

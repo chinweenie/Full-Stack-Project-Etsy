@@ -1,60 +1,107 @@
 import React from 'react';
 import {withRouter, Link} from 'react-router-dom';
 import FavoriteShopsIndex from '../favorite/favorite_shops_index';
-import FavoriteItemsIndex from '../favorite/favorite_items_index';
+import LoadingIcon from '../loading_icon';
 
 class UserProfileShow extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.openTab = this.openTab.bind(this);
-        this.showDetail = this.showDetail.bind(this);
+        this.openTab = this
+            .openTab
+            .bind(this);
+        this.showDetail = this
+            .showDetail
+            .bind(this);
+        this.toItem = this
+            .toItem
+            .bind(this);
     }
 
-    componentDidMount(){
-        this.props.fetchUser(this.props.match.params.userId);
-        this.props.fetchAllUsers();
-        this.props.fetchShops();
+    componentDidMount() {
+        this
+            .props
+            .fetchUser(this.props.match.params.userId);
+        this
+            .props
+            .fetchAllUsers();
+        this
+            .props
+            .fetchShops();
+        this
+            .props
+            .fetchFavorites();
     }
 
-    componentDidUpdate(prevProps){
-        if (this.props.match.params.userId !== prevProps.match.params.userId){
-            this.props.fetchAllUsers();
-            this.props.fetchShops();
+    componentDidUpdate(prevProps) {
+        if (this.props.match.params.userId !== prevProps.match.params.userId) {
+            this
+                .props
+                .fetchUser(this.props.match.params.userId);
+            this
+                .props
+                .fetchAllUsers();
+            this
+                .props
+                .fetchShops();
+            this
+                .props
+                .fetchFavorites();
         }
     }
 
-    openTab(field){
+    openTab(field) {
         return event => {
             const nonActiveAnchors = document.getElementsByClassName("user-tab");
-            for (let i = 0; i < nonActiveAnchors.length; i++){
-                if (!nonActiveAnchors[i].classList.contains("hidden")){
-                    nonActiveAnchors[i].classList.toggle("hidden");
+            for (let i = 0; i < nonActiveAnchors.length; i++) {
+                if (!nonActiveAnchors[i].classList.contains("hidden")) {
+                    nonActiveAnchors[i]
+                        .classList
+                        .toggle("hidden");
                 }
             }
             const activeAnchor = document.getElementsByClassName(field)[0];
-            activeAnchor.classList.toggle("hidden");
+            activeAnchor
+                .classList
+                .toggle("hidden");
         }
     }
 
-    showDetail(event){
+    showDetail(event) {
         event.preventDefault();
         const lis = document.getElementsByClassName("nav-link");
-        for (let i = 0; i < lis.length; i++){
-            if (lis[i].classList.contains("active")){
-                lis[i].classList.toggle("active");
+        for (let i = 0; i < lis.length; i++) {
+            if (lis[i].classList.contains("active")) {
+                lis[i]
+                    .classList
+                    .toggle("active");
             }
         }
-        event.target.classList.toggle("active");
+        event
+            .target
+            .classList
+            .toggle("active");
     }
 
-    render(){
-        let {user, shop} = this.props;
+    toItem(shopId, productId) {
+        return event => {
+            this
+                .props
+                .history
+                .push(`/shops/${shopId}/products/${productId}`);
+        }
+    }
+
+    render() {
+        let {user, shop, favoritedItems} = this.props;
+        if (!user) {
+            return <LoadingIcon/>
+        };
+
         let shopLogo;
         if (Boolean(shop)) {
             shopLogo = (
                 <div>
-                    <div id="default-shop-logo">
-                    </div>
+                    <div id="default-shop-logo"></div>
                     <div className="enter-shop">
                         <span className="profile-shop-name">{shop.name}</span>
                         <Link to={`/shops/${shop.id}`} className="btn-block">Visit shop</Link>
@@ -62,23 +109,58 @@ class UserProfileShow extends React.Component {
                 </div>
             )
         }
+        const userImage = user.imageUrl
+            ? <img src={user.imageUrl}/>
+            : <img src="" id="owner-info-image "/>;
+
+        let favoritedItemLi;
         debugger
+        if (favoritedItems.length === 0) {
+            favoritedItemLi = (
+                <li className="favorite-item-li">
+                    <div className="empty-item-list"></div>
+                </li>
+            )
+        }
+
+        favoritedItemLi = favoritedItems.map(item => {
+            let imageUrl = item.imageUrls.length > 0
+                ? <img className="favorited-item-image" src={item.imageUrls[0]} alt=""/>
+                : <img className="favorited-item-image" src="default_avatar_400x400.png" alt=""/>;
+            return (
+                <li className="favorite-item-li" onClick={this.toItem(item.shopId, item.id)}>
+                    <div>
+                        {imageUrl}
+                    </div>
+
+                    <div>
+                        <div>
+                            <p>{item.title}</p>
+                            <p>{item.shopName}</p>
+                            <p>{item.usersWhoFavoritedMe.length}
+                                like(s)</p>
+                        </div>
+                    </div>
+                </li>
+            )
+        })
+
         return (
             <div className="user-profile-show">
                 <div className="user-info">
                     <div>
                         <div>
-                            <img src={user.imageUrl} />
+                            {userImage}
                             <div>
                                 <h3>{user.fname}</h3>
-                                
+
                                 <Link to={`/users/${user.id}/edit`} className="btn-block">
                                     <i className="fa fa-pencil" aria-hidden="true"></i>
                                     Edit profile
-                                </Link> 
+                                </Link>
                             </div>
                         </div>
-                        
+
                         <div className="shop-section">
                             <h4>About</h4>
                             {shopLogo}
@@ -90,19 +172,25 @@ class UserProfileShow extends React.Component {
                 <div className="favorite-lists-navbar">
                     <ul className="nav nav-tabs" onClick={this.showDetail}>
                         <li className="nav-item">
-                            <p id="favorite-items" className="nav-link active" onClick={this.openTab("favorite-items")}>Favorite Items</p>
+                            <p
+                                id="favorite-items"
+                                className="nav-link active"
+                                onClick={this.openTab("favorite-items")}>Favorite Items</p>
                         </li>
                         <li className="nav-item">
-                            <p id="favorite-shops" className="nav-link" onClick={this.openTab("favorite-shops")}>Favorite Shops</p>
+                            <p
+                                id="favorite-shops"
+                                className="nav-link"
+                                onClick={this.openTab("favorite-shops")}>Favorite Shops</p>
                         </li>
                     </ul>
                 </div>
 
                 <div className="user-tab favorite-items">
-                    <FavoriteItemsIndex/>
+                    {favoritedItemLi}
                 </div>
                 <div className="user-tab favorite-shops hidden">
-                    <FavoriteShopsIndex/>
+                    {/* <FavoriteShopsIndex/> */}
                 </div>
 
             </div>
@@ -110,6 +198,5 @@ class UserProfileShow extends React.Component {
         )
     }
 }
-
 
 export default withRouter(UserProfileShow);

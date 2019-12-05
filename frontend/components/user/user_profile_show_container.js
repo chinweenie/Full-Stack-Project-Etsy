@@ -3,6 +3,9 @@ import UserProfileShow from './user_profile_show';
 import { currentUserHasShop, selectCurrentUserShop } from '../../reducers/selectors';
 import { fetchAllUsers, fetchUser } from '../../actions/users_actions';
 import {fetchShops} from '../../actions/shops_actions';
+import { selectFavoritedItems } from '../../reducers/selectors';
+import { fetchFavorites } from '../../actions/favorites_actions';
+
 
 const mapStateToProps = (state, ownProps) => {
     const shopId = currentUserHasShop(state.session.id, state.entities.users);
@@ -10,10 +13,12 @@ const mapStateToProps = (state, ownProps) => {
     if (Boolean(shopId)){
         shop = selectCurrentUserShop(state.entities.shops, shopId)
     }
-    
+    const favoritedItems = selectFavoritedItems(state.entities.favorites, state.entities.products ,ownProps.match.params.userId);
+    debugger
     return {
         user: state.entities.users[ownProps.match.params.userId],
-        shop
+        shop,
+        favoritedItems
     }
     
 }
@@ -21,7 +26,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => ({
     fetchAllUsers: () => dispatch(fetchAllUsers()),
     fetchShops: () => dispatch(fetchShops()),
-    fetchUser: (userId) => dispatch(fetchUser(userId))
+    fetchUser: (userId) => dispatch(fetchUser(userId)),
+    fetchFavorites: () => dispatch(fetchFavorites())
 })
 
 

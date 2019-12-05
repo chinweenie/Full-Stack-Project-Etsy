@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from "./components/root";
+import { fetchUser } from './actions/users_actions';
 // import { fetchCartItems, addToCart, updateCartItem, removeCartItem } from './actions/cart_items_actions';
-import { fetchFavorites } from './actions/favorites_actions';
+// import { fetchFavorites } from './actions/favorites_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById('root');
@@ -35,4 +36,5 @@ document.addEventListener("DOMContentLoaded", () => {
 // window.addToCart = addToCart;
 // window.updateCartItem = updateCartItem;
 // window.removeCartItem = removeCartItem;
-window.fetchFavorites = fetchFavorites;
+// window.fetchFavorites = fetchFavorites;
+window.fetchUser = fetchUser;
