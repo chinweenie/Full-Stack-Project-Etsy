@@ -78,7 +78,6 @@ export const selectFavoritedItems = (allFavorites, allProducts ,userId) => {
     Object.values(allFavorites).forEach(favorite => {
         if (favorite.userId == userId && favorite.favoritableType === "Product") items.push(allProducts[favorite.favoritableId]);
     })
-    debugger
     return items;
 }
 

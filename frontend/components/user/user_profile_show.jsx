@@ -30,10 +30,18 @@ class UserProfileShow extends React.Component {
         this
             .props
             .fetchFavorites();
+        this
+            .props
+            .fetchProducts();
+
     }
 
     componentDidUpdate(prevProps) {
         if (this.props.match.params.userId !== prevProps.match.params.userId) {
+
+            this
+                .props
+                .fetchProducts();
             this
                 .props
                 .fetchUser(this.props.match.params.userId);
@@ -114,36 +122,41 @@ class UserProfileShow extends React.Component {
             : <img src="" id="owner-info-image "/>;
 
         let favoritedItemLi;
-        debugger
         if (favoritedItems.length === 0) {
+
             favoritedItemLi = (
-                <li className="favorite-item-li">
-                    <div className="empty-item-list"></div>
+                <li className="favorite-item-li-empty">
+                    <div>
+                        <div id="empty-item-list"></div>
+                        <p>No favorite item yet.</p>
+                    </div>
                 </li>
             )
-        }
+        } else {
+            favoritedItemLi = favoritedItems.map(item => {
+                let imageUrl = item.imageUrls.length > 0
+                    ? <img className="favorited-item-image" src={item.imageUrls[0]} alt=""/>
+                    : <img className="favorited-item-image" src="default_avatar_400x400.png" alt=""/>;
+                return (
+                    <li className="favorite-item-li" onClick={this.toItem(item.shopId, item.id)}>
+                        <div className="fav-item-card">
+                            <div>
+                                {imageUrl}
+                            </div>
 
-        favoritedItemLi = favoritedItems.map(item => {
-            let imageUrl = item.imageUrls.length > 0
-                ? <img className="favorited-item-image" src={item.imageUrls[0]} alt=""/>
-                : <img className="favorited-item-image" src="default_avatar_400x400.png" alt=""/>;
-            return (
-                <li className="favorite-item-li" onClick={this.toItem(item.shopId, item.id)}>
-                    <div>
-                        {imageUrl}
-                    </div>
-
-                    <div>
-                        <div>
-                            <p>{item.title}</p>
-                            <p>{item.shopName}</p>
-                            <p>{item.usersWhoFavoritedMe.length}
-                                like(s)</p>
+                            <div>
+                                <div>
+                                    <p>{item.title}</p>
+                                    <p>{item.shopName}</p>
+                                    <p>{item.usersWhoFavoritedMe.length}
+                                        like(s)</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </li>
-            )
-        })
+                    </li>
+                )
+            })
+        }
 
         return (
             <div className="user-profile-show">

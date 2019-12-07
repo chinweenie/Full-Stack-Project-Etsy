@@ -1874,3 +1874,44 @@ ul.pagination > li.clicked {
     margin-bottom: 10px;
 }
 // review form
+
+// favorite items index
+.favorite-item-li-empty {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+.favorite-item-li-empty > div {
+    text-align: center;
+}
+
+.favorite-item-li-empty > div > p {
+    color: lightgray;
+}
+
+#empty-item-list{
+    background-image: image-url('empty-fav-item.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: 50px;
+    width: 300px;
+    height: 300px;
+}
+
+.favorite-item-li {
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.fav-item-card {
+    
+    border: 1px solid lightgray;
+    border-radius: 5%;
+}
+// favorite items index
+
