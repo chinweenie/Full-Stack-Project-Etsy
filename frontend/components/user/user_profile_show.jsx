@@ -15,6 +15,7 @@ class UserProfileShow extends React.Component {
         this.toItem = this
             .toItem
             .bind(this);
+        this.toShop = this.toShop.bind(this);
     }
 
     componentDidMount() {
@@ -64,13 +65,13 @@ class UserProfileShow extends React.Component {
                 if (!nonActiveAnchors[i].classList.contains("hidden")) {
                     nonActiveAnchors[i]
                         .classList
-                        .toggle("hidden");
+                        .add("hidden");
                 }
             }
             const activeAnchor = document.getElementsByClassName(field)[0];
             activeAnchor
                 .classList
-                .toggle("hidden");
+                .remove("hidden");
         }
     }
 
@@ -99,8 +100,14 @@ class UserProfileShow extends React.Component {
         }
     }
 
+    toShop(shopId) {
+        return event => {
+            this.props.history.push(`/shops/${shopId}`);
+        }
+    }
+
     render() {
-        let {user, shop, favoritedItems} = this.props;
+        let {user, shop, favoritedItems, favoritedShops} = this.props;
         if (!user) {
             return <LoadingIcon/>
         };
@@ -122,8 +129,9 @@ class UserProfileShow extends React.Component {
             : <img src="" id="owner-info-image "/>;
 
         let favoritedItemLi;
-        if (favoritedItems.length === 0) {
+        let favoritedShopLi;
 
+        if (favoritedItems.length === 0) {
             favoritedItemLi = (
                 <li className="favorite-item-li-empty">
                     <div>
@@ -149,6 +157,39 @@ class UserProfileShow extends React.Component {
                                     <p>{item.title}</p>
                                     <p>{item.shopName}</p>
                                     <p>{item.usersWhoFavoritedMe.length}
+                                        like(s)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                )
+            })
+        }
+        if (favoritedShops.length === 0) {
+            favoritedShopLi = (
+                <li className="favorite-shop-li-empty">
+                    <div>
+                        <div id="empty-shop-list"></div>
+                        <p>No favorite shop yet.</p>
+                    </div>
+                </li>
+            )
+        } else {
+            favoritedShopLi = favoritedShops.map(shop => {
+                let imageUrl = shop.imageUrl ? 
+                      <img className="favorited-shop-image" src={shop.imageUrl} alt=""/>
+                    : <img className="favorited-shop-image" src="default_avatar_400x400.png" alt=""/>;
+                return (
+                    <li className="favorite-shop-li" onClick={this.toShop(shop.id)}>
+                        <div className="fav-shop-card">
+                            <div>
+                                {imageUrl}
+                            </div>
+                            <div>
+                                <div>
+                                    <p>{shop.name}</p>
+                                    <p>{item.owner}</p>
+                                    <p>{shop.usersWhoFavoritedMe.length}
                                         like(s)</p>
                                 </div>
                             </div>
@@ -203,6 +244,7 @@ class UserProfileShow extends React.Component {
                     {favoritedItemLi}
                 </div>
                 <div className="user-tab favorite-shops hidden">
+                    {favoritedShopLi}
                     {/* <FavoriteShopsIndex/> */}
                 </div>
 

@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import UserProfileShow from './user_profile_show';
-import { currentUserHasShop, selectCurrentUserShop } from '../../reducers/selectors';
+import { currentUserHasShop, selectCurrentUserShop, selectFavoritedShops } from '../../reducers/selectors';
 import { fetchAllUsers, fetchUser } from '../../actions/users_actions';
 import {fetchShops} from '../../actions/shops_actions';
 import { selectFavoritedItems } from '../../reducers/selectors';
@@ -15,10 +15,12 @@ const mapStateToProps = (state, ownProps) => {
         shop = selectCurrentUserShop(state.entities.shops, shopId)
     }
     const favoritedItems = selectFavoritedItems(state.entities.favorites, state.entities.products ,ownProps.match.params.userId);
+    const favoritedShops = selectFavoritedShops(state.entities.favorites, state.entities.shops, ownProps.match.params.userId);
     return {
         user: state.entities.users[ownProps.match.params.userId],
         shop,
-        favoritedItems
+        favoritedItems,
+        favoritedShops
     }
     
 }

@@ -63,11 +63,11 @@ export const selectFavoriteId = (allFavorites, favoritableId, currentUserId) => 
     return favoriteId[0];
 }
 
-export const selectFavoritedShops = (allFavorites, userId) => {
+export const selectFavoritedShops = (allFavorites, allShops , userId) => {
     if (!userId) return undefined;
     const shops = [];
     Object.values(allFavorites).forEach(favorite => {
-        if (favorite.userId == userId && favoritabletype === "Shop") shops.push(favorite); 
+        if (favorite.userId == userId && favoritabletype === "Shop") shops.push(allShops[favorite.favoritableId]); 
     })
     return shops;
 }
