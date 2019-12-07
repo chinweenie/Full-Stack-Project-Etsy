@@ -1877,10 +1877,7 @@ ul.pagination > li.clicked {
 
 // favorite items index
 .favorite-item-li-empty {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    justify-items: center;
+    margin: 0 auto;
 }
 
 .favorite-item-li-empty > div {
@@ -1900,18 +1897,37 @@ ul.pagination > li.clicked {
     height: 300px;
 }
 
-.favorite-item-li {
+.favorite-items {
     display: flex;
     list-style: none;
-    justify-content: space-evenly;
     flex-direction: row;
     flex-wrap: wrap;
+    margin: 50px 100px;
+    justify-content: space-evenly;
 }
 
 .fav-item-card {
-    
-    border: 1px solid lightgray;
+    display: flex;
     border-radius: 5%;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.fav-item-card img {
+    width: 250px;
+    height: 250px;
+    opacity: 1;
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+}
+
+.fav-item-card:hover img {
+    opacity: 0.5;
+}
+
+.fav-item-card p {
+    margin-top: 5px;
+    margin-bottom: 0;
 }
 // favorite items index
 
