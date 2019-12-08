@@ -2,7 +2,7 @@ import ShopShow from "./shop_show";
 import { connect } from 'react-redux';
 import { fetchShop } from '../../actions/shops_actions';
 import { deleteProduct, fetchProducts } from '../../actions/products_actions';
-import { selectShopProducts } from "../../reducers/selectors";
+import { selectShopProducts, selectFavoriteId } from "../../reducers/selectors";
 import { createFavorite, deleteFavorite } from '../../actions/favorites_actions';
 
 const mapStateToProps = (state, ownProps) => {
@@ -10,10 +10,12 @@ const mapStateToProps = (state, ownProps) => {
     const shop = state.entities.shops[shopId];
     const currentUserId = state.session.id;
     const products = selectShopProducts(state.entities.products, shopId);
+    const favorite = selectFavoriteId(state.entities.favorites, ownProps.match.params.shopId, currentUserId);
     return {
         shop,
         currentUserId,
         products,
+        favorite
     }
 }
 
