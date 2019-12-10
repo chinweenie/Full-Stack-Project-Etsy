@@ -100,8 +100,8 @@ class ShopShow extends React.Component {
             } else {
                 stockItemButton = '';
                 favoriteButton = isFavorited ? 
-                    <div className="favorite-shop"><button className="favorite-button" onClick={this.removeFromFavorite(favorite.id)}><i className="fa fa-heart favorited"></i>Remove from favorite</button></div> : 
-                    <div className="favorite-shop"><button className="favorite-button" onClick={this.addToFavorite}><i className="fa fa-heart not-favorited"></i>Add to favorite</button></div>
+                    <div className="favorite-shop" onClick={this.removeFromFavorite(favorite.id)}><i className="fa fa-heart favorited"></i>Unfavorite</div> : 
+                    <div className="favorite-shop" onClick={this.addToFavorite}><i className="fa fa-heart not-favorited"></i>Favorite</div>
             };
         }
 
