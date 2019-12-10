@@ -64,16 +64,16 @@ export const selectFavoriteId = (allFavorites, favoritableId, currentUserId) => 
 }
 
 export const selectFavoritedShops = (allFavorites, allShops , userId) => {
-    if (!userId) return undefined;
+    if (!userId || Object.entries(allShops).length === 0) return undefined;
     const shops = [];
     Object.values(allFavorites).forEach(favorite => {
-        if (favorite.userId == userId && favoritabletype === "Shop") shops.push(allShops[favorite.favoritableId]); 
+        if (favorite.userId == userId && favorite.favoritableType === "Shop") shops.push(allShops[favorite.favoritableId]); 
     })
     return shops;
 }
 
 export const selectFavoritedItems = (allFavorites, allProducts ,userId) => {
-    if (!userId) return undefined;
+    if (!userId || Object.entries(allProducts).length === 0) return undefined;
     const items = [];
     Object.values(allFavorites).forEach(favorite => {
         if (favorite.userId == userId && favorite.favoritableType === "Product") items.push(allProducts[favorite.favoritableId]);

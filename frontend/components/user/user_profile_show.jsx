@@ -108,10 +108,9 @@ class UserProfileShow extends React.Component {
 
     render() {
         let {user, shop, favoritedItems, favoritedShops} = this.props;
-        if (!user) {
+        if (!user || !favoritedShops || !favoritedItems) {
             return <LoadingIcon/>
         };
-
         let shopLogo;
         if (Boolean(shop)) {
             shopLogo = (
@@ -130,7 +129,6 @@ class UserProfileShow extends React.Component {
 
         let favoritedItemLi;
         let favoritedShopLi;
-
         if (favoritedItems.length === 0) {
             favoritedItemLi = (
                 <li className="favorite-item-li-empty">
@@ -144,7 +142,7 @@ class UserProfileShow extends React.Component {
             favoritedItemLi = favoritedItems.map(item => {
                 let imageUrl = item.imageUrls.length > 0
                     ? <img className="favorited-item-image" src={item.imageUrls[0]} alt=""/>
-                    : <img className="favorited-item-image" src="default_avatar_400x400.png" alt=""/>;
+                    : <img className="favorited-item-image" src="https://www.etsy.com/images/avatars/default_avatar_400x400.png" alt=""/>;
                 return (
                     <li className="favorite-item-li" onClick={this.toItem(item.shopId, item.id)}>
                         <div className="fav-item-card">
@@ -165,6 +163,7 @@ class UserProfileShow extends React.Component {
                 )
             })
         }
+        
         if (favoritedShops.length === 0) {
             favoritedShopLi = (
                 <li className="favorite-shop-li-empty">
@@ -178,7 +177,7 @@ class UserProfileShow extends React.Component {
             favoritedShopLi = favoritedShops.map(shop => {
                 let imageUrl = shop.imageUrl ? 
                       <img className="favorited-shop-image" src={shop.imageUrl} alt=""/>
-                    : <img className="favorited-shop-image" src="default_avatar_400x400.png" alt=""/>;
+                    : <img className="favorited-shop-image" src="https://www.etsy.com/images/avatars/default_avatar_400x400.png" alt=""/>;
                 return (
                     <li className="favorite-shop-li" onClick={this.toShop(shop.id)}>
                         <div className="fav-shop-card">
@@ -188,7 +187,7 @@ class UserProfileShow extends React.Component {
                             <div>
                                 <div>
                                     <p>{shop.name}</p>
-                                    <p>{item.owner}</p>
+                                    <p>{shop.owner.fname}</p>
                                     <p>{shop.usersWhoFavoritedMe.length}
                                         like(s)</p>
                                 </div>
@@ -245,7 +244,6 @@ class UserProfileShow extends React.Component {
                 </div>
                 <div className="user-tab favorite-shops hidden">
                     {favoritedShopLi}
-                    {/* <FavoriteShopsIndex/> */}
                 </div>
 
             </div>

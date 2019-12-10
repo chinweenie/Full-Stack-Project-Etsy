@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchShop } from '../../actions/shops_actions';
 import { deleteProduct, fetchProducts } from '../../actions/products_actions';
 import { selectShopProducts, selectFavoriteId } from "../../reducers/selectors";
-import { createFavorite, deleteFavorite } from '../../actions/favorites_actions';
+import { createFavorite, deleteFavorite, fetchFavorites } from '../../actions/favorites_actions';
 
 const mapStateToProps = (state, ownProps) => {
     const shopId = ownProps.match.params.shopId;
@@ -24,7 +24,8 @@ const mapDispatchToProps = dispatch => ({
     fetchProducts: () => dispatch(fetchProducts()),
     deleteProduct: id => dispatch(deleteProduct(id)),
     createFavorite: favorite => dispatch(createFavorite(favorite)),
-    deleteFavorite: id => dispatch(deleteFavorite(id))
+    deleteFavorite: id => dispatch(deleteFavorite(id)),
+    fetchFavorites: () => dispatch(fetchFavorites())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShopShow);

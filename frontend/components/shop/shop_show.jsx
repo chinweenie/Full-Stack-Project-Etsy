@@ -8,27 +8,22 @@ class ShopShow extends React.Component {
         this.handleEdit = this.handleEdit.bind(this);
         this.handleStock = this.handleStock.bind(this);
         this.toProductPage = this.toProductPage.bind(this);
-        this.handleFavorite = this.handleFavorite.bind(this);
+        this.addToFavorite = this.addToFavorite.bind(this);
+        this.removeFromFavorite = this.removeFromFavorite.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchShop(this.props.match.params.shopId);
         this.props.fetchProducts();
+        this.props.fetchFavorites();
     };
-
+    
     componentDidUpdate(prevProps) {
         if (this.props.match.params.shopId !== prevProps.match.params.shopId) {
             this.props.fetchShop(this.props.match.params.shopId);
             this.props.fetchProducts();
+            this.props.fetchFavorites();
         }
-    }
-
-    handleFavorite(event){
-        event.preventDefault();
-        this.props.createFavorite({
-            favoritable_id: this.props.shop.id,
-            favoritable_type: 'Shop'
-        })
     }
 
     handleEdit(event){
@@ -62,33 +57,53 @@ class ShopShow extends React.Component {
         return editDeleteButton;
     }
 
+    addToFavorite(event){
+        event.preventDefault();
+        this.props.createFavorite({
+            favoritable_id: this.props.match.params.shopId,
+            favoritable_type: "Shop"
+        });
+    }
+
+    removeFromFavorite(favoriteId){
+        return event => {
+            this.props.deleteFavorite(favoriteId);
+        }
+    }
+
     render() {
-        let { shop, currentUserId, products } = this.props;
+        let { shop, currentUserId, products, favorite } = this.props;
         if (!shop || !products) {
             return (
                 <LoadingIcon />
             )
         }
-        const isFavorited = shop.usersWhoFavoritedMe.includes(currentUserId);
+        const isFavorited = favorite;
+        let favoriteButton = <button>Login or register to add to favorite</button>;
         let stockItemButton;
-        if ( currentUserId === shop.owner.id ){
-            stockItemButton = (
-                <div className="stock-edit-button">
-                    <button className="clicky stock-your-shop-button" onClick={this.handleStock}>
-                        Stock your shop
+
+        if (currentUserId){
+            if (currentUserId === shop.owner.id) {
+                stockItemButton = (
+                    <div className="stock-edit-button">
+                        <button className="clicky stock-your-shop-button" onClick={this.handleStock}>
+                            Stock your shop
                     </button>
 
-                    <button className="clicky edit-your-shop-button" onClick={this.handleEdit}>
-                        Edit your shop
+                        <button className="clicky edit-your-shop-button" onClick={this.handleEdit}>
+                            Edit your shop
                     </button>
-                </div>
-                
-            );
-        } else {
-            stockItemButton = '';
-        };
+                    </div>
 
-        
+                );
+                favoriteButton = <div></div>;
+            } else {
+                stockItemButton = '';
+                favoriteButton = isFavorited ? 
+                    <div className="favorite-shop"><button className="favorite-button" onClick={this.removeFromFavorite(favorite.id)}><i className="fa fa-heart favorited"></i>Remove from favorite</button></div> : 
+                    <div className="favorite-shop"><button className="favorite-button" onClick={this.addToFavorite}><i className="fa fa-heart not-favorited"></i>Add to favorite</button></div>
+            };
+        }
 
         const productLi = products.map(product => {
 
@@ -119,10 +134,11 @@ class ShopShow extends React.Component {
                         <div className="shop-name-show">
                             {shop.name}
                         </div>
-                        <div className="favorite-shop" onClick={this.handleFavorite}>
-                            <i className="fa fa-heart-o" aria-hidden="true"></i>
-                            Favorite shop ({shop.usersWhoFavoritedMe.length})
-                        </div>
+                        {favoriteButton}
+                        {/* <div className="favorite-shop" onClick={}> */}
+                            {/* <i className="fa fa-heart-o" aria-hidden="true"></i>
+                            Favorite shop ({shop.usersWhoFavoritedMe.length}) */}
+                        {/* </div> */}
                         
                     </div>
 
@@ -145,7 +161,6 @@ class ShopShow extends React.Component {
                     </ul>
                 </div>
 
-                {/* show products sold by this shop */}
                 {/* can insert reviews too */}
 
             </div>
